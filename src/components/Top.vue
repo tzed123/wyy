@@ -2,16 +2,23 @@
   <div id="top">
     <img class="img-size" src="../assets/folder.png" alt="">
     <div class="dis-flex wid">
-      <p>我的</p>
-      <p>发现</p>
-      <p>VIP</p>      
+      <p v-for="(item,index) in p" :key=index>{{item}} @click="tab(index)"</p>          
     </div>
     <img class="img-size" src="../assets/search.png" alt="">
   </div>
 </template>
 <script>
 export default {
-  
+  data(){
+    return {
+      p:["我的","发现","VIP"]
+    }
+  },
+  methods:{
+    tab:function(){
+      
+    }
+  }
 }
 </script>
 <style scoped>

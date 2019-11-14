@@ -7,8 +7,7 @@
     <p>歌单</p>
   </div>
   <hr>
-  <div id="container">
-  
+  <div id="container">  
     <div class="title dis-flex">
       <p>单曲</p>
       <div class="playall dis-flex">
@@ -31,7 +30,6 @@
       </li>
     </ul>
   </div>
-  
 </div>
 </template>
 <script>
