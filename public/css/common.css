@@ -28,6 +28,17 @@
 .fl{
   float:left;
 }
+.fr{
+  float:right;
+}
+.pore{
+  position:relative;
+}
+.dis-flex{
+  display:flex;
+  justify-content: space-between;
+}
+
 .size12{
   font-size:0.8rem;
 }

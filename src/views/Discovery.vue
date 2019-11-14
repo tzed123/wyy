@@ -1,5 +1,6 @@
 <template>
-<div id="container">
+<div id="container" >
+  <top></top>
   <!-- 轮播图 -->
   <div id="carousel" class="pore">
     <!-- 图片 -->
@@ -20,19 +21,19 @@
   <ul id="circle">
     <li class="circle-li">
       <img class="circle-img" src="../assets/circle.png" alt="">
-      <p>每日推荐</p>
+      <p class="size12 ">每日推荐</p>
     </li>
     <li class="circle-li">
       <img class="circle-img" src="../assets/circle.png" alt="">
-      <p>每日推荐</p>
+      <p class="size12 ">每日推荐</p>
     </li>
     <li class="circle-li">
       <img class="circle-img" src="../assets/circle.png" alt="">
-      <p>每日推荐</p>
+      <p class="size12 ">每日推荐</p>
     </li>
     <li class="circle-li">
       <img class="circle-img" src="../assets/circle.png" alt="">
-      <p>每日推荐</p>
+      <p class="size12 ">每日推荐</p>
     </li>
   </ul>
   <hr>
@@ -71,10 +72,10 @@
 <script>
 export default {
   
-
 }
 </script>
 <style scoped>
+*{margin:0;padding:0;}
   #container{
     width:95%;
     margin:0 auto;

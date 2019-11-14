@@ -11,7 +11,8 @@ const routes = [
   // {path: '/',component:Home}, 
   //2.利用匿名函数直接注册导入的文件
   // {path: '/about',component: () => import('../views/About.vue')}
-  {path: '/discovery',component: () => import('../views/Discovery.vue')}
+  {path: '/discovery',component: () => import('../views/Discovery.vue')},
+  {path: '/search',component: () => import('../views/Search.vue')}
 
 ]
 
