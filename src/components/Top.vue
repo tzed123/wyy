@@ -2,7 +2,7 @@
   <div id="top">
     <img class="img-size" src="../assets/folder.png" alt="">
     <div class="dis-flex wid">
-      <p v-for="(item,index) in p" :key=index  @click="tab(index)">{{item}}</p>          
+      <p v-for="(item,index) in p" :key=index :class="{'color':isTrue}"  @click="tab(index)">{{item}}</p>          
     </div>
     <img class="img-size" src="../assets/search.png" alt="">
   </div>
@@ -11,6 +11,7 @@
 export default {
   data(){
     return {
+      isTrue:true,
       p:["我的","发现","VIP"]
     }
   },
@@ -36,5 +37,8 @@ export default {
     font-size:1.2rem;
     font-weight:bold;
     width:15rem;
+  }
+  .color{
+    color:blue;
   }
 </style>

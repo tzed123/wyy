@@ -1,5 +1,6 @@
 <template>
   <div id="search-bar">
+  
     <img class="img-size" src="../assets/return.png" alt="">
     <input class="input" type="text" placeholder="请输入歌手/歌名/歌单名...">
     <img class="img-size" src="../assets/search.png" alt="">

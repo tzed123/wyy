@@ -1,5 +1,6 @@
 <template>
   <div id="container">
+  
     <input class="input" type="text" placeholder="听了这么多，你可能有话想说">
     <button class="btn">发送</button>
   </div>
