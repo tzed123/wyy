@@ -14,13 +14,16 @@ import Collect from './components/Collect.vue'
 import CreateList from './components/CreateList.vue'
 import PlayBar from './components/PlayBar.vue'
 import SendMsg from './components/SendMsg.vue'
-
+import Time from './components/Time.vue'
+import ControlList from './components/ControlList.vue'
 Vue.component("top",Top);
 Vue.component("sbar",SearchBar);
 Vue.component("coll",Collect)
 Vue.component("crlist",CreateList)
 Vue.component("plbar",PlayBar)
 Vue.component("sendmsg",SendMsg)
+Vue.component("ti",Time)
+Vue.component("con",ControlList)
 
 Vue.use(mintui)
 

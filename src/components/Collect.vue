@@ -47,7 +47,7 @@ export default {
   #container{
     border:0.1rem solid black;
     border-radius:0.5rem;
-    width:95%;
+    width:90%;
     margin:0 auto;
     padding:1rem 0;
   }
@@ -87,7 +87,7 @@ export default {
   }  
   /*列表*/ 
   .list{
-    padding:0.5rem 0.5rem;
+    padding:0.5rem;
   }
   .left{
     display:flex;
