@@ -1,6 +1,7 @@
 <template>
 <div id="container" >
   <top></top>
+  <sendmsg></sendmsg>
   <!-- 轮播图 -->
   <div id="carousel" class="pore">
     <!-- 图片 -->
@@ -52,7 +53,7 @@
       <p class="size12">入耳即溶，那些甜到心底的温柔男生</p>
     </div>
   </div>
-  <p class="size20 margin-t-b" >新碟</p>
+  <p class="size20 margin-t-b">新碟</p>
   <div id="song">
     <div class="song-unit">
       <img class="song-pic" src="../assets/tx.jpg" alt="">

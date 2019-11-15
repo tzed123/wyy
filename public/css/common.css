@@ -24,6 +24,7 @@
   text-decoration: none;
   list-style-type: none;
   outline: none;
+  box-sizing:border-box;
 }  
 .fl{
   float:left;
@@ -38,7 +39,6 @@
   display:flex;
   justify-content: space-between;
 }
-
 .size12{
   font-size:0.8rem;
 }
