@@ -1,23 +1,39 @@
 <template>
+<div>  
   <div id="top">
     <img class="img-size" src="../assets/folder.png" alt="">
-    <div class="dis-flex wid">
-      <p v-for="(item,index) in p" :key=index :class="{'color':isTrue}"  @click="tab(index)">{{item}}</p>          
+    <div class="dis-flex wid" @click="tab($event)">
+      <p :class="pagetype==index?'color':'color1'" v-for="(item,index) in p" :key="index" :data-num="index">{{item}}</p>          
     </div>
-    <img class="img-size" src="../assets/search.png" alt="">
+    <router-link to="/searchbar">
+      <img class="img-size" src="../assets/search.png" alt="">
+    </router-link>
   </div>
+
+    <div v-if="pagetype==0">1</div>
+    <div v-else-if="pagetype==1">2</div>
+    <div v-else="pagetype==2">3</div>
+    
+</div>
 </template>
 <script>
 export default {
   data(){
     return {
-      isTrue:true,
-      p:["我的","发现","VIP"]
+      p:["我的","发现","VIP"],
+      pagetype:0
     }
   },
   methods:{
-    tab:function(){
-      
+    tab:function(e){     
+      if(e.target.nodeName=="P"){
+        console.log(this.pagetype)
+        this.pagetype=e.target.dataset.num
+        console.log(e.target.dataset.num)
+      }
+    },
+    search:function(){
+
     }
   }
 }
@@ -27,8 +43,10 @@ export default {
     width:95%;
     margin:1rem auto;
     display:flex;
+    align-items:center;
     justify-content:space-between;
   }
+
   .img-size{
     width:1.5rem;
     height:1.5rem;
@@ -39,6 +57,10 @@ export default {
     width:15rem;
   }
   .color{
-    color:blue;
+    color:#e10000;
   }
+  .color1{
+    color:black;
+  }
+
 </style>

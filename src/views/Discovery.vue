@@ -1,7 +1,19 @@
 <template>
 <div id="container"> 
+  <top></top>
+  <collect></collect>
+  <controllist></controllist>
+  <createlist></createlist>
+  <playbar></playbar>
+  
+  <sendmsg></sendmsg>
+  <timeclose></timeclose>
   <!-- 轮播图 -->
-
+<mt-swipe :auto="4000" class="carousel">
+  <mt-swipe-item><img class="w-100" src="../assets/banner1.jpg"></mt-swipe-item>
+  <mt-swipe-item><img class="w-100" src="../assets/banner2.jpg"></mt-swipe-item>
+  <mt-swipe-item><img class="w-100" src="../assets/banner3.jpg"></mt-swipe-item>
+</mt-swipe>
   <ul id="circle">
     <li class="circle-li">
       <img class="circle-img" src="../assets/circle.png" alt="">
@@ -73,14 +85,12 @@ export default {
     justify-content:space-around;
   }
   .circle-li{
-    text-align:center
+    text-align:center;
   }
   .circle-img{
     width:3rem;
   }
-  hr{
-    opacity:0.4
-  }
+
   /* 推荐歌单 */
   #song{
     width:100%;
@@ -98,6 +108,12 @@ export default {
     margin-top:1.5rem;
     margin-bottom:1.5rem;
   }
-
+  .carousel{
+    width:100%;
+  
+  }
+  .w-100{
+    width:100%;
+  }
 
 </style>
