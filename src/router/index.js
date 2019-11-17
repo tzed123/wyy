@@ -9,9 +9,13 @@ const routes = [
   {path: '/search',component: () => import('@/views/tz/Search.vue')},
   {path: '/searchbar',component: () => import('@/views/tz/SearchBar.vue')},
   {path:'/',component:()=> import ('@/components/tz/Collect.vue')},
+
   //dj
   {path:'/page',component:()=> import ('@/components/dj/page.vue')},
   {path:'/login',component:()=> import ('@/components/dj/login.vue')},
+  
+  //zz导入路径
+  {path:'/commentInterface',component:()=>import('@/views/zz/CommentInterface.vue')},
 ]
 
 const router = new VueRouter({
