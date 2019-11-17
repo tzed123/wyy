@@ -44,7 +44,7 @@ export default {
   },
   methods:{
     changebg:function(){
-      console.log(this.style)
+      console.log(this)
       
 
     }
