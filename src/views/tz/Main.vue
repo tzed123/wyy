@@ -3,13 +3,13 @@
   <div id="main">
     <img class="img-size" src="@/assets/tz/folder.png" alt="">
     <div class="dis-flex wid" @click="tab($event)">
-      <p :class="pagetype==index?'color':'color1'" v-for="(item,index) in p" :key="index" :data-num="index">{{item}}</p>          
+      <p :class="{'color':pagetype===index}" v-for="(item,index) in p" :key="index" :data-num="index">{{item}}</p>          
     </div>
     <router-link to="/searchbar">
       <img class="img-size" src="@/assets/tz/search.png" alt="">
     </router-link>
   </div>
-    <div v-if="pagetype==0">1</div>
+    <discovery v-if="pagetype==0">1</discovery>
     <div v-else-if="pagetype==1">2</div>
     <div v-else="pagetype==2">3</div>
 </div>
@@ -57,8 +57,4 @@ export default {
   .color{
     color:#e10000;
   }
-  .color1{
-    color:black;
-  }
-
 </style>

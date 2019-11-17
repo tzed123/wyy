@@ -23,7 +23,7 @@ import ControlList from '@/components/tz/ControlList.vue'
 
 //tz注册全局组件标签
 Vue.component("discovery",Discovery);//发现页面
-Vue.component("collect",Collect)//收藏
+Vue.component("collect",Collect)//收藏到歌单
 Vue.component("createlist",CreateList)//创建歌单
 Vue.component("playbar",PlayBar)//底部播放条
 Vue.component("sendmsg",SendMsg)//发送消息

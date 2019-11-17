@@ -18,7 +18,7 @@ export default {
   #container{
     border:0.1rem solid black;
     border-radius:0.5rem;
-    width:95%;
+    width:90%;
     margin:0 auto;
     padding:0.5rem 1rem;
   }

@@ -1,6 +1,5 @@
 <template>
 <div>
-
   <div class="sel-card">
     <p>综合</p>
     <p>单曲</p>
@@ -35,7 +34,7 @@
 </template>
 <script>
 export default {
-  
+
 
 }
 </script>

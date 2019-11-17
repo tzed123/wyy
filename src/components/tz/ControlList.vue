@@ -6,6 +6,10 @@
       <img class="pic" src="@/assets/tz/download.png">
       <p>下载</p>
     </li>
+    <li class="frame">
+      <img class="pic" src="@/assets/tz/trashcan.png">
+      <p>删除</p>
+    </li>
   </ul>
 </div>
 </template>

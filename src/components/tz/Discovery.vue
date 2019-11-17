@@ -1,11 +1,9 @@
 <template>
 <div id="container"> 
-  <top></top>
   <collect></collect>
   <controllist></controllist>
   <createlist></createlist>
-  <playbar></playbar>
-  
+  <playbar></playbar>  
   <sendmsg></sendmsg>
   <timeclose></timeclose>
   <!-- 轮播图 -->

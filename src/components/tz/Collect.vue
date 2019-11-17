@@ -10,9 +10,9 @@
     </div>   
   </div> 
   <!--新建歌单-->
-  <div class="create">
+  <div class="create" @touchstart="changebg">
     <div class="plus">
-    <img src="@/assets/tz/plus.png">
+      <img src="@/assets/tz/plus.png">
     </div>
     <p>新建歌单</p>
   </div>
@@ -39,7 +39,16 @@
 </template>
 <script>
 export default {
-  
+  data(){
+    return{}
+  },
+  methods:{
+    changebg:function(){
+      console.log(this.style)
+      
+
+    }
+  }
 
 }
 </script>
@@ -110,4 +119,5 @@ export default {
   .checkbox>img{
     width:100%;
   }
+  
 </style>
