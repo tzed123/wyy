@@ -16,9 +16,14 @@ import TimeClose from '@/components/tz/TimeClose.vue'
 import ControlList from '@/components/tz/ControlList.vue'
 
 
+
 //yh引入路径
 //dj引入路径
 //zz引入路径
+import MultiSelect from '@/components/zz/MultiSelect.vue'
+import SongDetails from '@/components/zz/SongDetails.vue'
+import SongSheet from '@/components/zz/SongSheet.vue'
+import SongSheet2 from '@/components/zz/SongSheet2.vue'
 //dt引入路径
 
 //tz注册全局组件标签
@@ -33,6 +38,11 @@ Vue.component("controllist",ControlList)//歌单省略号拓展功能
 //yh注册全局组件标签
 //dj注册全局组件标签
 //zz注册全局组件标签
+Vue.component("MultiSelect",MultiSelect)
+Vue.component("SongDetails",SongDetails)
+Vue.component("SongSheet",SongSheet)
+Vue.component("SongSheet2",SongSheet2)
+
 //dt注册全局组件标签
 
 //挂载mint-ui
