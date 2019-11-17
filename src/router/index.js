@@ -8,7 +8,10 @@ const routes = [
   {path: '/main',component: () => import('@/views/tz/Main.vue')},//主界面
   {path: '/search',component: () => import('@/views/tz/Search.vue')},
   {path: '/searchbar',component: () => import('@/views/tz/SearchBar.vue')},
-  {path:'/',component:()=> import ('@/components/tz/Collect.vue')}
+  {path:'/',component:()=> import ('@/components/tz/Collect.vue')},
+  //dj
+  {path:'/page',component:()=> import ('@/components/dj/page.vue')},
+  {path:'/login',component:()=> import ('@/components/dj/login.vue')},
 ]
 
 const router = new VueRouter({

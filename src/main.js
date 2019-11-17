@@ -18,6 +18,8 @@ import ControlList from '@/components/tz/ControlList.vue'
 
 //yh引入路径
 //dj引入路径
+import login from '@/components/dj/login.vue'
+import page from '@/components/dj/page.vue'
 //zz引入路径
 //dt引入路径
 
