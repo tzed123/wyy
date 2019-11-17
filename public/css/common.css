@@ -25,12 +25,6 @@
   list-style-type: none;
   outline: none;
   box-sizing:border-box;
-}  
-.fl{
-  float:left;
-}
-.fr{
-  float:right;
 }
 .pore{
   position:relative;
@@ -38,10 +32,4 @@
 .dis-flex{
   display:flex;
   justify-content: space-between;
-}
-.size12{
-  font-size:0.8rem;
-}
-.size20{
-  font-size:1.2rem;
 }

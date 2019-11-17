@@ -23,10 +23,10 @@
           <p>廖俊涛-个人创作LIVE现场辑</p>
         </div>
         <div class="play-btn">
-          <img src="../assets/play.png" alt="">
+          <img src="@/assets/tz/play.png" alt="">
         </div>
         <div class="threep">
-          <img src="../assets/ellipsis.png" alt="">
+          <img src="@/assets/tz/ellipsis.png" alt="">
         </div>
       </li>
     </ul>

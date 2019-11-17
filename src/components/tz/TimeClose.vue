@@ -1,37 +1,37 @@
-<template>
+tz/<template>
   <div id="container">
     <p class="settime">定时停止播放</p>
     <ul >
       <li class="dis-flex list">
       <p>不开启</p>
-      <img src="../assets/check.png"> 
+      <img src="@/assets/tz/check.png"> 
       </li>
       <li class="dis-flex list">
       <p>10分钟</p>
-      <img src="../assets/check.png"> 
+      <img src="@/assets/tz/check.png"> 
       </li>
       <li class="dis-flex list">
       <p>20分钟</p>
-      <img src="../assets/check.png"> 
+      <img src="@/assets/tz/check.png"> 
       </li>
       <li class="dis-flex list">
       <p>30分钟</p>
-      <img src="../assets/check.png"> 
+      <img src="@/assets/tz/check.png"> 
       </li>
       <li class="dis-flex list">
       <p>45分钟</p>
-      <img src="../assets/check.png"> 
+      <img src="@/assets/tz/check.png"> 
       </li>
       <li class="dis-flex list">
       <p>60分钟</p>
-      <img src="../assets/check.png"> 
+      <img src="@/assets/tz/check.png"> 
       </li>
     </ul>
     
     <div class="bottom-bar">
     <div class="checkbox">
-        <img src="../assets/select.png">
-        <img src="../assets/select-check.png">
+        <img src="@/assets/tz/select.png">
+        <img src="@/assets/tz/select-check.png">
       </div>
     <p>计时结束后播放完当前歌曲再停止</p>
     </div>    

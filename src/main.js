@@ -4,30 +4,40 @@ import router from './router'
 import store from './store'
 import axios from 'axios'
 import mintui from 'mint-ui'
+//引入公共样式
 import "../public/css/common.css"
-//顶部 我的/发现/VIP
-import Top from './components/Top.vue'
-
-//收藏
-import Collect from './components/Collect.vue'
-import CreateList from './components/CreateList.vue'
-import PlayBar from './components/PlayBar.vue'
-import SendMsg from './components/SendMsg.vue'
-import TimeClose from './components/TimeClose.vue'
-import ControlList from './components/ControlList.vue'
-
-Vue.component("top",Top);
-
-Vue.component("collect",Collect)
-Vue.component("createlist",CreateList)
-Vue.component("playbar",PlayBar)
-Vue.component("sendmsg",SendMsg)
-Vue.component("timeclose",TimeClose)
-Vue.component("controllist",ControlList)
+//tz引入路径
+import Discovery from '@/components/tz/Discovery.vue'
+import Collect from '@/components/tz/Collect.vue'
+import CreateList from '@/components/tz/CreateList.vue'
+import PlayBar from '@/components/tz/PlayBar.vue'
+import SendMsg from '@/components/tz/SendMsg.vue'
+import TimeClose from '@/components/tz/TimeClose.vue'
+import ControlList from '@/components/tz/ControlList.vue'
 
 
+//yh引入路径
+//dj引入路径
+//zz引入路径
+//dt引入路径
+
+//tz注册全局组件标签
+Vue.component("discovery",Discovery);//发现页面
+Vue.component("collect",Collect)//收藏
+Vue.component("createlist",CreateList)//创建歌单
+Vue.component("playbar",PlayBar)//底部播放条
+Vue.component("sendmsg",SendMsg)//发送消息
+Vue.component("timeclose",TimeClose)//定时关闭
+Vue.component("controllist",ControlList)//歌单省略号拓展功能
+
+//yh注册全局组件标签
+//dj注册全局组件标签
+//zz注册全局组件标签
+//dt注册全局组件标签
+
+//挂载mint-ui
 Vue.use(mintui)
-
+//配置axios基础路径
 axios.defaults.baseURL="http://localhost:8080";
 axios.defaults.withCredentials=true;
 Vue.config.productionTip = false;

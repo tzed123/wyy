@@ -4,7 +4,7 @@
   <div id="container" class="dis-flex">
     <div class="left">
       <div class="avatar">
-        <img src="../assets/tx.jpg">
+        <img src="@/assets/tz/tx.jpg">
       </div>
       <div class="title">
         <p>歌名</p>
@@ -13,11 +13,11 @@
     </div>
     <div class="control dis-flex">
       <div class="play">
-        <img src="../assets/play1.png">
+        <img src="@/assets/tz/play1.png">
         <!--<img src="../assets/pause.png">-->
       </div>
       <div class="icon">
-        <img src="../assets/folder1.png">
+        <img src="@/assets/tz/folder1.png">
       </div>
     </div>    
   </div>

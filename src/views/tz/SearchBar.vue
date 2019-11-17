@@ -1,9 +1,9 @@
-<template>
+tz/<template>
   <div id="search-bar">
-    <router-link to="/discovery">
-    <img class="img-size" src="../assets/return.png" alt=""></router-link>
+    <router-link to="/main">
+    <img class="img-size" src="@/assets/tz/return.png" alt=""></router-link>
     <input class="input" type="text" placeholder="请输入歌手/歌名/歌单名...">
-    <img class="img-size" src="../assets/search.png" alt="">
+    <img class="img-size" src="@/assets/tz/search.png" alt="">
   </div>
 </template>
 <script>

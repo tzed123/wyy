@@ -4,7 +4,7 @@
     <p>收藏到歌单</p>
     <div class="mul dis-flex">
       <div class="mul-img">
-      <img  src="../assets/mul-select.png">
+      <img  src="@/assets/tz/mul-select.png">
       </div>
       <p>多选</p>
     </div>   
@@ -12,7 +12,7 @@
   <!--新建歌单-->
   <div class="create">
     <div class="plus">
-    <img src="../assets/plus.png">
+    <img src="@/assets/tz/plus.png">
     </div>
     <p>新建歌单</p>
   </div>
@@ -21,7 +21,7 @@
     <li class="dis-flex list">
       <div class="left">
         <div class="avatar">
-          <img src="../assets/tx.jpg">
+          <img src="@/assets/tz/tx.jpg">
         </div>
         <div class="desc">
           <p>歌单1</p>
@@ -30,8 +30,8 @@
       </div>
       <!--选项框-->
       <div class="checkbox">
-        <img src="../assets/select.png">
-        <img src="../assets/select-check.png">
+        <img src="@/assets/tz/select.png">
+        <img src="@/assets/tz/select-check.png">
       </div>
     </li>    
   </ul>

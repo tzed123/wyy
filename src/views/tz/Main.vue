@@ -1,19 +1,17 @@
 <template>
 <div>  
-  <div id="top">
-    <img class="img-size" src="../assets/folder.png" alt="">
+  <div id="main">
+    <img class="img-size" src="@/assets/tz/folder.png" alt="">
     <div class="dis-flex wid" @click="tab($event)">
       <p :class="pagetype==index?'color':'color1'" v-for="(item,index) in p" :key="index" :data-num="index">{{item}}</p>          
     </div>
     <router-link to="/searchbar">
-      <img class="img-size" src="../assets/search.png" alt="">
+      <img class="img-size" src="@/assets/tz/search.png" alt="">
     </router-link>
   </div>
-
     <div v-if="pagetype==0">1</div>
     <div v-else-if="pagetype==1">2</div>
     <div v-else="pagetype==2">3</div>
-    
 </div>
 </template>
 <script>
@@ -39,7 +37,7 @@ export default {
 }
 </script>
 <style scoped>
-  #top{
+  #main{
     width:95%;
     margin:1rem auto;
     display:flex;

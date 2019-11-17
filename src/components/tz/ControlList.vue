@@ -3,7 +3,7 @@
   <p class="frame">歌单：<span>歌名</span></p>
   <ul>
     <li class="frame">
-      <img class="pic" src="../assets/download.png">
+      <img class="pic" src="@/assets/tz/download.png">
       <p>下载</p>
     </li>
   </ul>
