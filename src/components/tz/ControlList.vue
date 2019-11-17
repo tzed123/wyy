@@ -2,9 +2,9 @@
 <div id="container">
   <p class="frame">歌单：<span>歌名</span></p>
   <ul>
-    <li class="frame">
-      <img class="pic" src="@/assets/tz/download.png">
-      <p>下载</p>
+    <li class="frame" v-for="(val,i) of li" :key="i">
+      <img class="pic" :src="val">
+      <p>{{i}}</p>
     </li>
     <li class="frame">
       <img class="pic" src="@/assets/tz/trashcan.png">
@@ -15,8 +15,12 @@
 </template>
 <script>
 export default {
-  
-
+  data(){
+    return{
+      li:{"下载":"@/assets/tz/download.png","删除":"@/assets/tz/trashcan.png"}
+      
+    }
+  }
 }
 </script>
 <style scoped>
@@ -34,6 +38,9 @@ export default {
     padding:0.5rem;
     border:transparent;
     border-bottom:0.05rem solid #ccc;
+  }
+  .frame:active{
+    background:#eee;
   }
   .pic{
     width:1rem;

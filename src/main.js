@@ -39,6 +39,7 @@ Vue.component("controllist",ControlList)//歌单省略号拓展功能
 
 //yh注册全局组件标签
 //dj注册全局组件标签
+Vue.component("page",page)
 //zz注册全局组件标签
 Vue.component("MultiSelect",MultiSelect)
 Vue.component("SongDetails",SongDetails)

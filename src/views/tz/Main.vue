@@ -9,8 +9,8 @@
       <img class="img-size" src="@/assets/tz/search.png" alt="">
     </router-link>
   </div>
-    <discovery v-if="pagetype==0">1</discovery>
-    <div v-else-if="pagetype==1">2</div>
+    <discovery v-if="pagetype==0"></discovery>
+    <page v-else-if="pagetype==1"></page>
     <div v-else="pagetype==2">3</div>
 </div>
 </template>

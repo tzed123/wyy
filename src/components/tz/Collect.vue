@@ -10,7 +10,7 @@
     </div>   
   </div> 
   <!--新建歌单-->
-  <div class="create" @touchstart="changebg">
+  <div class="create">
     <div class="plus">
       <img src="@/assets/tz/plus.png">
     </div>
@@ -40,17 +40,17 @@
 <script>
 export default {
   data(){
-    return{}
+    return{
+      isBg:false
+    }
   },
   methods:{
     changebg:function(){
-      console.log(this)
-      
-
-    }
+      this.isBg=!this.isBg
   }
-
+  }
 }
+
 </script>
 <style scoped>
   #container{
@@ -64,6 +64,9 @@ export default {
     padding:0 1rem;
     height:3rem;
     line-height:3rem;
+  }
+  .collection :active{
+    background:#eee;
   }
   .mul{    
     width:3.3rem;
@@ -119,5 +122,10 @@ export default {
   .checkbox>img{
     width:100%;
   }
-  
+  .create:active{
+    background:#eee;
+  }
+  .list:active{
+    background:#eee;
+  }
 </style>

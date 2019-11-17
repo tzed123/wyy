@@ -2,28 +2,8 @@ tz/<template>
   <div id="container">
     <p class="settime">定时停止播放</p>
     <ul >
-      <li class="dis-flex list">
-      <p>不开启</p>
-      <img src="@/assets/tz/check.png"> 
-      </li>
-      <li class="dis-flex list">
-      <p>10分钟</p>
-      <img src="@/assets/tz/check.png"> 
-      </li>
-      <li class="dis-flex list">
-      <p>20分钟</p>
-      <img src="@/assets/tz/check.png"> 
-      </li>
-      <li class="dis-flex list">
-      <p>30分钟</p>
-      <img src="@/assets/tz/check.png"> 
-      </li>
-      <li class="dis-flex list">
-      <p>45分钟</p>
-      <img src="@/assets/tz/check.png"> 
-      </li>
-      <li class="dis-flex list">
-      <p>60分钟</p>
+      <li class="dis-flex list" v-for="(val,i) of li" :key="val">
+      <p>{{val}}</p>
       <img src="@/assets/tz/check.png"> 
       </li>
     </ul>
@@ -39,7 +19,11 @@ tz/<template>
 </template>
 <script>
 export default {
-  
+  data(){
+    return{
+      li:["不开启","10分钟","20分钟","30分钟","45分钟","60分钟"]
+    }
+  }
 }
 </script>
 <style scoped>
@@ -58,7 +42,9 @@ export default {
     align-items:center;    
     padding:.5rem;
   }
-
+  .list:active{
+    background:#eee;
+  }
   .bottom-bar{
     margin-bottom:.5rem;
     display:flex;
