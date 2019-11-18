@@ -22,7 +22,11 @@ const routes = [
   {path: '/reg',component: () => import('@/views/dt/reg.vue')},
 
 
+  //yh
+  {path:"/index",component:()=>import("@/components/yh/index.vue")}
+
 ]
+
 
 const router = new VueRouter({
   routes

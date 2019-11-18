@@ -1,0 +1,131 @@
+<template>
+  <div>
+    <div class="bg"></div>
+<!-- 头像部分 -->
+<div class="header">
+<a href="#"><div class="head_portrait"></div></a>
+<!-- 姓名等级签到 -->
+<div class="d-flex last">
+  <!-- id -->
+<a href=""><div>ID</div></a>
+<!-- vip -->
+<a href=""><img class="size" src="img/vip.png" alt=""></a>
+<!-- 等级 -->
+<a href=""><div>lv7</div></a>
+<!-- 签到 -->
+<a href=""><div>每日打卡</div></a>
+</div>
+<!-- vip -->
+<div class="vip">
+<a href=""><img src="img/vip.JPG" alt=""></a>
+</div>
+<!-- 图标 -->
+<div class="icon">
+<div><a><img class="t-center" src="img/email.png" alt=""><p>我的消息</p></a></div>
+<div><a><img class="t-center" src="img/user.png" alt=""><p>我的好友</p></a></div>
+<div><a><img class="t-center" src="img/music.png" alt=""><p>听歌识曲</p></a></div>
+<div><a><img class="t-center" src="img/dress.png" alt=""><p>个性装扮</p></a></div>
+</div>
+<hr>
+
+<!-- 列表 -->
+<div class="list">
+<a href=""><div class="t-14 d-flex"><img src="img/order form.png" alt=""><div>我的订单</div></div></a>
+<a href=""><div class="t-14 d-flex"><img src="img/settime.png" alt=""><div>定时停止播放</div></div></a>
+<a href=""><div class="t-14 d-flex"><img src="img/sweep.png" alt=""><div>扫一扫</div></div></a>
+<a href=""><div class="t-14 d-flex"><img src="img/Music alarm clock.png" alt=""><div>音乐闹钟</div></div></a>
+<a href=""><div class="t-14 d-flex"><img src="img/coupon.png" alt=""><div>优惠券</div></div></a>
+<a href=""><div class="t-14 d-flex"><img src="img/teen-agers.png" alt=""><div>青少年模式</div></div></a>
+<hr>
+<a href=""><div class="t-14 d-flex"><img src="img/set.png" alt=""><div>设置</div></div></a>
+<a href=""><div class="t-14 d-flex"><img src="img/quit.png" alt=""><div>退出</div></div></a>
+</div>
+</div>
+  </div>
+</template>
+
+<style lang="">
+  body{
+  background:#f3f3f3;
+}
+/* 白布 */
+.bg{
+  background:#fff;
+  width: 93%;
+  height:75%;
+  position: absolute;
+  top:25%;
+  left:7%;
+  z-index:-100;
+}
+.header{
+  padding:5% 5% 3% 10%;
+}
+.head_portrait{
+  width:5rem;
+  height:5rem;
+  border-radius: 50%;
+  border:2px solid red;
+  margin-bottom: 3.25%;
+}
+/* vip大小 */
+.size{
+  width:50%;
+  top:2%;
+}
+/* 头像部分 */
+.header .d-flex>a{
+  margin-left:2%;
+}
+/* 姓名等级签到 */
+.header>.last>:last-child{
+  position: absolute;
+  right:10%;
+}
+/* vip */
+.vip{
+  margin-top:5%;
+}
+.vip img{
+  margin-left:1%;
+  width: 98%;
+}
+/* 图标 */
+.icon{
+  display: flex;
+  justify-content:space-between;
+  margin-top:5%;
+}
+.icon img {
+  margin-left:20%;
+}
+hr{
+  margin-top:5%;
+  opacity: 0.2;
+}
+/* 列表 */
+.list{
+  margin-top:5%;
+}
+.list img{
+  width:8%;
+  margin-right: 3%;
+}
+.list .d-flex>div{
+line-height: 180%;
+}
+.list>a>div{
+  margin-top:5%;
+}
+/* 底部固定栏 */
+.footer{
+  display: flex;
+ position: fixed;
+ bottom:5%;
+ left:10%;
+}
+.footer .t-14>div{
+  line-height: 180%;
+}
+
+</style>
