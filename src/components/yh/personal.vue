@@ -2,7 +2,7 @@
   <div>
      <!-- t跳转界面 -->
    <div class="bg d-flex header">
-      <a href=""><img src="img/return.png" alt=""></a><div class="t-24">会员中心</div> 
+      <a href=""><img src="../../assets/yh/return.png" alt=""></a><div class="t-24">会员中心</div> 
         </div>
 
   <!-- 个人页面 -->
@@ -18,16 +18,16 @@
 
   <!-- 特权 -->
  <div class="tq d-flex">
-   <img src="img/vip-vip.png" alt="">
-   <img src="img/vip-sq.png" alt="">
-   <img src="img/vip_xiazai.png" alt="">
+   <img src="../../assets/yh/vip-vip.png" alt="">
+   <img src="../../assets/yh/vip-sq.png" alt="">
+   <img src="../../assets/yh/vip_xiazai.png" alt="">
  </div>
  <div class="xf">续费</div>
 
- <div><img class="sb" src="img/sb.png" alt=""></div>
+ <div><img class="sb" src="../../assets/yh/sb.png" alt=""></div>
   </div>
 </template>
-<style lang="">
+<style scoped>
   .sb{
   width:100%;
   z-index:-100;

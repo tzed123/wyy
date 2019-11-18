@@ -1,7 +1,7 @@
 <template>
   <div>
      <div class="bg d-flex header">
-    <a href=""><img src="img/return.png" alt=""></a><div class="t-24">网易云音乐会员</div> 
+    <a href=""><img src="../../assets/yh/return.png" alt=""></a><div class="t-24">网易云音乐会员</div> 
       </div>
 
       <!-- vip -->
@@ -12,7 +12,7 @@
 
       <!-- 特权 -->
       <div class="tq">
-      <div>畅享黑胶VIP专属特权+音乐包特权<img src="img/down.png" alt=""></div>
+      <div>畅享黑胶VIP专属特权+音乐包特权<img src="../../assets/yh/down.png" alt=""></div>
      </div>
 
      <!-- 类型 -->
@@ -62,8 +62,8 @@
 
      <!-- 支付部分 -->
      <div class="pay">
-       <div class="alpay d-flex"><img src="img/Alipay.png" alt=""><div>支付宝支付</div><div class="yuan"></div></div>
-       <div class="d-flex wechat"><img src="img/Wechat.png" alt=""><div>微信支付</div><div class="yuan"></div></div>
+       <div class="alpay d-flex"><img src="../../assets/yh/Alipay.png" alt=""><div>支付宝支付</div><div class="yuan"></div></div>
+       <div class="d-flex wechat"><img src="../../assets/yh/Wechat.png" alt=""><div>微信支付</div><div class="yuan"></div></div>
       </div>
 
       <!-- 计算 -->
@@ -73,7 +73,7 @@
   </div>
 </template>
 
-<style lang="">
+<style scoped>
   
 bg{
   background: #fff;

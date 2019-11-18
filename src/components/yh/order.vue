@@ -1,8 +1,8 @@
 <template>
-  <div>
+  <div class="body">
      <!-- 头部 -->
   <div class="bg d-flex header">
-<a href=""><img src="img/return.png" alt=""></a><div class="t-24">我的订单</div> 
+<a href=""><img src="../../assets/yh/return.png" alt=""></a><div class="t-24">我的订单</div> 
   </div>
 
   <!-- 我的订单 -->
@@ -11,9 +11,9 @@
 <hr>
 <!-- 图标 -->
 <div class="icon">
-  <div class="t-center"><img src="img/special.png" alt=""><p>数字专曲</p></div>
-  <div class="t-center"><img src="img/single.png" alt=""><p>单曲</p></div>
-  <div class="t-center"><img src="img/huiyuan.png" alt=""><p>会员</p></div>
+  <div class="t-center"><img src="../../assets/yh/special.png" alt=""><p>数字专曲</p></div>
+  <div class="t-center"><img src="../../assets/yh/single.png" alt=""><p>单曲</p></div>
+  <div class="t-center"><img src="../../assets/yh/huiyuan.png" alt=""><p>会员</p></div>
 </div>
   </div>
 
@@ -25,8 +25,8 @@
   </div>
   </div>
 </template>
-<style lang="">
-  body{
+<style scoped>
+  .body{
   background: #f3f3f3;
 }
 .bg{
