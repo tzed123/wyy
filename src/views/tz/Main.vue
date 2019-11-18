@@ -1,6 +1,7 @@
 <template>
 <div>
   <div id="main">
+    
     <img class="img-size" src="@/assets/tz/folder.png" alt="">
     <div class="dis-flex wid" @click="tab($event)">
       <p :class="pagetype==index?'color':''" 
@@ -14,6 +15,7 @@
     <discovery v-else-if="pagetype==1"></discovery>
     <div v-else="pagetype==2">3</div>
   <playbar class="fix"></playbar>
+  <index></index>
     <collect></collect>
   <controllist></controllist>
   <createlist></createlist>

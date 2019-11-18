@@ -46,12 +46,13 @@
 
 <style scoped>
   body{
+
   background:#f3f3f3;
 }
 /* 白布 */
 .bg{
   background:#fff;
-  width: 93%;
+  width: 70%;
   height:75%;
   position: absolute;
   top:25%;

@@ -20,10 +20,7 @@ import ControlList from '@/components/tz/ControlList.vue'
 
 //yh引入路径
 import index from '@/components/yh/index.vue'
-import buymusic from '@/components/yh/buymusic.vue'
-import order from '@/components/yh/order.vue'
 import personal from '@/components/yh/personal.vue'
-import vip from '@/components/yh/vip.vue'
 
 //dj引入路径
 import login from '@/components/dj/login.vue'
@@ -45,6 +42,8 @@ Vue.component("timeclose",TimeClose)//定时关闭
 Vue.component("controllist",ControlList)//歌单省略号拓展功能
 
 //yh注册全局组件标签
+Vue.component("index",index)
+Vue.component("personal",personal)
 //dj注册全局组件标签
 Vue.component("page",page)
 //zz注册全局组件标签
