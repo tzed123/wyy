@@ -1,8 +1,8 @@
 <template>
 <div>
   <div id="main">
-    
-    <img class="img-size" src="@/assets/tz/folder.png" alt="">
+    <index v-show="isShow" class="index"></index>    
+    <img class="img-size" src="@/assets/tz/folder.png" alt="" @click="showfolder">
     <div class="dis-flex wid" @click="tab($event)">
       <p :class="pagetype==index?'color':''" 
       v-for="(item,index) in p" :key="index" :data-num="index">{{item}}</p>          
@@ -13,15 +13,15 @@
   </div>
     <page v-if="pagetype==0"></page>
     <discovery v-else-if="pagetype==1"></discovery>
-    <div v-else="pagetype==2">3</div>
+    <personal v-else="pagetype==2"></personal>
   <playbar class="fix"></playbar>
-  <index></index>
+  <!-- <index></index> -->
     <collect></collect>
   <controllist></controllist>
   <createlist></createlist>
     
   <sendmsg></sendmsg>
-  <timeclose></timeclose>  
+  <timeclose></timeclose>   
 </div>
 </template>
 <script>
@@ -29,7 +29,8 @@ export default {
   data(){
     return {
       p:["我的","发现","VIP"],
-      pagetype:0
+      pagetype:0,
+      isShow:false
     }
   },
   methods:{
@@ -38,8 +39,8 @@ export default {
         this.pagetype=e.target.dataset.num
       }
     },
-    search:function(){
-
+    showfolder:function(){
+      this.isShow=true
     }
   }
 }
@@ -52,7 +53,11 @@ export default {
     align-items:center;
     justify-content:space-between;
   }
-
+  .index{
+    position:fixed;
+    top:0;
+    left:0;
+  }
   .img-size{
     width:1.5rem;
     height:1.5rem;

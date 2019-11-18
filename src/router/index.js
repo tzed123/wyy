@@ -8,7 +8,7 @@ const routes = [
   {path: '/main',component: () => import('@/views/tz/Main.vue')},//主界面
   {path: '/search',component: () => import('@/views/tz/Search.vue')},
   {path: '/searchbar',component: () => import('@/views/tz/SearchBar.vue')},
-  {path:'/',component:()=> import ('@/components/tz/Collect.vue')},
+  {path:'/',component:()=> import ('@/views/tz/Main.vue')},
 
   //dj
 

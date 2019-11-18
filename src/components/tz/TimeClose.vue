@@ -4,7 +4,7 @@ tz/<template>
     <ul @click="check($event)">
       <li class="dis-flex list" v-for="(val,i) of li" :key="val" :data-memo="i">
       <p>{{val}}</p>
-      <img v-show="memo==i" src="@/assets/tz/check.png"> 
+      <img v-if="memo==i" src="@/assets/tz/check.png"> 
       </li>
     </ul>
     <div class="bottom-bar">
@@ -26,10 +26,9 @@ export default {
   },
   methods:{
     check:function(e){
-     if(e.target.nodeName=="Li"){
-       console.log(e.target.dataset.memo)
+      console.log(e.target.dataset.memo)
        this.memo=e.target.dataset.memo
-     }
+
     }
   }
 }
@@ -49,6 +48,7 @@ export default {
   .list{
     align-items:center;    
     padding:.5rem;
+    height:3rem;
   }
   .list:active{
     background:#eee;

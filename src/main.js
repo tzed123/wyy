@@ -22,8 +22,6 @@ import ControlList from '@/components/tz/ControlList.vue'
 import index from '@/components/yh/index.vue'
 import personal from '@/components/yh/personal.vue'
 
-//dj引入路径
-import login from '@/components/dj/login.vue'
 import page from '@/components/dj/page.vue'
 //zz引入路径
 import MultiSelect from '@/components/zz/MultiSelect.vue'
