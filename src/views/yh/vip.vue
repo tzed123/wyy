@@ -12,11 +12,11 @@
 
       <!-- 特权 -->
       <div class="tq">
-      <div>畅享黑胶VIP专属特权+音乐包特权<img src="../../assets/yh/down.png" alt=""></div>
+      <div @click="up">畅享黑胶VIP专属特权+音乐包特权<img :src="require(`../../assets/yh/${imgs}.png`)" alt=""></div>
      </div>
 
      <!-- 类型 -->
-     <div class="lx">
+     <div class="lx" v-show="vip">
        <ul class="lx-ul">
          <li>会员曲库</li>
          <li>无损音质</li>
@@ -25,7 +25,7 @@
          <li>音画主题</li>
          <li>头像挂件</li>
          <li>个性皮肤</li>
-         <li>商场折扣 </li>
+         <li>商场折扣</li>
          <li>票务特权</li>
          <li>福利购券</li>
          <li>歌词图片</li>
@@ -72,7 +72,23 @@
       </div>
   </div>
 </template>
+<script>
+export default {
+  data() {
+    return {
+      vip:true,
+      imgs:"down",
+    }
+  },
+  methods: {
+    up(){
+      this.vip?this.vip=false:this.vip=true;
+      this.imgs=="up"?this.imgs="down":this.imgs="up";
 
+    }
+  },
+}
+</script>
 <style scoped>
   
 bg{
@@ -102,7 +118,7 @@ bg{
   left:15%;
 }
 .musicbag{
-  width: 8rem;
+  width: 10rem;
   height:3rem;
   background:#fff;
   border-radius: 50px;

@@ -18,7 +18,11 @@ const routes = [
   {path:'/commentInterface',component:()=>import('@/views/zz/CommentInterface.vue')},
 
   //yh
-  {path:"/index",component:()=>import("@/components/yh/index.vue")}
+  {path:"/buymusic",component:()=>import("@/views/yh/buymusic.vue")},
+  {path:"/order",component:()=>import("@/views/yh/order.vue")},
+  {path:"/vip",component:()=>import("@/views/yh/vip.vue")},
+  {path:"/index",component:()=>import("@/components/yh/index.vue")},
+  {path:"/personal",component:()=>import("@/components/yh/personal.vue")},
 ]
 
 
