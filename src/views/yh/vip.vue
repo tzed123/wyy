@@ -46,11 +46,11 @@
          </li>
          <li>
             <div>3个月<div class="month-div-size op">到期可自动续费，可随时取消</div></div>
-            <div class="price1">¥11</div><div class="pj2">¥13.3/月</div>
+            <div class="price1">¥11</div><div class="pj1">¥13.3/月</div>
          </li>   
          <li>
             <div>1个月<div class="month-div-size op">到期可自动续费，可随时取消</div></div>
-            <div class="price1">¥15</div><div class="pj3">¥15/月</div>
+            <div class="price1">¥15</div><div class="pj1">¥15/月</div>
          </li>         
        </ul>
      </div>
@@ -193,10 +193,8 @@ padding:3% 3%;
   font-size:18px;
  }
  .pj1{
-  position: absolute;
-  right:16%;
-  top:54.5%;
-   margin-top:0;
+   margin-left:25%;
+   margin-top:10%;
    color:#c2c2c2;
    font-size: 8px;
  }
