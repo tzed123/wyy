@@ -4,6 +4,7 @@ import router from './router'
 import store from './store'
 import axios from 'axios'
 import mintui from 'mint-ui'
+import "mint-ui/lib/style.css"
 //引入公共样式
 import "../public/css/common.css"
 //tz引入路径
@@ -18,6 +19,12 @@ import ControlList from '@/components/tz/ControlList.vue'
 
 
 //yh引入路径
+import index from '@/components/yh/index.vue'
+import buymusic from '@/components/yh/buymusic.vue'
+import order from '@/components/yh/order.vue'
+import personal from '@/components/yh/personal.vue'
+import vip from '@/components/yh/vip.vue'
+
 //dj引入路径
 import login from '@/components/dj/login.vue'
 import page from '@/components/dj/page.vue'

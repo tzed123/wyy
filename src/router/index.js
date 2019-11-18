@@ -16,7 +16,11 @@ const routes = [
   
   //zz导入路径
   {path:'/commentInterface',component:()=>import('@/views/zz/CommentInterface.vue')},
+
+  //yh
+  {path:"/index",component:()=>import("@/components/yh/index.vue")}
 ]
+
 
 const router = new VueRouter({
   routes
