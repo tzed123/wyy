@@ -1,17 +1,25 @@
 <template>
-<div>  
+<div>
   <div id="main">
     <img class="img-size" src="@/assets/tz/folder.png" alt="">
     <div class="dis-flex wid" @click="tab($event)">
-      <p :class="{'color':pagetype===index}" v-for="(item,index) in p" :key="index" :data-num="index">{{item}}</p>          
+      <p :class="pagetype==index?'color':''" 
+      v-for="(item,index) in p" :key="index" :data-num="index">{{item}}</p>          
     </div>
     <router-link to="/searchbar">
       <img class="img-size" src="@/assets/tz/search.png" alt="">
     </router-link>
   </div>
-    <discovery v-if="pagetype==0"></discovery>
-    <page v-else-if="pagetype==1"></page>
+    <page v-if="pagetype==0"></page>
+    <discovery v-else-if="pagetype==1"></discovery>
     <div v-else="pagetype==2">3</div>
+  <playbar class="fix"></playbar>
+    <collect></collect>
+  <controllist></controllist>
+  <createlist></createlist>
+    
+  <sendmsg></sendmsg>
+  <timeclose></timeclose>  
 </div>
 </template>
 <script>
@@ -25,9 +33,7 @@ export default {
   methods:{
     tab:function(e){     
       if(e.target.nodeName=="P"){
-        console.log(this.pagetype)
         this.pagetype=e.target.dataset.num
-        console.log(e.target.dataset.num)
       }
     },
     search:function(){
@@ -56,5 +62,10 @@ export default {
   }
   .color{
     color:#e10000;
+  }
+  .fix{
+    position:fixed;
+    left:0;
+    bottom:0;
   }
 </style>

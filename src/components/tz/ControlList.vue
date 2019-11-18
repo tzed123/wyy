@@ -3,12 +3,8 @@
   <p class="frame">歌单：<span>歌名</span></p>
   <ul>
     <li class="frame" v-for="(val,i) of li" :key="i">
-      <img class="pic" :src="val">
+      <img class="pic" :src="require(`../../assets/tz/${val}.png`)">
       <p>{{i}}</p>
-    </li>
-    <li class="frame">
-      <img class="pic" src="@/assets/tz/trashcan.png">
-      <p>删除</p>
     </li>
   </ul>
 </div>
@@ -17,8 +13,7 @@
 export default {
   data(){
     return{
-      li:{"下载":"@/assets/tz/download.png","删除":"@/assets/tz/trashcan.png"}
-      
+      li:{"下载":"download","删除":"trashcan"}
     }
   }
 }

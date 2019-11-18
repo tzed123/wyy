@@ -1,13 +1,12 @@
 tz/<template>
   <div id="container">
     <p class="settime">定时停止播放</p>
-    <ul >
-      <li class="dis-flex list" v-for="(val,i) of li" :key="val">
+    <ul @click="check($event)">
+      <li class="dis-flex list" v-for="(val,i) of li" :key="val" :data-memo="i">
       <p>{{val}}</p>
-      <img src="@/assets/tz/check.png"> 
+      <img v-show="memo==i" src="@/assets/tz/check.png"> 
       </li>
     </ul>
-    
     <div class="bottom-bar">
     <div class="checkbox">
         <img src="@/assets/tz/select.png">
@@ -21,7 +20,16 @@ tz/<template>
 export default {
   data(){
     return{
-      li:["不开启","10分钟","20分钟","30分钟","45分钟","60分钟"]
+      li:["不开启","10分钟","20分钟","30分钟","45分钟","60分钟"],
+      memo:"0"
+    }
+  },
+  methods:{
+    check:function(e){
+     if(e.target.nodeName=="Li"){
+       console.log(e.target.dataset.memo)
+       this.memo=e.target.dataset.memo
+     }
     }
   }
 }

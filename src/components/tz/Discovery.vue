@@ -1,17 +1,10 @@
 <template>
 <div id="container"> 
-  <collect></collect>
-  <controllist></controllist>
-  <createlist></createlist>
-  <playbar></playbar>  
-  <sendmsg></sendmsg>
-  <timeclose></timeclose>
   <!-- 轮播图 -->
-<mt-swipe :auto="4000" class="carousel">
-  <mt-swipe-item><img class="w-100" src="@/assets/tz/banner1.jpg"></mt-swipe-item>
-  <mt-swipe-item><img class="w-100" src="@/assets/tz/banner2.jpg"></mt-swipe-item>
-  <mt-swipe-item><img class="w-100" src="@/assets/tz/banner3.jpg"></mt-swipe-item>
-</mt-swipe>
+  <mt-swipe :auto="4000" class="carousel">
+    <mt-swipe-item v-for="val of carousel" :key="val"><img class="w-100" :src="require(`@/assets/tz/banner${val}.jpg`)"></mt-swipe-item>
+  </mt-swipe>
+  <!--推荐-->
   <ul id="circle">
     <li class="circle-li">
       <img class="circle-img" src="@/assets/tz/circle.png" alt="">
@@ -65,7 +58,11 @@
 </template>
 <script>
 export default {
-  
+  data(){
+    return{
+      carousel:["1","2","3"]
+    }
+  }
 }
 </script>
 <style scoped>
@@ -73,6 +70,9 @@ export default {
     width:95%;
     margin:0 auto;
     padding-bottom:3rem;
+  }
+  .carousel{
+    height:9rem;
   }
 
   /* 红色圆圈区域 */

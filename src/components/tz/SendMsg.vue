@@ -1,8 +1,7 @@
 <template>
   <div id="container">
-  
     <input class="input" type="text" placeholder="听了这么多，你可能有话想说">
-    <button class="btn">发送</button>
+    <mt-button class="btn" size="small" type="danger" >发送</mt-button>
   </div>
 </template>
 <script>
@@ -13,11 +12,13 @@ export default {
 <style scoped>
   #container{
     width:95%;
+    margin:0 auto;
     padding:0.3rem 0;
+    text-align:center;
   }
   .input{
     padding:0.5rem 0.3rem;
-    width:75%;
+    width:70%;
     border:transparent;
     border-bottom:0.05rem solid black;
   }

@@ -1,5 +1,5 @@
 <template>
-<div>
+<div class="con">
   <hr>
   <div id="container" class="dis-flex">
     <div class="left">
@@ -30,6 +30,10 @@ export default {
 }
 </script>
 <style scoped>
+  .con{
+    background:#fff;
+    width:100%;
+  }
   #container{
     margin-top:0.5rem;
     margin-bottom:0.5rem;
