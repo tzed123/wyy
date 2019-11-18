@@ -9,7 +9,7 @@
   <!-- id -->
 <a href=""><div>ID</div></a>
 <!-- vip -->
-<a href=""><img class="size" src="img/vip.png" alt=""></a>
+<a href=""><img class="size" src="../../assets/yh/vip.png" alt=""></a>
 <!-- 等级 -->
 <a href=""><div>lv7</div></a>
 <!-- 签到 -->
@@ -17,34 +17,34 @@
 </div>
 <!-- vip -->
 <div class="vip">
-<a href=""><img src="img/vip.JPG" alt=""></a>
+<a href=""><img src="../../assets/yh/vip.jpg" alt=""></a>
 </div>
 <!-- 图标 -->
 <div class="icon">
-<div><a><img class="t-center" src="img/email.png" alt=""><p>我的消息</p></a></div>
-<div><a><img class="t-center" src="img/user.png" alt=""><p>我的好友</p></a></div>
-<div><a><img class="t-center" src="img/music.png" alt=""><p>听歌识曲</p></a></div>
-<div><a><img class="t-center" src="img/dress.png" alt=""><p>个性装扮</p></a></div>
+<div><a><img class="t-center" src="../../assets/yh/email.png" alt=""><p>我的消息</p></a></div>
+<div><a><img class="t-center" src="../../assets/yh/user.png" alt=""><p>我的好友</p></a></div>
+<div><a><img class="t-center" src="../../assets/yh/music.png" alt=""><p>听歌识曲</p></a></div>
+<div><a><img class="t-center" src="../../assets/yh/dress.png" alt=""><p>个性装扮</p></a></div>
 </div>
 <hr>
 
 <!-- 列表 -->
 <div class="list">
-<a href=""><div class="t-14 d-flex"><img src="img/order form.png" alt=""><div>我的订单</div></div></a>
-<a href=""><div class="t-14 d-flex"><img src="img/settime.png" alt=""><div>定时停止播放</div></div></a>
-<a href=""><div class="t-14 d-flex"><img src="img/sweep.png" alt=""><div>扫一扫</div></div></a>
-<a href=""><div class="t-14 d-flex"><img src="img/Music alarm clock.png" alt=""><div>音乐闹钟</div></div></a>
-<a href=""><div class="t-14 d-flex"><img src="img/coupon.png" alt=""><div>优惠券</div></div></a>
-<a href=""><div class="t-14 d-flex"><img src="img/teen-agers.png" alt=""><div>青少年模式</div></div></a>
+<a href=""><div class="t-14 d-flex"><img src="../../assets/yh/order form.png" alt=""><div>我的订单</div></div></a>
+<a href=""><div class="t-14 d-flex"><img src="../../assets/yh/settime.png" alt=""><div>定时停止播放</div></div></a>
+<a href=""><div class="t-14 d-flex"><img src="../../assets/yh/sweep.png" alt=""><div>扫一扫</div></div></a>
+<a href=""><div class="t-14 d-flex"><img src="../../assets/yh/Music alarm clock.png" alt=""><div>音乐闹钟</div></div></a>
+<a href=""><div class="t-14 d-flex"><img src="../../assets/yh/coupon.png" alt=""><div>优惠券</div></div></a>
+<a href=""><div class="t-14 d-flex"><img src="../../assets/yh/teen-agers.png" alt=""><div>青少年模式</div></div></a>
 <hr>
-<a href=""><div class="t-14 d-flex"><img src="img/set.png" alt=""><div>设置</div></div></a>
-<a href=""><div class="t-14 d-flex"><img src="img/quit.png" alt=""><div>退出</div></div></a>
+<a href=""><div class="t-14 d-flex"><img src="../../assets/yh/set.png" alt=""><div>设置</div></div></a>
+<a href=""><div class="t-14 d-flex"><img src="../../assets/yh/quit.png" alt=""><div>退出</div></div></a>
 </div>
 </div>
   </div>
 </template>
 
-<style lang="">
+<style scoped>
   body{
   background:#f3f3f3;
 }

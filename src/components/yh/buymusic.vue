@@ -2,7 +2,7 @@
   <div>
     <!-- t跳转界面 -->
   <div class="bg d-flex header">
-      <a href=""><img src="../assets/yh/return.png" alt=""></a><div class="t-24">单曲购买</div> 
+      <a href=""><img src="../../assets/yh/return.png" alt=""></a><div class="t-24">单曲购买</div> 
         </div>
 
  <!-- 介绍部分 -->
@@ -50,7 +50,7 @@
   </div>
 </template>
 
-<style lang="">
+<style scoped>
   body{
   padding:2% 3%;
 }
@@ -122,4 +122,5 @@ hr{
 ul li{
   list-style-type:disc;
 }
+
 </style>
