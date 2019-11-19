@@ -6,8 +6,8 @@
 
       <!-- vip -->
       <div class="bg d-flex">
-        <div class="vip">黑胶VIP</div>
-        <div class="musicbag">音乐包</div>
+        <div class="vip" @click="change1" :class="{'zhuanghuanghong':neirong.zhuanghuanghong,'zhuanghuangbai':neirong.zhuanghuangbai}">黑胶VIP</div>
+        <div class="musicbag"  @click="change2" :class="{'zhuanghuanghong':neirong.zhuanghuangbai,'zhuanghuangbai':neirong.zhuanghuanghong}">音乐包</div>
       </div>
 
       <!-- 特权 -->
@@ -78,20 +78,31 @@ export default {
     return {
       vip:true,
       imgs:"down",
+      neirong:{zhuanghuanghong:true,zhuanghuangbai:false},
+      
     }
   },
   methods: {
     up(){
       this.vip?this.vip=false:this.vip=true;
       this.imgs=="up"?this.imgs="down":this.imgs="up";
-
-    }
+    },
+    change1(){
+      this.neirong.zhuanghuanghong=true;
+      this.neirong.zhuanghuangbai=false;
+      console.log(1);
+    },
+      change2(){
+      this.neirong.zhuanghuanghong=true;
+      this.neirong.zhuanghuangbai=false;
+      console.log(1);
+    },
   },
 }
 </script>
 <style scoped>
   
-bg{
+.bg{
   background: #fff;
 }
 /* 头部 */
@@ -104,10 +115,17 @@ bg{
   margin-left:5%;
 }
 /* vip */
+.zhuanghuanghong{
+  background-image: linear-gradient(to right,#ff393b, #f5ad96);
+  color: #fff;
+}
+.zhuanghuangbai{
+background:#fff;
+color: red;
+}
 .vip{
   width: 10rem;
   height:3rem;
-  background-image: linear-gradient(to right,#ff393b, #f5ad96);
   border-radius: 50px;
   text-align: center;
   line-height: 2.75;
