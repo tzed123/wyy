@@ -4,11 +4,16 @@ import Vuex from 'vuex'
 Vue.use(Vuex)
 
 export default new Vuex.Store({
-  state: {
+  state: {//共享数据
+    state:{
+      
+    }
   },
-  mutations: {
+  mutations: {//修改函数
   },
-  actions: {
+  getters: {//获取函数
+  },
+  actions: {//异步修改函数
   },
   modules: {
   }

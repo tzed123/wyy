@@ -4,6 +4,7 @@ import router from './router'
 import store from './store'
 import axios from 'axios'
 import mintui from 'mint-ui'
+import "mint-ui/lib/style.css"
 //引入公共样式
 import "../public/css/common.css"
 //tz引入路径
