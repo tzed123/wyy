@@ -5,7 +5,7 @@
     <img class="img-size" src="@/assets/tz/folder.png" alt="" @click="showfolder">
     <div class="dis-flex wid" @click="tab($event)">
       <p :class="pagetype==index?'color':''" 
-      v-for="(item,index) in p" :key="index" :data-num="index">{{item}}</p>          
+      v-for="(item,index) in p" :key="index" :data-num="index">{{item}}</p>
     </div>
     <router-link to="/searchbar">
       <img class="img-size" src="@/assets/tz/search.png" alt="">

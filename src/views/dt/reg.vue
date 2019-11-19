@@ -32,7 +32,6 @@ export default {
       var $uname = this.uname;
       //1.2获取用户输入密码
       var $upwd = this.upwd;
-      console.log($uname+"|"+$upwd);
       //1.3创建正则表达式验证用户名及密码6~16个字符，区分大小写
       var x =/^\w{6,16}$/i;
       //1.4通过正则表达式验证用户名，没通过提示交互
@@ -45,7 +44,20 @@ export default {
         return;
       }
       //ajax
-
+      var url="/reg";
+      var obj=`uname=${$uname}&upwd=${$upwd}`      
+      this.axios.post(url,obj)
+      .then(res=>{
+        if(res.data.code==1){
+          alert("注册成功")
+          this.$router.push("/")
+        }else{
+          alert("注册失败")
+        }
+      })
+      .catch(err=>{
+        console.log(err);
+      })
     }
   }
 }
