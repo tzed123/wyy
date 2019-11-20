@@ -21,7 +21,8 @@ import ControlList from '@/components/tz/ControlList.vue'
 //dj引入路径
 //zz引入路径
 //dt引入路径
-
+//引入字体图片样式文件
+import './assets/dt/iconfont/iconfont.css'
 //tz注册全局组件标签
 Vue.component("discovery",Discovery);//发现页面
 Vue.component("collect",Collect)//收藏到歌单
