@@ -12,6 +12,7 @@ const routes = [
   //dj
   {path:'/page',component:()=> import ('@/components/dj/page.vue')},
   {path:'/login',component:()=> import ('@/components/dj/login.vue')},
+  {path:'/loginn',component:()=> import ('@/components/dj/loginn.vue')},
 ]
 
 const router = new VueRouter({
