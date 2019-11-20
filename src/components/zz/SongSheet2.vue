@@ -161,7 +161,7 @@
                 </div>
                 <div class="songSheet-list-right">
                     <img src="@/assets/zz/play02-black.png" alt="">
-                    <img src="@/assets/ellipsis-black.png" alt="">
+                    <img src="@/assets/zz/ellipsis-black.png" alt="">
                 </div>
             </div>
         </div>

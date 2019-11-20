@@ -2,7 +2,7 @@
 <div>
   <div id="main">
     <index v-show="isShow" class="index"></index>    
-    <img class="img-size" src="@/assets/tz/folder.png" alt="" @click="showfolder">
+    <img class="img-size" src="@/assets/tz/folder.png" alt=""  @click.stop="toggleShow()">
     <div class="dis-flex wid" @click="tab($event)">
       <p :class="pagetype==index?'color':''" 
       v-for="(item,index) in p" :key="index" :data-num="index">{{item}}</p>
@@ -19,9 +19,10 @@
     <collect></collect>
   <controllist></controllist>
   <createlist></createlist>
-    
+    <SongSheet></SongSheet>
   <sendmsg></sendmsg>
   <timeclose></timeclose>   
+  
 </div>
 </template>
 <script>
@@ -33,15 +34,28 @@ export default {
       isShow:false
     }
   },
+  mounted(){
+    document.addEventListener('click',this.handleOtherClick);
+  },
+  destroyed(){
+    document.removeEventListener('click',this.handleOtherClick);
+  },
   methods:{
     tab:function(e){     
       if(e.target.nodeName=="P"){
         this.pagetype=e.target.dataset.num
       }
     },
-    showfolder:function(){
-      this.isShow=true
-    }
+    //handleOtherClick(e){
+    //  if(this.$refs.cursor.includes(e.target)){
+    //    return;
+    //  }else{
+    //    this.isShow=false;
+    //  }
+    //},
+    //toggleShow:function(){
+    //  this.isShow=!this.isShow;
+   // }
   }
 }
 </script>
