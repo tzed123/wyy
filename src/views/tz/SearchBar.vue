@@ -1,4 +1,4 @@
-tz/<template>
+<template>
   <div id="search-bar">
     <router-link to="/main">
     <img class="img-size" src="@/assets/tz/return.png" alt=""></router-link>
@@ -24,7 +24,6 @@ export default {
     height:1.4rem;
     border:transparent;
     border-bottom:1px solid black;
-    
   }
   .img-size{
     width:1.5rem;

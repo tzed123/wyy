@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <div class="bg"></div>
+<div class="bg">
+
 <!-- 头像部分 -->
 <div class="header">
 <a href="#"><div class="head_portrait"></div></a>
@@ -41,14 +41,11 @@
 <a href=""><div class="t-14 d-flex"><img src="../../assets/yh/quit.png" alt=""><div>退出</div></div></a>
 </div>
 </div>
-  </div>
+</div>
 </template>
 
 <style scoped>
-  body{
 
-  background:#f3f3f3;
-}
 /* 白布 */
 .bg{
   background:#fff;
@@ -60,7 +57,7 @@
   z-index:-100;
 }
 .header{
-  padding:5% 5% 3% 10%;
+  padding:5% 5% 3% 1%;
 }
 .head_portrait{
   width:5rem;

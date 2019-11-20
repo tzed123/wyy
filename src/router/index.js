@@ -5,13 +5,11 @@ Vue.use(VueRouter)
 
 const routes = [
   //tz导入路径
-  {path: '/main',component: () => import('@/views/tz/Main.vue')},//主界面
-  {path: '/search',component: () => import('@/views/tz/Search.vue')},
+  {path: '/main',component: () => import('@/views/tz/Main.vue')},//主界面 
   {path: '/searchbar',component: () => import('@/views/tz/SearchBar.vue')},
  
 
   //dj
-
   {path:'/login',component:()=> import ('@/components/dj/login.vue')},
   
   //zz导入路径
@@ -20,7 +18,6 @@ const routes = [
   //dt导入路径
   {path: '/player',component: () => import('@/views/dt/player.vue')},
   {path: '/reg',component: () => import('@/views/dt/reg.vue')},
-
 
   //yh
   {path:"/index",component:()=>import("@/components/yh/index.vue")},
