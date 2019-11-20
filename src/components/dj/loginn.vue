@@ -81,10 +81,6 @@
 </script>
 
 <style scoped>
-.main{
-  width:100%;
-  height:100%
-}
   .h1, h1 {
     line-height: 1.5rem;
   }
