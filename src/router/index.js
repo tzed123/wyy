@@ -16,6 +16,7 @@ const routes = [
   
   //zz导入路径
   {path:'/commentInterface',component:()=>import('@/views/zz/CommentInterface.vue')},
+  {path:'/songsheetz',component:()=>import('@/views/zz/SongSheetz.vue')},
 
   //dt导入路径
   {path: '/player',component: () => import('@/views/dt/player.vue')},

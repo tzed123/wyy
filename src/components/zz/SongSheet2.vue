@@ -177,7 +177,6 @@ export default {
     .container{
   width:100%;
   height:100%;
-  background-color:blue;
 }
 .songSheet-content{
   display:flex;
