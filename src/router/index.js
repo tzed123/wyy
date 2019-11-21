@@ -11,11 +11,8 @@ const routes = [
   {path:'/',component:()=> import ('@/views/tz/Main.vue')},
 
   //dj
-
+  {path:'/page',component:()=> import ('@/components/dj/page.vue')},
   {path:'/login',component:()=> import ('@/components/dj/login.vue')},
-<<<<<<< HEAD
-  {path:'/loginn',component:()=> import ('@/components/dj/loginn.vue')},
-=======
   
   //zz导入路径
   {path:'/commentInterface',component:()=>import('@/views/zz/CommentInterface.vue')},
@@ -33,7 +30,6 @@ const routes = [
   {path:"/index",component:()=>import("@/components/yh/index.vue")},
   {path:"/personal",component:()=>import("@/components/yh/personal.vue")},
 
->>>>>>> bb9045ac90e5305a2bb656593672d3886b60f2c0
 ]
 
 

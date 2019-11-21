@@ -1,11 +1,5 @@
 <template>
   <div class='head'>
-    <!--第一部分-->
-    <div class='top'>
-      <a id='left' href=""><img src="@/assets/dj/1.png"/></a>
-      <span>我的音乐</span>
-      <a id='right' href=""><img src="@/assets/dj/2.png"/></a>
-    </div>
     <!--第二部分-->
     <div class='banner'>
       <!--私人FM-->
