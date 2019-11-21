@@ -88,7 +88,7 @@ export default {
       this.imgs=="up"?this.imgs="down":this.imgs="up";
     },
     change1(){
-
+      
     },
       change2(){
 

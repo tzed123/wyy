@@ -41,7 +41,6 @@
 <a href=""><div class="t-14 d-flex"><img src="../../assets/yh/quit.png" alt=""><div>退出</div></div></a>
 </div>
 </div>
-  </div>
 </template>
 
 <style scoped>
@@ -55,7 +54,7 @@
 /* 白布 */
 .bg{
   background:#fff;
-  width: 93%;
+  width: 70%;
   height:75%;
   position: absolute;
   top:25%;

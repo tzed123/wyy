@@ -2,15 +2,14 @@
 <div id="container">
   <div class="dis-flex collection">
     <p>收藏到歌单</p>
-    <div class="mul dis-flex">
-      <div class="mul-img">
-      <img  src="@/assets/tz/mul-select.png">
-      </div>
-      <p>多选</p>
+    <div class="mul dis-flex" @touchstart="texttoggle">      
+      <img v-show="text.t1" class="mul-img" src="@/assets/tz/mul-select.png">      
+      <p v-show="text.t1">多选</p>
+      <p v-show="text.t2" class="p2">完成</p>
     </div>   
   </div> 
   <!--新建歌单-->
-  <div class="create" @touchstart="changebg">
+  <div class="create">
     <div class="plus">
       <img src="@/assets/tz/plus.png">
     </div>
@@ -29,9 +28,9 @@
         </div>
       </div>
       <!--选项框-->
-      <div class="checkbox">
-        <img src="@/assets/tz/select.png">
-        <img src="@/assets/tz/select-check.png">
+      <div v-show="text.t2" class="checkbox" @touchstart="shiftercheck">
+        <img v-if="checked==0" src="@/assets/tz/select.png">
+        <img v-else="checked==1" src="@/assets/tz/select-check.png">
       </div>
     </li>    
   </ul>
@@ -40,17 +39,38 @@
 <script>
 export default {
   data(){
-    return{}
+    return{
+      isBg:false,
+      checked:"0",
+      text:{
+        t1:true,
+        t2:false
+      }
+    }
   },
   methods:{
-    changebg:function(){
-      console.log(this)
-      
-
+    changebg(){
+      this.isBg=!this.isBg
+    },
+    shiftercheck(){
+      if(this.checked==0){
+        this.checked=1
+      }else{
+        this.checked=0
+      }
+    },
+    texttoggle(){
+      if(this.text.t1){
+        this.text.t1=false;
+        this.text.t2=true;
+      }else{
+        this.text.t1=true;
+        this.text.t2=false;
+      }
     }
   }
-
 }
+
 </script>
 <style scoped>
   #container{
@@ -65,15 +85,20 @@ export default {
     height:3rem;
     line-height:3rem;
   }
-  .mul{    
+  .collection :active{
+    background:#eee;
+  }
+  .mul{
+    display:flex;
     width:3.3rem;
+    align-items:center;
   }
-  .mul-img{
+  .mul-img{    
     width:1rem;
-
+    height:1rem;
   }
-  .mul-img>img{
-    width:100%;
+  .p2{
+    margin-left:1rem;
   }
   .create{    
     padding:0.5rem 0.5rem;
@@ -111,13 +136,19 @@ export default {
     margin-left:1rem;
   }
   .checkbox{
-    margin-right:0.5rem;
+    margin-right:1.5rem;
     display:flex;
     width:1rem;
     align-items:center;
+
   }
   .checkbox>img{
     width:100%;
   }
-  
+  .create:active{
+    background:#eee;
+  }
+  .list:active{
+    background:#eee;
+  }
 </style>
