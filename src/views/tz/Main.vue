@@ -1,9 +1,9 @@
 <template>
-<div class="pad" @click='isShow=false'>
+<div class="pad" @touchstart='isShow=false;slideStyle.left="-300px";start($event)' ref='slide' @touchmove='move($event)' @touchend='end($event)'>
   <span class="msk" v-show="isShow"></span>
-  <index v-show="isShow" class="index" ></index> 
-  <div id="main"  >       
-    <img class="img-size" src="@/assets/tz/folder.png" alt="" @click.stop="isShow=true">
+  <index  class="index" ref="index" :style='{left:slideStyle.left,transition:slideStyle.transition}' ></index> 
+  <div id="main">  
+    <img class="img-size" src="@/assets/tz/folder.png" alt="" @touchstart.stop="isShow=true;slideStyle.left='0px'">
     <div class="dis-flex wid" @click="tab($event)">
       <p :class="pagetype==index?'color':''" 
       v-for="(item,index) in p" :key="index" :data-num="index">{{item}}</p>
@@ -12,7 +12,6 @@
       <img class="img-size" src="@/assets/tz/search.png" alt="">
     </router-link>
   </div>
-  
   <page v-if="pagetype==0" ></page>
   <discovery v-else-if="pagetype==1"></discovery>
   <personal v-else="pagetype==2"></personal>
@@ -36,7 +35,15 @@ export default{
       pagetype:0,
       isShow:false,
       com:false,
-      msk:false
+      msk:false,
+      //touch
+      flag:false,
+      startX:0,
+      endX:0,
+      slideStyle:{
+        left:'-300px',
+        transition:'none'
+      }
     }
   },
   methods:{
@@ -44,12 +51,53 @@ export default{
       if(e.target.nodeName=="P"){
         this.pagetype=e.target.dataset.num
       }
+    },
+    start(e){
+      if(e.touches[0].clientX<30){
+        this.flag=true;
+        this.startX=e.touches[0].clientX;//移动起点
+        console.log(e.touches[0].clientX)
+        this.endX=this.$refs.slide.offsetLeft;//元素左外边框与父级元素的左内边框的距离 
+        this.slideStyle.transition='none';//去除过渡效果
+      }
+    },
+    move(e){
+      if(this.flag){
+        this.isShow=true;
+        var moveX=this.endX+e.touches[0].clientX-this.startX;//移动距离
+        if(moveX<300){
+        if(moveX>0){
+          this.slideStyle.left=moveX-300+'px';
+        }else{
+          this.slideStyle.left='-300px';
+        }}
+      }
+    },
+    end(e){
+      if(this.flag){
+        this.flag=false;
+        var moveX=e.changedTouches[0].clientX-this.startX;
+        
+          this.slideStyle.transition='left 0.5s';
+        if(moveX<150){
+          this.slideStyle.left='-300px';
+          this.isShow=false
+        }else{
+          this.slideStyle.left='0';
+        }
+      }
     }
-  },
-
+    
+  }
 }
 </script>
 <style scoped>
+  .test{
+    width:2rem;
+    height:2rem;
+    position:absolute;
+    background:red;
+  }
   .pad{
     padding-bottom:4rem;
   }
@@ -71,9 +119,9 @@ export default{
   }
   .index{
     position:fixed;
+    
     top:0;
-    left:0;
-    z-index:200
+    z-index:200;
   }
   .img-size{
     width:1.5rem;
