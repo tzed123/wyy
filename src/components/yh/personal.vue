@@ -47,13 +47,12 @@
 .beijing{
   background:#eeeded;
   bottom:0;
-  position:absolute;
   top:0;
+
 }
   .sb{
   width:100%;
-  z-index:0;
-  position: absolute;
+margin-top:-10.5rem;
   top:0;
 }
 .header{
@@ -68,24 +67,24 @@
   width:50px;
   border:1px solid red ;
   border-radius: 50%;
-  z-index:1;
+  z-index:0;
 }
 .wz{
   margin-left:3%;
   margin-top:3%;
   color:#f4e8ec;
-  z-index:1;
+  z-index:0;
 }
 .gr{
   margin-top:7%;
   margin-left:10%;
-  z-index:1;
+  z-index:0;
 }
 /* 特权 */
 .tq{
   margin-top:7%;
   margin-left: 10%;
-  z-index:1;
+  z-index:0;
 }
 .xf{
   width:7rem;
@@ -98,7 +97,8 @@
   margin-top:-7%;
   line-height:2.5rem;
  position:relative;
-  z-index:2;
+  z-index:1;
+  color:red;
 }
 .tq img{
 margin-right: 5%;
@@ -108,7 +108,7 @@ z-index:1;
   .carousel{
     width:90%;
     height:8rem;
-    margin-top:13%;
+    margin-top:-13%;
     margin-left:5%;
     border-radius:0.5rem;
   }
