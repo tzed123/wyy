@@ -1,0 +1,128 @@
+{
+  "id": "",
+  "name": "",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "1648673",
+      "name": "下载",
+      "font_class": "xiazai",
+      "unicode": "e525",
+      "unicode_decimal": 58661
+    },
+    {
+      "icon_id": "3763988",
+      "name": "评论",
+      "font_class": "weibiaoti-",
+      "unicode": "e60b",
+      "unicode_decimal": 58891
+    },
+    {
+      "icon_id": "6225016",
+      "name": "播放",
+      "font_class": "bofang",
+      "unicode": "e67f",
+      "unicode_decimal": 59007
+    },
+    {
+      "icon_id": "6718995",
+      "name": "菜单-打开",
+      "font_class": "caidan-dakai",
+      "unicode": "e6a4",
+      "unicode_decimal": 59044
+    },
+    {
+      "icon_id": "7084790",
+      "name": "上一曲",
+      "font_class": "shangyiqu",
+      "unicode": "e685",
+      "unicode_decimal": 59013
+    },
+    {
+      "icon_id": "7084975",
+      "name": "下一曲",
+      "font_class": "xiayiqu",
+      "unicode": "e68e",
+      "unicode_decimal": 59022
+    },
+    {
+      "icon_id": "7461039",
+      "name": "收 藏",
+      "font_class": "like",
+      "unicode": "e60a",
+      "unicode_decimal": 58890
+    },
+    {
+      "icon_id": "8833525",
+      "name": "鲸云音效",
+      "font_class": "jingyunyinxiaopt-wangyiicon",
+      "unicode": "e612",
+      "unicode_decimal": 58898
+    },
+    {
+      "icon_id": "9335553",
+      "name": "三个点",
+      "font_class": "sangedian",
+      "unicode": "e60d",
+      "unicode_decimal": 58893
+    },
+    {
+      "icon_id": "9835547",
+      "name": "暂停",
+      "font_class": "zanting",
+      "unicode": "e869",
+      "unicode_decimal": 59497
+    },
+    {
+      "icon_id": "9880004",
+      "name": "向上",
+      "font_class": "up2",
+      "unicode": "e6a9",
+      "unicode_decimal": 59049
+    },
+    {
+      "icon_id": "9898176",
+      "name": "单曲循环",
+      "font_class": "danquxunhuan",
+      "unicode": "e629",
+      "unicode_decimal": 58921
+    },
+    {
+      "icon_id": "9898178",
+      "name": "列表循环",
+      "font_class": "liebiaoxunhuan",
+      "unicode": "e62a",
+      "unicode_decimal": 58922
+    },
+    {
+      "icon_id": "9898181",
+      "name": "随机循环",
+      "font_class": "suijixunhuan",
+      "unicode": "e62c",
+      "unicode_decimal": 58924
+    },
+    {
+      "icon_id": "10100018",
+      "name": "收 藏-产品详情",
+      "font_class": "love",
+      "unicode": "e507",
+      "unicode_decimal": 58631
+    },
+    {
+      "icon_id": "10809227",
+      "name": "爱心  收藏",
+      "font_class": "changyongtubiao-xianxingdaochu-zhuanqu-",
+      "unicode": "e70f",
+      "unicode_decimal": 59151
+    },
+    {
+      "icon_id": "10989434",
+      "name": "向上",
+      "font_class": "up",
+      "unicode": "e50b",
+      "unicode_decimal": 58635
+    }
+  ]
+}
