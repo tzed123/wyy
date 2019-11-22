@@ -15,6 +15,7 @@ import PlayBar from '@/components/tz/PlayBar.vue'
 import SendMsg from '@/components/tz/SendMsg.vue'
 import TimeClose from '@/components/tz/TimeClose.vue'
 import ControlList from '@/components/tz/ControlList.vue'
+import Msk from '@/components/tz/Msk.vue'
 
 //yh引入路径
 import index from '@/components/yh/index.vue'
@@ -38,6 +39,7 @@ Vue.component("playbar",PlayBar)//底部播放条
 Vue.component("sendmsg",SendMsg)//发送消息
 Vue.component("timeclose",TimeClose)//定时关闭
 Vue.component("controllist",ControlList)//歌单省略号拓展功能
+Vue.component("msk",Msk)//歌单省略号拓展功能
 
 //yh注册全局组件标签
 Vue.component("index",index)

@@ -1,7 +1,7 @@
 <template>
 <div class="pad" @touchstart='isShow=false;slideStyle.left="-300px";start($event)' ref='slide' @touchmove='move($event)' @touchend='end($event)'>
-  <span class="msk" v-show="isShow"></span>
-  <index  class="index" ref="index" :style='{left:slideStyle.left,transition:slideStyle.transition}' ></index> 
+  <msk v-show="isShow"></msk>
+  <index  class="index" ref="index" :style='{left:slideStyle.left,transition:slideStyle.transition}'></index> 
   <div id="main">  
     <img class="img-size" src="@/assets/tz/folder.png" alt="" @touchstart.stop="isShow=true;slideStyle.left='0px'">
     <div class="dis-flex wid" @click="tab($event)">
@@ -11,14 +11,12 @@
     <router-link to="/searchbar">
       <img class="img-size" src="@/assets/tz/search.png" alt="">
     </router-link>
-  </div>
-  <!---->
-
+  </div> 
   <page v-if="pagetype==0" ></page>
   <discovery v-else-if="pagetype==1"></discovery>
   <personal v-else="pagetype==2"></personal>
   <playbar class="fix"></playbar>
-  <!-- <index></index> -->
+
   <collect></collect>
   <controllist></controllist>
   <createlist></createlist>    

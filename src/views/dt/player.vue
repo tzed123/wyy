@@ -9,8 +9,8 @@
       <div class="top">
         <div class="back">
           <i class="iconfont icon-sdf">
-            <router-link to="/coin"></router-link>
-            <img src="@/assets/dt/icon-sdf.png" alt="">
+            <router-link to="/main">
+            <img src="@/assets/dt/icon-sdf.png" alt=""></router-link>
           </i>
         </div>
         <h1 class="title">大田後生仔
