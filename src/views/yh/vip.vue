@@ -6,8 +6,8 @@
 
       <!-- vip -->
       <div class="bg d-flex">
-        <div class="vip" @click="change1" :class="{'zhuanghuanghong':true,'zhuanghuangbai':false}">黑胶VIP</div>
-        <div class="musicbag  "  @click="change2" :class="{'zhuanghuanghong':false,'zhuanghuangbai':true}">音乐包</div>
+        <div id="d1" class="vip" @click="change1" :class="{'zhuanghuanghong':true,'zhuanghuangbai':false}">黑胶VIP</div>
+        <div  id="d2" class="musicbag"  @click="change2" :class="{'zhuanghuanghong':false,'zhuanghuangbai':true}">音乐包</div>
       </div>
 
       <!-- 特权 -->
@@ -36,19 +36,19 @@
      <!-- 包月 -->
      <div class="month">
        <ul>
-         <li class="kuan gd">
+         <li class="gd" :class="{kuan:iskuan}">
            <div>连续包月<div class="month-div-size">到期可自动续费，可随时取消</div></div>
            <div class="price1">¥11</div>
         </li>
-        <li>
+        <li :class="{kuan:iskuan}">
             <div>12个月<div class="month-div-size op">到期可自动续费，可随时取消</div></div>
             <div class="price1">¥11</div><div class="pj1">¥11.5/月</div>
          </li>
-         <li>
+         <li :class="{kuan:iskuan}">
             <div>3个月<div class="month-div-size op">到期可自动续费，可随时取消</div></div>
             <div class="price1">¥11</div><div class="pj1">¥13.3/月</div>
          </li>   
-         <li>
+         <li :class="{kuan:iskuan}">
             <div>1个月<div class="month-div-size op">到期可自动续费，可随时取消</div></div>
             <div class="price1">¥15</div><div class="pj1">¥15/月</div>
          </li>         
@@ -78,7 +78,7 @@ export default {
     return {
       vip:true,
       imgs:"down",
-      neirong:{zhuanghuanghong:true,zhuanghuangbai:false},
+      iskuan:true,
 
     }
   },
@@ -87,12 +87,7 @@ export default {
       this.vip?this.vip=false:this.vip=true;
       this.imgs=="up"?this.imgs="down":this.imgs="up";
     },
-    change1(){
 
-    },
-      change2(){
-
-    },
   },
 }
 </script>

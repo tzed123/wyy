@@ -44,7 +44,7 @@
 </template>
 
 <style scoped>
-  .body{
+.body{
   background:#f3f3f3;
   width:80%;
   position:absolute;
