@@ -5,20 +5,16 @@ Vue.use(VueRouter)
 
 const routes = [
   //tz导入路径
-  {path: '/main',component: () => import('@/views/tz/Main.vue')},//主界面 
+  {path: '/main',component: () => import('@/views/tz/Main.vue'),meta:{keepAlive:true}},//主界面 
   {path: '/searchbar',component: () => import('@/views/tz/SearchBar.vue')},
-  {path:'/',component:()=> import ('@/views/tz/Main.vue')},
-
+  {path:'/',component:()=> import ('@/views/tz/Main.vue'),meta:{keepAlive:true}},
   //dj
   {path:'/login',component:()=> import ('@/components/dj/login.vue')},
-  
   //zz导入路径
   {path:'/commentInterface',component:()=>import('@/views/zz/CommentInterface.vue')},
-
   //dt导入路径
   {path: '/player',component: () => import('@/views/dt/player.vue')},
   {path: '/reg',component: () => import('@/views/dt/reg.vue')},
-
   //yh
   {path:"/index",component:()=>import("@/components/yh/index.vue")},
   {path:"/buymusic",component:()=>import("@/views/yh/buymusic.vue")},

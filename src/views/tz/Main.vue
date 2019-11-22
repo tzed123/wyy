@@ -12,6 +12,8 @@
       <img class="img-size" src="@/assets/tz/search.png" alt="">
     </router-link>
   </div>
+  <!---->
+
   <page v-if="pagetype==0" ></page>
   <discovery v-else-if="pagetype==1"></discovery>
   <personal v-else="pagetype==2"></personal>
