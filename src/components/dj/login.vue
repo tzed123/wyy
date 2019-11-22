@@ -9,10 +9,10 @@
     <!--立即体验-->
     <button v-show="isLogin" @click="loginn" class="btn" id='d4'>立即体验</button>
     <!--条款-->
-    <p><input type="checkbox" value="" v-model='agree'>同意<a href="">《服务条款》</a><a href="">《隐私政策》</a><a href="">《儿童政策》</a></p>
+    <p v-show="!isLogout"><input type="checkbox" value="" v-model='isagree'>同意《服务条款》《隐私政策》《儿童政策》</p>
     <!--账号密码登录--> 
-    <button class="topback" v-show="isLogout">返回</button>
-    <div id='login' v-show="isLogout" >      
+    <button class="topback"  v-show="isreturn"  @click='login'>返回</button>
+    <div id='login' v-show="isLogout" > 
       <input type="text"  class="form-control" id='d2' placeholder="请输入账号" v-model='uname'>
       <input type="password" class="form-control" placeholder="请输入密码" v-model='upwd'>
       <div class='car'>
@@ -20,8 +20,7 @@
         <button class='d3' @click="jump">注册</button>      
       </div>
     </div>
-
-  </div>  
+  </div >  
 </template>
 <script>
   export default {
@@ -31,17 +30,19 @@
         isLogout:false,
         uname:'',
         upwd:'',  
-        agree:false
+        isagree:false,
+        isreturn:false
       }
     },
     methods:{
       login(){
-      var a=this.agree;
-      if(!login.test){
+      if(this.isagree==false){
        this.$toast("请勾选协议")
+       return;
       }
         this.isLogin=false;
         this.isLogout=true;
+        this.isreturn=!this.isreturn
       },
       logout(){
         this.isLogin=true;
@@ -59,8 +60,7 @@
       reg(){
         var u=this.uname;
         var p=this.upwd;
-        var reg=/^\w{6,16}$/i;
-        var areg=/^\w{6,16}$/i;
+        var reg=/^\w{6,16}$/;
         if(!reg.test(u)){
           this.$toast('账号格式不正确')
           return;
@@ -129,9 +129,6 @@
 .content p{
   margin-left:2rem;
   margin-top:2rem;
-  color:white;
-}
-.content p a{
   color:white;
 }
 /*<!--账号密码登录-->*/
