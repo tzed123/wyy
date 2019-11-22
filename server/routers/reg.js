@@ -6,16 +6,14 @@ const pool=require("../pool.js");
 const router=express.Router();
 
 router.post("/reg",(req,res)=>{
-  console.log(1)
-  console.log(req)
 var {uname,upwd}=req.body
-  var sql='INSERT INTO reg VALUES(null,?,?,0)';
+  var sql='INSERT INTO reg (uname,upwd)VALUES(?,?)';
   pool.query(sql,[uname,upwd],(err,result)=>{
     if(err)throw err;
     if (result.affectedRows>0){
-			res.send('1');
+			res.send({code:1,msg:'注册成功'});
 		}else{
-			res.send('0');
+			res.send({code:0,msg:'注册失败'});
 		}	
   })
 })

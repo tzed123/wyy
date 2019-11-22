@@ -10,7 +10,8 @@
 const express = require("express");
 const cors = require("cors");
 const session = require("express-session");
-const bodyParser=require('body-parser')
+const bodyParser=require('body-parser');
+
 //引入路由器
 //(1)引入注册路由
 const regRouter=require("./routers/reg.js");

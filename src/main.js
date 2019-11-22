@@ -58,7 +58,7 @@ Vue.component("SongSheet2",SongSheet2)
 Vue.use(mintui)
 //配置axios基础路径
 Vue.prototype.axios=axios;
-axios.defaults.baseURL="http://localhost:8080";
+axios.defaults.baseURL="http://localhost:3000";
 axios.defaults.withCredentials=true;
 Vue.config.productionTip = false;
 

@@ -45,9 +45,10 @@ export default {
       }
       //ajax
       var url="/users/reg";
-      var obj=`uname=${$uname}&upwd=${$upwd}`      
+      var obj=`uname=${$uname}&upwd=${$upwd}`
       this.axios.post(url,obj)
       .then(res=>{
+        console.log("请求成功并返回")
         if(res.data.code==1){
           alert("注册成功")
           this.$router.push("/")
