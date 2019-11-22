@@ -19,9 +19,11 @@
 
   <collect></collect>
   <controllist></controllist>
-  <createlist></createlist>    
+  <createlist></createlist>
+    <SongSheet></SongSheet>
   <sendmsg></sendmsg>
   <timeclose></timeclose>   
+  
 </div>
 </template>
 <script>
@@ -45,6 +47,12 @@ export default{
         transition:'none'
       }
     }
+  },
+  mounted(){
+    document.addEventListener('click',this.handleOtherClick);
+  },
+  destroyed(){
+    document.removeEventListener('click',this.handleOtherClick);
   },
   methods:{
     tab:function(e){     

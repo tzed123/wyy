@@ -12,6 +12,11 @@ const routes = [
   {path:'/login',component:()=> import ('@/components/dj/login.vue')},
   //zz导入路径
   {path:'/commentInterface',component:()=>import('@/views/zz/CommentInterface.vue')},
+<<<<<<< HEAD
+=======
+  {path:'/songsheetz',component:()=>import('@/views/zz/SongSheetz.vue')},
+
+>>>>>>> e286c90c3906f5a045df57b3e8d89aadda9d49d4
   //dt导入路径
   {path: '/player',component: () => import('@/views/dt/player.vue')},
   {path: '/reg',component: () => import('@/views/dt/reg.vue')},

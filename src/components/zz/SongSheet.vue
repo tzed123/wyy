@@ -24,7 +24,7 @@
             </div>
         </div>
         <ul class="songSheet-handle">
-            <li><img src="@/assets/zz/comment-white.png" alt=""><p>666</p></li> 
+            <li><router-link to="/commentInterface"><img src="@/assets/zz/comment-white.png" alt=""></router-link><p>666</p></li> 
             <li><img src="@/assets/zz/share-white.png" alt=""><p>666</p></li> 
             <li><img src="@/assets/zz/download-white.png" alt=""><p>下载</p></li> 
             <li><img src="@/assets/zz/multipleSelection-white.png" alt=""><p>多选</p></li>
@@ -108,7 +108,7 @@ export default{
   height:3rem;
   margin-bottom:0.5rem;
 }
-.songSheet-handle>li>img{
+.songSheet-handle>li img{
   width:75%;
   height:60%;
 }

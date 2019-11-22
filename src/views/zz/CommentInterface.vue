@@ -135,6 +135,7 @@
             <hr class="comment-underline">
         </div>
         <div class="blank-area"></div>
+        <sendmsg></sendmsg>
     </div>
 </template>
 
