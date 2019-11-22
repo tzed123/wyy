@@ -1,8 +1,8 @@
 <template>
-<div class="pad" @touchstart='isShow=false;slideStyle.left="-300px";start($event)' ref='slide' @touchmove='move($event)' @touchend='end($event)'>
-  <msk v-show="isShow"></msk>
+<div class="pad"  @touchstart='show($event);start($event)' ref='slide' @touchmove='move($event)' @touchend='end($event)'> 
+  <msk v-show="isShow" ref='msk' ></msk>
   <index  class="index" ref="index" :style='{left:slideStyle.left,transition:slideStyle.transition}'></index> 
-  <div id="main">  
+  <div id="main" >
     <img class="img-size" src="@/assets/tz/folder.png" alt="" @touchstart.stop="isShow=true;slideStyle.left='0px'">
     <div class="dis-flex wid" @click="tab($event)">
       <p :class="pagetype==index?'color':''" 
@@ -16,28 +16,22 @@
   <discovery v-else-if="pagetype==1"></discovery>
   <personal v-else="pagetype==2"></personal>
   <playbar class="fix"></playbar>
-
   <collect></collect>
   <controllist></controllist>
   <createlist></createlist>
-    <SongSheet></SongSheet>
   <sendmsg></sendmsg>
-  <timeclose></timeclose>   
-  
+  <timeclose></timeclose>
 </div>
 </template>
 <script>
 import collect from '@/components/tz/Collect.vue'
-export default{
-  
+export default{  
   components:{collect},
   data(){
     return {
       p:["我的","发现","VIP"],
       pagetype:0,
       isShow:false,
-      com:false,
-      msk:false,
       //touch
       flag:false,
       startX:0,
@@ -48,11 +42,8 @@ export default{
       }
     }
   },
-  mounted(){
-    document.addEventListener('click',this.handleOtherClick);
-  },
-  destroyed(){
-    document.removeEventListener('click',this.handleOtherClick);
+  watch:{
+    isShow(news,olds){news?document.body.style.overflow='hidden':document.body.style.overflow='visible';}
   },
   methods:{
     tab:function(e){     
@@ -60,17 +51,22 @@ export default{
         this.pagetype=e.target.dataset.num
       }
     },
+    show(e){
+      if(e.target.nodeName=='SPAN'){
+        this.isShow=false;
+        this.slideStyle.left="-300px";
+      }
+    },
     start(e){
-      if(e.touches[0].clientX<30){
+      if(e.touches[0].clientX<20){
         this.flag=true;
         this.startX=e.touches[0].clientX;//移动起点
-        console.log(e.touches[0].clientX)
         this.endX=this.$refs.slide.offsetLeft;//元素左外边框与父级元素的左内边框的距离 
         this.slideStyle.transition='none';//去除过渡效果
       }
     },
     move(e){
-      if(this.flag){
+      if(this.flag){        
         this.isShow=true;
         var moveX=this.endX+e.touches[0].clientX-this.startX;//移动距离
         if(moveX<300){
@@ -85,16 +81,18 @@ export default{
       if(this.flag){
         this.flag=false;
         var moveX=e.changedTouches[0].clientX-this.startX;
-        
-          this.slideStyle.transition='left 0.5s';
+        this.slideStyle.transition='left 0.5s';
         if(moveX<150){
           this.slideStyle.left='-300px';
           this.isShow=false
         }else{
           this.slideStyle.left='0';
         }
+        
       }
-    }
+    }   
+  },
+  created(){
     
   }
 }
@@ -108,6 +106,8 @@ export default{
   }
   .pad{
     padding-bottom:4rem;
+    overflow-y:hidden;
+    height:100%
   }
   .msk{
     position: fixed;
@@ -127,7 +127,6 @@ export default{
   }
   .index{
     position:fixed;
-    
     top:0;
     z-index:200;
   }
