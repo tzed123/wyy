@@ -6,8 +6,8 @@
 
       <!-- vip -->
       <div class="bg d-flex">
-        <div class="vip" @click="change1" :class="{'zhuanghuanghong':neirong.zhuanghuanghong,'zhuanghuangbai':neirong.zhuanghuangbai}">黑胶VIP</div>
-        <div class="musicbag"  @click="change2" :class="{'zhuanghuanghong':neirong.zhuanghuangbai,'zhuanghuangbai':neirong.zhuanghuanghong}">音乐包</div>
+        <div class="vip" @click="change1" :class="{'zhuanghuanghong':true,'zhuanghuangbai':false}">黑胶VIP</div>
+        <div class="musicbag  "  @click="change2" :class="{'zhuanghuanghong':false,'zhuanghuangbai':true}">音乐包</div>
       </div>
 
       <!-- 特权 -->
@@ -36,7 +36,7 @@
      <!-- 包月 -->
      <div class="month">
        <ul>
-         <li class="kuan">
+         <li class="kuan gd">
            <div>连续包月<div class="month-div-size">到期可自动续费，可随时取消</div></div>
            <div class="price1">¥11</div>
         </li>
@@ -79,7 +79,7 @@ export default {
       vip:true,
       imgs:"down",
       neirong:{zhuanghuanghong:true,zhuanghuangbai:false},
-      
+
     }
   },
   methods: {
@@ -88,14 +88,10 @@ export default {
       this.imgs=="up"?this.imgs="down":this.imgs="up";
     },
     change1(){
-      this.neirong.zhuanghuanghong=true;
-      this.neirong.zhuanghuangbai=false;
-      console.log(1);
+
     },
       change2(){
-      this.neirong.zhuanghuanghong=true;
-      this.neirong.zhuanghuangbai=false;
-      console.log(1);
+
     },
   },
 }
@@ -177,6 +173,9 @@ top:-30%;
   margin-right:4%;
  }
  /* 包月 */
+ .gu{
+   height:61px;
+ }
  .month{
    margin-top:5%;
    margin-left:9%;

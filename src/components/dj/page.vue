@@ -1,11 +1,5 @@
 <template>
   <div class='head'>
-    <!--第一部分-->
-    <div class='top'>
-      <a id='left' href=""><img src="@/assets/dj/1.png"/></a>
-      <span>我的音乐</span>
-      <a id='right' href=""><img src="@/assets/dj/2.png"/></a>
-    </div>
     <!--第二部分-->
     <div class='banner'>
       <!--私人FM-->
@@ -37,13 +31,19 @@
       <a href=""><div><img src="@/assets/dj/9.png"/><div>我的收藏</div></div></a>                   
     </div>
     <!--第四部分-->
-    <div class='meau'>
-  
-    </div>
-  </div>
+
+
+</div>
 </template>
 <script>
+export default {
+  data(){
+    return{}
+  },
+  methods:{
 
+  }
+}
 </script>
 <style scoped>
 /* <!--第一部分--> */
@@ -110,6 +110,5 @@ hr{
   width:8%;
   height:8%;
 }
-/*<!--第四部分-->*/
-
+/*<!--第四部分-->*/          
 </style>

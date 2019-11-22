@@ -10,6 +10,8 @@
 const express = require("express");
 const cors = require("cors");
 const session = require("express-session");
+const bodyParser=require('body-parser');
+
 //引入路由器
 //(1)引入注册路由
 const regRouter=require("./routers/reg.js");
@@ -24,7 +26,9 @@ server.use(cors({
    origin:["http://127.0.0.1:8080","http://localhost:8080"],
    credentials:true  //每次请求验证
 }))
+
 //7:配置session环境
+server.use(bodyParser.urlencoded({extended:false}));
 server.use(session({
    secret:"128位安全字符串",
    resave:true,         //请求更新数据 
@@ -36,4 +40,4 @@ server.use(express.static("public"))
 //9:启动监听端口  3000
 server.listen(3000);
 //用户路由在服务器下使用，并挂载到/ajax
-server.use('',regRouter);
+server.use('/users',regRouter);

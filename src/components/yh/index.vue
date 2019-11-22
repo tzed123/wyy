@@ -1,6 +1,5 @@
 <template>
-<div class="bg">
-
+<div class="body">
 <!-- 头像部分 -->
 <div class="header">
 <a href="#"><div class="head_portrait"></div></a>
@@ -45,7 +44,13 @@
 </template>
 
 <style scoped>
-
+  .body{
+  background:#f3f3f3;
+  width:80%;
+  position:absolute;
+  top:0;
+  bottom:0;
+}
 /* 白布 */
 .bg{
   background:#fff;
@@ -57,7 +62,7 @@
   z-index:-100;
 }
 .header{
-  padding:5% 5% 3% 1%;
+  padding:10% 5% 3% 5%;
 }
 .head_portrait{
   width:5rem;
@@ -77,8 +82,7 @@
 }
 /* 姓名等级签到 */
 .header>.last>:last-child{
-  position: absolute;
-  right:10%;
+margin-left:10%;
 }
 /* vip */
 .vip{
