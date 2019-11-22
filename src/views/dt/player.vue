@@ -18,40 +18,35 @@
         <h2 class="subtitle">丫蛋蛋></h2>
       </div>
       <!-- 中部 -->
-      <div  class="middle">
+      <div class="middle">
         <!-- 前 -->
-        <div  :style="mid1" class="middle-l">
+        <div :style="mid1" class="middle-l">
           <!-- 光碟 -->
           <div @click="middle" class="cd-wrapper">
-            <div class="cd">
+            <div class="cd" :class="rotate">
               <img src="@/assets/dt/109951164427560286.jpg" class="image">
             </div>
           </div>
           <!-- 按键栏 -->
           <div class="operators">
             <div class="icon i-left">
-              <i class="icon-collect">
-                <img src="@/assets/dt/icon-collect.png" alt="">
+              <i @click="collect" class="iconfont " :class="{'icon-love':a==1,'icon-like':a==2}">
               </i>
             </div>
             <div class="icon i-left">
-              <i class="icon-download">
-                <img src="@/assets/dt/icon-download.png" alt="">
+              <i class="iconfont icon-xiazai">
               </i>
             </div>
             <div class="icon i-center" >
-              <i class="icon-yinxiao">
-                <img src="@/assets/dt/icon-yinxiao.png" alt="">
+              <i class="iconfont icon-jingyunyinxiaopt-wangyiicon">
               </i>
             </div>
             <div class="icon i-right">
-              <i class="icon-pinglun">
-                <img src="@/assets/dt/icon-pinglun.png" alt="">
+              <i class="iconfont icon-weibiaoti-">
               </i>
             </div>
             <div class="icon i-right" >
-              <i class="icon-sangedian">
-                <img src="@/assets/dt/icon-sangedian.png" alt="">
+              <i class="iconfont icon-sangedian">
               </i>
             </div>
           </div> 
@@ -96,29 +91,24 @@
         </div>
         <!-- 下 按键栏 -->
         <div class="operators1">
-          <div class="icon i-left" @click="mode">
-            <i class="iconMode" >
-              <img src="@/assets/dt/icon-liebiaobofang.png" alt="">
+          <div class="icon i-left">
+            <i @click="mode" class="iconfont" :class="{'icon-liebiaoxunhuan':b==1,'icon-danquxunhuan':b==2,'icon-suijixunhuan':b==3}">
             </i>
           </div>
           <div class="icon i-left">
-            <i class="icon-prev">
-              <img src="@/assets/dt/icon-prev.png" alt="">
+            <i class="iconfont icon-shangyiqu">
             </i>
           </div>
           <div @click="tegglepaly" class="icon i-center">
-            <i class="playIcon">
-              <img src="@/assets/dt/icon-Player.png" alt="">
+            <i class="iconfont" :class="{'icon-bofang':c==1,'icon-zanting':c==2}">
             </i>
           </div>
           <div class="icon i-right">
-            <i class="icon-next">
-              <img src="@/assets/dt/icon-next.png" alt="">
+            <i class="iconfont icon-xiayiqu">
             </i>
           </div>
           <div class="icon i-right">
-            <i class="icon-menu">
-              <img src="@/assets/dt/icon-menu.png" alt="">
+            <i class="iconfont icon-caidan-dakai">
             </i>
           </div>
         </div>
@@ -130,18 +120,76 @@
 export default {
   data() {
     return {
-      mid1:{
+      mid1: {
         display:"block"
       },
-      mid2:{
-          display:"none"
-      }
+      mid2: {
+        display:"none"
+      },
+      a:1,
+      b:1,
+      c:1,
+      rotate:false,
     }
   },
   methods: {
     tegglepaly() {//播放/暂停
-      
+
+      if(this.c==1){
+        this.c=2;
+        this.rotate={
+          rotate:true,
+        }
+      }else{
+        this.c=1;
+        this.rotate={
+          rotate:false,
+        }
+      }
     },
+    mode() {//播放模式
+     if(this.b==1){
+       this.b=2;
+       this.$toast({
+         message:"单曲循环",
+         position:"middle",
+         duration:1000,
+       });
+     }else if(this.b==2){
+       this.b=3;
+       this.$toast({
+         message:"随机循环",
+         position:"middle",
+         duration:1000,
+       });
+     }else{
+       this.b=1;
+       this.$toast({
+         message:"顺序播放",
+         position:"midddle",
+         duration:1000,
+       })
+     }
+    },
+    collect() {//收藏
+      if(this.a==1){
+        this.a=2;
+        this.$toast({
+          message:"已添加到我喜欢的音乐",
+          position:"middle",
+          duration:1000,
+          iconClass:"iconfont icon-like",
+        });
+      }else{
+        this.a=1;
+        this.$toast({
+          message:"已取消喜欢",
+          position:"midddle",
+          duration:1000,
+        });
+      }
+    },
+    
     middle(){
       if(this.mid1.display=="block"){
         this.mid1.display="none";
@@ -169,6 +217,10 @@ export default {
 </script>
 
 <style scoped lang="scss">
+@keyframes rotate{
+  from{transform: rotate(0deg)}
+  to{transform: rotate(359deg)}
+}
 .mid1{
   display:none;
 }
@@ -271,13 +323,19 @@ export default {
           border: .0625rem solid rgba(255, 255, 255, 0.2);
           box-shadow: 0 0 0 0.625rem rgba(255, 255, 255, 0.1) inset;
           border-radius: 50%;
+          
+
 
           .cd {
             position: absolute;
             left: -2%;
             top: -2%;
             width: 104%;
-            height: 104%;
+            height: 104%;  
+
+            &.rotate{
+              animation: rotate 12s linear infinite;
+            }
 
             .image {
               position: absolute;
@@ -328,7 +386,11 @@ export default {
             &.disable {
               color: rgb(212, 68, 57);
             }
-  
+
+            i {
+              font-size: 32px;
+            }
+
             &.i-left {
               text-align: right;
             }
@@ -488,6 +550,10 @@ export default {
             color: rgb(212, 68, 57);
           }
 
+          i {
+            font-size: 32px;
+          }
+          
           &.i-left {
             text-align: right;  
           }
@@ -495,6 +561,10 @@ export default {
           &.i-center {
             padding: 0 1.25rem;
             text-align: center;
+
+            i{
+              font-size:40px;
+            }
           }
 
           &.i-right {
