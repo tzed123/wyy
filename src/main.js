@@ -19,9 +19,9 @@ import ControlList from '@/components/tz/ControlList.vue'
 //yh引入路径
 import index from '@/components/yh/index.vue'
 import personal from '@/components/yh/personal.vue'
-
+//dj引入路径
 import page from '@/components/dj/page.vue'
-import loginn from '@/components/dj/loginn.vue'
+import login from '@/components/dj/login.vue'
 //zz引入路径
 import MultiSelect from '@/components/zz/MultiSelect.vue'
 import SongDetails from '@/components/zz/SongDetails.vue'
