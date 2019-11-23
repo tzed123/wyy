@@ -12,7 +12,7 @@
     <p v-show="!isLogout"><input type="checkbox" value="" v-model='isagree'>同意《服务条款》《隐私政策》《儿童政策》</p>
     <!--账号密码登录--> 
     <button class="topback"  v-show="isreturn"  @click='login'>返回</button>
-    <div id='login' v-show="isLogout" > 
+    <div id='log' v-show="isLogout" > 
       <input type="text"  class="form-control" id='d2' placeholder="请输入账号" v-model='uname'>
       <input type="password" class="form-control" placeholder="请输入密码" v-model='upwd'>
       <div class='car'>
@@ -52,10 +52,7 @@
         this.$router.push({path:'/reg'})
       },
       loginn(){
-        this.$router.push({path:'/page'})
-      },
-      goback(){
-        this.$router.push(-1);//返回上一页
+        this.$router.push({path:'/'})
       },
       reg(){
         var u=this.uname;
@@ -76,8 +73,8 @@
 <style scoped>
    /* <!--图标--> */
 .content{
-    width:100%;
-    height:100%;/*问题*/
+  width:100%;
+  height:100%;/*问题*/
 	background:#e10000;
 	position:fixed;
 }
@@ -121,7 +118,7 @@
   color:red;
   margin-top:2rem;
 }
-#login{
+#log{
   width:100%;
   height:100%;
 }
