@@ -53,6 +53,7 @@ Vue.component("SongSheet2",SongSheet2)
 //挂载mint-ui
 Vue.use(mintui)
 //配置axios基础路径
+//暂时被zz删了
 Vue.prototype.axios=axios;
 axios.defaults.baseURL="http://localhost:8080";
 axios.defaults.withCredentials=true;

@@ -34,7 +34,8 @@
             </div>
             <div class="user-comment">
                 <p class="user-comment-content">人在蒙古,刚下航母</p>
-                <a href="" class="user-reply">1024条回复 ></a>
+                <p href="" class="user-reply" @click="reply">1024条回复 ></p>
+                <p v-if="abc" class="reply">别回复了,我太难了</p>
             </div>
             <hr class="comment-underline">
             <div class="brilliant-comment">
@@ -52,7 +53,7 @@
             </div>
             <div class="user-comment">
                 <p class="user-comment-content">人在蒙古,刚下航母</p>
-                <a href="" class="user-reply">1024条回复 ></a>
+                <p href="" class="user-reply">1024条回复 ></p>
             </div>
             <hr class="comment-underline">
             <div class="brilliant-comment">
@@ -70,7 +71,7 @@
             </div>
             <div class="user-comment">
                 <p class="user-comment-content">人在蒙古,刚下航母</p>
-                <a href="" class="user-reply">1024条回复 ></a>
+                <p href="" class="user-reply">1024条回复 ></p>
             </div>
             <hr class="comment-underline">
             <p id="lookforMore">全部精彩评论 ></p>
@@ -94,7 +95,7 @@
             </div>
             <div class="user-comment">
                 <p class="user-comment-content">人在蒙古,刚下航母</p>
-                <a href="" class="user-reply">1024条回复 ></a>
+                <p href="" class="user-reply">1024条回复 ></p>
             </div>
             <hr class="comment-underline">
             <div class="brilliant-comment">
@@ -112,7 +113,7 @@
             </div>
             <div class="user-comment">
                 <p class="user-comment-content">人在蒙古,刚下航母</p>
-                <a href="" class="user-reply">1024条回复 ></a>
+                <p href="" class="user-reply">1024条回复 ></p>
             </div>
             <hr class="comment-underline">
             <div class="brilliant-comment">
@@ -130,7 +131,7 @@
             </div>
             <div class="user-comment">
                 <p class="user-comment-content">人在蒙古,刚下航母</p>
-                <a href="" class="user-reply">1024条回复 ></a>
+                <p href="" class="user-reply">1024条回复 ></p>
             </div>
             <hr class="comment-underline">
         </div>
@@ -141,14 +142,27 @@
 
 <script>
 export default {
-    name:'CommentInterface'
+    name:'CommentInterface',
+    data(){
+        return{
+            comments:{},
+            abc:''
+        }
+    },
+    mounted(){
+        
+    },
+    methods:{
+        reply(){
+            this.abc=!this.abc;
+        }
+    },
 }
 </script>
 <style scoped>
 #container{
   width:100%;
   height:100%;
-  background-color:yellow;
 }
 .comment-header{
   display:flex;

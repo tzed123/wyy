@@ -2,7 +2,7 @@
 <div>
   <div id="main">
     <index v-show="isShow" class="index"></index>    
-    <img class="img-size" src="@/assets/tz/folder.png" alt=""  @click.stop="toggleShow()">
+    <img class="img-size" src="@/assets/tz/folder.png" alt="">
     <div class="dis-flex wid" @click="tab($event)">
       <p :class="pagetype==index?'color':''" 
       v-for="(item,index) in p" :key="index" :data-num="index">{{item}}</p>
@@ -19,7 +19,6 @@
     <collect></collect>
   <controllist></controllist>
   <createlist></createlist>
-    <SongSheet></SongSheet>
   <sendmsg></sendmsg>
   <timeclose></timeclose>   
   
