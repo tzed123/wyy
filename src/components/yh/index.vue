@@ -1,6 +1,8 @@
 <template>
 <div class="body">
 <!-- 头像部分 -->
+<msk v-show="$store.state.isShow"></msk>
+<timeclose v-show="$store.state.isShow" class="h"></timeclose>
 <div class="header">
 <a href="#"><div class="head_portrait"></div></a>
 <!-- 姓名等级签到 -->
@@ -20,29 +22,46 @@
 </div>
 <!-- 图标 -->
 <div class="icon">
-<div><a><img class="t-center" src="../../assets/yh/email.png" alt=""><p>我的消息</p></a></div>
+<div ><a><img class="t-center" src="../../assets/yh/email.png" alt=""><p>我的消息</p></a></div>
 <div><a><img class="t-center" src="../../assets/yh/user.png" alt=""><p>我的好友</p></a></div>
 <div><a><img class="t-center" src="../../assets/yh/music.png" alt=""><p>听歌识曲</p></a></div>
 <div><a><img class="t-center" src="../../assets/yh/dress.png" alt=""><p>个性装扮</p></a></div>
 </div>
 <hr>
-
 <!-- 列表 -->
 <div class="list">
-<a href=""><div class="t-14 d-flex"><img src="../../assets/yh/order form.png" alt=""><div>我的订单</div></div></a>
-<a href=""><div class="t-14 d-flex"><img src="../../assets/yh/settime.png" alt=""><div>定时停止播放</div></div></a>
+<div class="t-14 d-flex"><img src="../../assets/yh/order form.png" alt=""><div>我的订单</div></div>
+<div class="t-14 d-flex" @touchstart="c;xshow" ><img src="../../assets/yh/settime.png" alt=""><div>定时停止播放</div></div>
 <a href=""><div class="t-14 d-flex"><img src="../../assets/yh/sweep.png" alt=""><div>扫一扫</div></div></a>
 <a href=""><div class="t-14 d-flex"><img src="../../assets/yh/Music alarm clock.png" alt=""><div>音乐闹钟</div></div></a>
 <a href=""><div class="t-14 d-flex"><img src="../../assets/yh/coupon.png" alt=""><div>优惠券</div></div></a>
 <a href=""><div class="t-14 d-flex"><img src="../../assets/yh/teen-agers.png" alt=""><div>青少年模式</div></div></a>
 <hr>
 <a href=""><div class="t-14 d-flex"><img src="../../assets/yh/set.png" alt=""><div>设置</div></div></a>
-<a href=""><div class="t-14 d-flex"><img src="../../assets/yh/quit.png" alt=""><div>退出</div></div></a>
+<router-link to='login'><div class="t-14 d-flex"><img src="../../assets/yh/quit.png" alt=""><div>退出</div></div></router-link>
 </div>
 </div>
 </div>
 </template>
+<script>
 
+export default {
+  data(){
+    return{
+     
+    }
+  },
+  methods:{
+    c(){
+      this.$emit('c')
+    },
+    
+    xshow(){
+      this.$store.commit('xshow')
+    },
+  }
+}
+</script>
 <style scoped>
   .body{
   background:#f3f3f3;

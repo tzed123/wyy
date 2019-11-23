@@ -134,7 +134,6 @@ export default {
   },
   methods: {
     tegglepaly() {//播放/暂停
-
       if(this.c==1){
         this.c=2;
         this.rotate={

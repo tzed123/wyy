@@ -1,7 +1,9 @@
-<template>
+<template><!-- $store.getters.getShow this.$store.state.isShow -->
 <div class="pad"  @touchstart='show($event);start($event)' ref='slide' @touchmove='move($event)' @touchend='end($event)'> 
   <msk v-show="isShow" ref='msk' ></msk>
-  <index  class="index" ref="index" :style='{left:slideStyle.left,transition:slideStyle.transition}'></index> 
+  <index  class="index" ref="index" 
+  @c='c'
+  :style='{left:slideStyle.left,transition:slideStyle.transition}'></index> 
   <div id="main" >
     <img class="img-size" src="@/assets/tz/folder.png" alt="" @touchstart.stop="isShow=true;slideStyle.left='0px'">
     <div class="dis-flex wid" @click="tab($event)">
@@ -11,7 +13,7 @@
     <router-link to="/searchbar">
       <img class="img-size" src="@/assets/tz/search.png" alt="">
     </router-link>
-  </div> 
+  </div>
   <page v-if="pagetype==0" ></page>
   <discovery v-else-if="pagetype==1"></discovery>
   <personal v-else="pagetype==2"></personal>
@@ -46,6 +48,10 @@ export default{
     isShow(news,olds){news?document.body.style.overflow='hidden':document.body.style.overflow='visible';}
   },
   methods:{
+    c(){
+      this.isShow=false;
+      this.slideStyle.left="-300px";
+    },  
     tab:function(e){     
       if(e.target.nodeName=="P"){
         this.pagetype=e.target.dataset.num
@@ -55,6 +61,7 @@ export default{
       if(e.target.nodeName=='SPAN'){
         this.isShow=false;
         this.slideStyle.left="-300px";
+        e.preventDefault();
       }
     },
     start(e){
@@ -88,7 +95,6 @@ export default{
         }else{
           this.slideStyle.left='0';
         }
-        
       }
     }   
   },
