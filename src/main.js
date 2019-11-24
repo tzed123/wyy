@@ -7,6 +7,7 @@ import mintui from 'mint-ui'
 import "mint-ui/lib/style.css"
 //引入公共样式
 import "../public/css/common.css"
+//引入tap事件
 //tz引入路径
 import Discovery from '@/components/tz/Discovery.vue'
 import Collect from '@/components/tz/Collect.vue'

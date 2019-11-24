@@ -1,12 +1,12 @@
 <template><!-- $store.getters.getShow this.$store.state.isShow -->
 <div class="pad"  @touchstart='show($event);start($event)' ref='slide' @touchmove='move($event)' @touchend='end($event)'> 
-  <msk v-show="isShow" ref='msk' ></msk>
+  <msk v-show="isMsk" ref='msk' ></msk>
   <index  class="index" ref="index" 
   @c='c'
   :style='{left:slideStyle.left,transition:slideStyle.transition}'></index> 
-  <div id="main" >
-    <img class="img-size" src="@/assets/tz/folder.png" alt="" @touchstart.stop="isShow=true;slideStyle.left='0px'">
-    <div class="dis-flex wid" @click="tab($event)">
+  <div id="main">
+    <img class="img-size" src="@/assets/tz/folder.png" alt="" @touchstart.stop="isShow=true;isMsk=true;slideStyle.left='0px'">
+    <div class="dis-flex wid" @touchstart="tab($event)">
       <p :class="pagetype==index?'color':''" 
       v-for="(item,index) in p" :key="index" :data-num="index">{{item}}</p>
     </div>
@@ -22,7 +22,7 @@
   <controllist></controllist>
   <createlist></createlist>
   <sendmsg></sendmsg>
-  <timeclose></timeclose>
+  <timeclose v-show="close" @killself='killself'></timeclose>
 </div>
 </template>
 <script>
@@ -34,6 +34,8 @@ export default{
       p:["我的","发现","VIP"],
       pagetype:0,
       isShow:false,
+      isMsk:false,
+      close:false,
       //touch
       flag:false,
       startX:0,
@@ -45,13 +47,26 @@ export default{
     }
   },
   watch:{
-    isShow(news,olds){news?document.body.style.overflow='hidden':document.body.style.overflow='visible';}
+    isMsk(news,olds){news?document.body.style.overflow='hidden':document.body.style.overflow='visible';}
   },
   methods:{
     c(){
       this.isShow=false;
+      this.isMsk=false;
       this.slideStyle.left="-300px";
-    },  
+      var that=this
+      setTimeout(function(){
+        that.close=true;
+        that.isMsk=true;
+      },100)
+    },
+    killself(){
+      var that=this;
+      setTimeout(function(){
+      that.close=false;
+      that.isMsk=false;
+      },500)
+    },
     tab:function(e){     
       if(e.target.nodeName=="P"){
         this.pagetype=e.target.dataset.num
@@ -60,6 +75,8 @@ export default{
     show(e){
       if(e.target.nodeName=='SPAN'){
         this.isShow=false;
+        this.isMsk=false;
+        this.close=false;
         this.slideStyle.left="-300px";
         e.preventDefault();
       }
@@ -75,6 +92,7 @@ export default{
     move(e){
       if(this.flag){        
         this.isShow=true;
+        this.isMsk=true;
         var moveX=this.endX+e.touches[0].clientX-this.startX;//移动距离
         if(moveX<300){
         if(moveX>0){
@@ -91,7 +109,8 @@ export default{
         this.slideStyle.transition='left 0.5s';
         if(moveX<150){
           this.slideStyle.left='-300px';
-          this.isShow=false
+          this.isShow=false;
+          this.isMsk=false;
         }else{
           this.slideStyle.left='0';
         }
@@ -104,6 +123,7 @@ export default{
 }
 </script>
 <style scoped>
+
   .test{
     width:2rem;
     height:2rem;

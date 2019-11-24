@@ -1,8 +1,6 @@
 <template>
 <div class="body">
 <!-- 头像部分 -->
-<msk v-show="$store.state.isShow"></msk>
-<timeclose v-show="$store.state.isShow" class="h"></timeclose>
 <div class="header">
 <a href="#"><div class="head_portrait"></div></a>
 <!-- 姓名等级签到 -->
@@ -31,7 +29,7 @@
 <!-- 列表 -->
 <div class="list">
 <div class="t-14 d-flex"><img src="../../assets/yh/order form.png" alt=""><div>我的订单</div></div>
-<div class="t-14 d-flex" @touchstart="c;xshow" ><img src="../../assets/yh/settime.png" alt=""><div>定时停止播放</div></div>
+<div class="t-14 d-flex" @touchstart="c" ><img src="../../assets/yh/settime.png" alt=""><div>定时停止播放</div></div>
 <a href=""><div class="t-14 d-flex"><img src="../../assets/yh/sweep.png" alt=""><div>扫一扫</div></div></a>
 <a href=""><div class="t-14 d-flex"><img src="../../assets/yh/Music alarm clock.png" alt=""><div>音乐闹钟</div></div></a>
 <a href=""><div class="t-14 d-flex"><img src="../../assets/yh/coupon.png" alt=""><div>优惠券</div></div></a>
@@ -55,14 +53,20 @@ export default {
     c(){
       this.$emit('c')
     },
-    
-    xshow(){
-      this.$store.commit('xshow')
-    },
+  
+    // xshow(){
+    //   this.$store.commit('xshow')
+    // },
   }
 }
 </script>
 <style scoped>
+.h{
+  position:absolute;
+  top:10rem;
+  margin:0 auto;
+  z-index:250;
+}
   .body{
   background:#f3f3f3;
   width:80%;

@@ -2,7 +2,7 @@
   <div id="container">
     <p class="settime">定时停止播放</p>
     <ul @click="check($event)">
-      <li class="dis-flex list" v-for="(val,i) of li" :key="val" :data-memo="i">
+      <li class="dis-flex list" v-for="(val,i) of li" :key="val" @touchstart='killself' :data-memo="i">
       <p>{{val}}</p>
       <img v-if="memo==i" src="@/assets/tz/check.png"> 
       </li>
@@ -26,7 +26,10 @@ export default {
     }
   },
   methods:{
-    check:function(e){
+    killself(){
+      this.$emit('killself')
+    },
+    check(e){
       this.memo=e.target.dataset.memo
     },
     shiftercheck(){
@@ -41,10 +44,14 @@ export default {
 </script>
 <style scoped>
   #container{
-    border:0.1rem solid black;
+    position:fixed;
+    z-index:250;
+    top:8.5rem;
+    left:5%;
     border-radius:0.5rem;
     width:90%;
     margin:0 auto;
+    background:white;
    
   }
   .settime{
