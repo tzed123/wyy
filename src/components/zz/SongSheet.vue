@@ -37,7 +37,7 @@
 </template>
 <script>
 export default{
-    name:'SongSheet',
+    
 }
 </script>
 <style scoped>

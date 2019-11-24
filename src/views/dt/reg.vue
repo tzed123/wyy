@@ -44,7 +44,7 @@ export default {
         return;
       }
       //ajax
-      var url="/users/reg";
+      var url="/reg";
       var obj=`uname=${$uname}&upwd=${$upwd}`
       this.axios.post(url,obj)
       .then(res=>{

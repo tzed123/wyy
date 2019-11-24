@@ -16,12 +16,12 @@ export default {
     comment() {
       var $content= this.content;
       //ajax
-      var url="/comment";
+      var url="http://127.0.0.1:3000/comment";
       var obj=`content=${$content}`      
       this.axios.post(url,obj)
       .then(res=>{
         console.log(res);
-      })
+      })  
       .catch(err=>{
         console.log(err);
       })
