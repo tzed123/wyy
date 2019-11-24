@@ -16,12 +16,13 @@ INSERT INTO reg VALUES(NULL,'wyy','wyy','123456789','0');
 
 CREATE TABLE comment( 
   cid INT PRIMARY KEY AUTO_INCREMENT,
-  songId VARCHAR(64), --歌曲
-  uid INT,--评论用户id SELECT uname from reg WHERE uid=uid;
-  content VARCHAR(256), --评论内容
-  giveLike INT --点赞总量
-  createTime  DATE --评论时间
-  condition BOOLEAN  --评论状态，是否删除
-  replyId INT --回复评论id
-)
-INSERT INTO comment VALUES(NULL,"倒带","末班车","人在蒙古,刚下航母","439000","2015-11-02","true","别回了,太难了")
+  songId VARCHAR(64), 
+  ucid INT,
+  content VARCHAR(256), 
+  giveLike INT, 
+  createTime  DATE,
+  replyId INT,
+  wstatus BOOLEAN,
+  replyContent VARCHAR(256)
+);
+INSERT INTO comment VALUES(NULL,"倒带","1","人在蒙古,刚下航母","439000","2015-11-02","2",true,"别回了,太难了");

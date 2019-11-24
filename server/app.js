@@ -13,6 +13,8 @@ const session = require("express-session");
 //引入路由器
 //(1)引入注册路由
 const regRouter=require("./routers/reg.js");
+//(2)引入评论路由
+const commentRouter=require("./routers/comment.js");
 //4:配置数据库连接池:基本效率高保证
 
 //5:创建web服务器 
@@ -37,3 +39,4 @@ server.use(express.static("public"))
 server.listen(3000);
 //用户路由在服务器下使用，并挂载到/ajax
 server.use('',regRouter);
+server.use('',commentRouter);

@@ -1,12 +1,32 @@
 <template>
   <div id="container">
-    <input class="input" type="text" placeholder="听了这么多，你可能有话想说">
-    <mt-button class="btn" size="small" type="danger" >发送</mt-button>
+    <input class="input" type="text" placeholder="听了这么多，你可能有话想说" v-model:value="content">
+    <mt-button class="btn" size="small" type="danger" @click="comment">发送</mt-button>
   </div>
 </template>
 <script>
 export default {
-
+  name:"SendMsg",
+  data() {
+    return {
+      content:"",//内容
+    }
+  },
+  methods:{
+    comment() {
+      var $content= this.content;
+      //ajax
+      var url="/comment";
+      var obj=`content=${$content}`      
+      this.axios.post(url,obj)
+      .then(res=>{
+        console.log(res);
+      })
+      .catch(err=>{
+        console.log(err);
+      })
+    }
+  }
 }
 </script>
 <style scoped>
