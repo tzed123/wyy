@@ -5,11 +5,11 @@ USE bubble;
 CREATE TABLE reg(
   uid INT PRIMARY KEY AUTO_INCREMENT,
   uname VARCHAR(16),
-  username VARCHAR(16),
+
   upwd VARCHAR(32),
   isvip BOOLEAN
 );
-INSERT INTO reg VALUES(NULL,'wyy','wyy','123456789','0');
+INSERT INTO reg VALUES(NULL,'wyy','123456789','0');
 #ALTER TABLE reg ADD username VARCHAR(16);
 
 -- 评论

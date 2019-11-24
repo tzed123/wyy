@@ -10,6 +10,8 @@
 const express = require("express");
 const cors = require("cors");
 const session = require("express-session");
+const bodyParser=require('body-parser');
+
 //引入路由器
 //(1)引入注册路由
 const regRouter=require("./routers/reg.js");
@@ -26,7 +28,9 @@ server.use(cors({
    origin:["http://127.0.0.1:8080","http://localhost:8080"],
    credentials:true  //每次请求验证
 }))
+
 //7:配置session环境
+server.use(bodyParser.urlencoded({extended:false}));
 server.use(session({
    secret:"128位安全字符串",
    resave:true,         //请求更新数据 

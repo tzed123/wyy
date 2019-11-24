@@ -6,8 +6,8 @@
   </mt-swipe>
   <!--推荐-->
   <ul id="circle">
-    <li class="circle-li">
-      <img class="circle-img" src="@/assets/tz/circle.png" alt="">
+    <li class="circle-li" >
+     <img class="circle-img" src="@/assets/tz/circle.png" alt="">
       <p class="size12 ">每日推荐</p>
     </li>
     <li class="circle-li">
@@ -27,8 +27,10 @@
   <p class="size20 margin-t-b" >推荐歌单</p>
   <div id="song">
     <div class="song-unit">
+     <router-link to="/songsheetz">
       <img class="song-pic" src="@/assets/tz/tx.jpg" alt="">
       <p class="size12">入耳即溶，那些甜到心底的温柔男生</p>
+      </router-link>
     </div>
     <div class="song-unit">
       <img class="song-pic" src="@/assets/tz/tx.jpg" alt="">
@@ -60,7 +62,8 @@
 export default {
   data(){
     return{
-      carousel:["1","2","3"]
+      carousel:["1","2","3"],
+
     }
   }
 }
