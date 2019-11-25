@@ -32,25 +32,57 @@
     </div>
     <!--第四部分-->
     <!--我创建的歌单-->
-    <div class='music' @click="song">我创建的歌单
+    <div class='music' @click="song"><img :class="[flag?'tran':'']" src="@/assets/dj/19.png"/>我创建的歌单
       <div class='like'>
         <a href=""><img src="@/assets/dj/12.png"/></a> 
-        <a href=""><img src="@/assets/ellipsis-black.png"/> </a> 
+        <a href=""><img src="@/assets/ellipsis-black.png"/></a> 
       </div>
     </div>
-    <div class='inlike' v-show="ismusicfraom"><img src="@/assets/dj/18.png"/>
-      <div class="musicfraom" v-show="ismusicfraom">我喜欢的音乐</div>
+    <div class="left" v-show="ismusicfraom">
+      <div class="avatar">
+        <img src="@/assets/dj/21.png">
+      </div>
+      <div class="desc">
+        <p>我喜欢的音乐</p>
+        <p class="size12">1314首</p>
+      </div>
     </div>
+    <ul>
+      <li v-show="ismusicfraom">
+        <div class="left">
+        <div class="avatar">
+          <img src="@/assets/dj/18.png">
+        </div>
+        <div class="desc">
+          <p>董先生</p>
+          <p class="size12">520首</p>
+        </div>
+        <a href=""><img class='d2' src="@/assets/ellipsis-black.png"/></a> 
+      </div>
+      </li>
+    </ul>
     <!--我收藏的歌单-->
-    <div class='music' @click="sing">我收藏的歌单
+    <div class='music' @click="sing"><img id='d1' :class="[flagg?'tran':'']" src="@/assets/dj/19.png"/>我收藏的歌单
       <div class='like'>
-        <a href=""><img src="@/assets/dj/12.png"/></a> 
-        <a href=""><img src="@/assets/ellipsis-black.png"/> </a> 
+        <a href=""><img src="@/assets/ellipsis-black.png"/></a> 
       </div>
     </div>
-    <div class='inlike' v-show="ismusicfrom"><img src="@/assets/dj/17.png"/>
+    <ul>
+      <li v-show="ismusicfrom">
+        <div class="left">
+        <div class="avatar">
+          <img src="@/assets/dj/17.png">
+        </div>
+        <div class="desc">
+          <p>rapper说情话</p>
+          <p class="size12">888首</p>
+        </div>
+      </div>
+      </li>
+    </ul>    
+    <!--<div class='inlike' v-show="ismusicfrom"><img src="@/assets/dj/17.png"/>
       <div class="musicfraom" v-show="ismusicfrom">rapper说情话</div>
-    </div>      
+    </div>-->      
 </div>
 </template>
 <script>
@@ -59,20 +91,29 @@ export default {
     return{
       ismusicfraom:false,
       ismusicfrom:false,
+      flag:false,
+      flagg:false,
+      
     }
   },
   methods:{
     song(){
       this.ismusicfraom=!this.ismusicfraom;
+      this.flag=!this.flag;
     },
     sing(){
       this.ismusicfrom=!this.ismusicfrom;
-    }
+      this.flagg=!this.flagg;
+    },
+
   }
 }
 </script>
 <style scoped>
 /* <!--第二部分--> */
+.head{
+ padding:10px 10px;
+}
 .banner{
   height:5rem;
   display:flex;
@@ -122,24 +163,37 @@ hr{
   font-size:1.2rem;
 }
 .music img{
-  width:1.5rem;
-  height:1.5rem;
+  width:1.2rem;
+  height:1.2rem;
   margin-right:0.2rem;
 }
 .like{
-  margin-left:14rem;
+  margin-left:12rem;
 }
-.inlike{  
-  display:flex;
-}
-.inlike img{
-  margin-left:0.5rem;
-  width:12%;
-  height:12%
-}
-.inlike .musicfraom{
-  font-size:1.05rem;
-  margin-top:0.5rem;
-}
+  .list{
+    padding:0.5rem;
+  }
+  .left{
+    display:flex;    
+  }
+  .left .d2{
+  width:1.2rem;
+  height:1.2rem;
+  margin-right:0.2rem; 
+  margin-top:1rem; 
+  margin-left:15rem;
+  }
+  .avatar{
+    width:3rem;    
+  }
+  .avatar>img{
+    width:100%;
+  }
+  .desc{
+    margin-left:1rem;
+  }
 
+.tran{
+  transform:rotate(90deg);
+}
 </style>
