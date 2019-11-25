@@ -17,19 +17,11 @@ export default {
 }
 </script>
 <style scoped>
-.container{
-  width:100%;
-  height:100%;
-  margin-top:15rem;
-  position:absolute;
-  top:10rem;
-}
 .songSheet-content{
   display:flex;
   flex-direction:column;
   border-top-left-radius:1.5rem;
   border-top-right-radius:1.5rem;
-  background-color:#ddd;
   width:100%;
   position:absolute;
   top:15rem;

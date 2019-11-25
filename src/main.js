@@ -28,7 +28,6 @@ import MultiSelect from '@/components/zz/MultiSelect.vue'
 import SongDetails from '@/components/zz/SongDetails.vue'
 import SongSheet from '@/components/zz/SongSheet.vue'
 import SongSheet2 from '@/components/zz/SongSheet2.vue'
-import SongSheet1 from '@/components/zz/SongSheet1.vue'
 //dt引入路径
 //引入字体图片样式文件
 import './assets/dt/iconfont/iconfont.css'
