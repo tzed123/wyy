@@ -3,7 +3,7 @@
     <div class="normal-player">
       <div class="background">
         <div class="filter"></div>
-        <img src="@/assets/dt/109951164427560286.jpg" height="100%">
+        <img src="@/assets/dt/109951164427560286.jpg" width="100%" height="100%">
       </div>
       <!-- 顶部 -->
       <div class="top">
@@ -18,40 +18,35 @@
         <h2 class="subtitle">丫蛋蛋></h2>
       </div>
       <!-- 中部 -->
-      <div  class="middle">
+      <div class="middle">
         <!-- 前 -->
-        <div  :style="mid1" class="middle-l">
+        <div :style="mid1" class="middle-l">
           <!-- 光碟 -->
           <div @click="middle" class="cd-wrapper">
-            <div class="cd">
+            <div class="cd" :class="cdClass">
               <img src="@/assets/dt/109951164427560286.jpg" class="image">
             </div>
           </div>
           <!-- 按键栏 -->
           <div class="operators">
             <div class="icon i-left">
-              <i class="icon-collect">
-                <img src="@/assets/dt/icon-collect.png" alt="">
+              <i @click="collect" class="iconfont " :class="{'icon-love':a==1,'icon-like':a==2}">
               </i>
             </div>
             <div class="icon i-left">
-              <i class="icon-download">
-                <img src="@/assets/dt/icon-download.png" alt="">
+              <i class="iconfont icon-xiazai">
               </i>
             </div>
             <div class="icon i-center" >
-              <i class="icon-yinxiao">
-                <img src="@/assets/dt/icon-yinxiao.png" alt="">
+              <i class="iconfont icon-jingyunyinxiaopt-wangyiicon">
               </i>
             </div>
             <div class="icon i-right">
-              <i class="icon-pinglun">
-                <img src="@/assets/dt/icon-pinglun.png" alt="">
+              <i class="iconfont icon-weibiaoti-">
               </i>
             </div>
             <div class="icon i-right" >
-              <i class="icon-sangedian">
-                <img src="@/assets/dt/icon-sangedian.png" alt="">
+              <i class="iconfont icon-sangedian">
               </i>
             </div>
           </div> 
@@ -86,62 +81,144 @@
       <div class="bottom">
         <!-- 上 播放条 -->
         <div class="progress-wrapper">
-          <span class="time time-l">00:00</span>
+          <span class="time time-l">{{format(currentTime)}}</span>
           <div class="progress-bar-wrapper">
-            <div class="bar-inner">
-              <div class="progress"></div>
-            </div>
+            <progress-bar :percent="percent" @percentChange=" percentChange"/>
           </div>
-          <span class="time time-r">03:01</span>
+          <span class="time time-r">{{duration}}</span>
         </div>
         <!-- 下 按键栏 -->
         <div class="operators1">
-          <div class="icon i-left" @click="mode">
-            <i class="iconMode" >
-              <img src="@/assets/dt/icon-liebiaobofang.png" alt="">
+          <div class="icon i-left">
+            <i @click="changeMode" :class="iconMode">
             </i>
           </div>
           <div class="icon i-left">
-            <i class="icon-prev">
-              <img src="@/assets/dt/icon-prev.png" alt="">
+            <i class="iconfont icon-shangyiqu">
             </i>
           </div>
-          <div @click="tegglepaly" class="icon i-center">
-            <i class="playIcon">
-              <img src="@/assets/dt/icon-Player.png" alt="">
-            </i>
-          </div>
-          <div class="icon i-right">
-            <i class="icon-next">
-              <img src="@/assets/dt/icon-next.png" alt="">
+          <div class="icon i-center">
+            <i @click="tegglepaly" :class="playIcon">
             </i>
           </div>
           <div class="icon i-right">
-            <i class="icon-menu">
-              <img src="@/assets/dt/icon-menu.png" alt="">
+            <i class="iconfont icon-xiayiqu">
+            </i>
+          </div>
+          <div class="icon i-right">
+            <i class="iconfont icon-caidan-dakai">
             </i>
           </div>
         </div>
       </div>
-    </div> 
+    </div>
+    <audio @timeupdate="updateTime" ref="audio" :src="musicUrl"></audio>
   </div>
 </template>
 <script>
+//导入子组件
+import progressBar from './progress-bar.vue';
 export default {
   data() {
     return {
-      mid1:{
+      currentTime: 0,
+      duration: 0,
+      currentLyric: null,// 封装后的歌词对象
+      currentLineNum: 0,// 当前下显示歌词行数
+      mid1: {
         display:"block"
       },
-      mid2:{
-          display:"none"
-      }
+      mid2: {
+        display:"none"
+      },
+      a:1,
     }
   },
-  methods: {
-    tegglepaly() {//播放/暂停
-      
+  components: {//用来注册子组件的节点
+    progressBar
+  },
+  computed: {
+    playIcon() {
+      return this.playing ? 'iconfont icon-bofang' : 'iconfont icon-zanting'
     },
+    iconMode() {
+      return this.$store.state.mode === 0 ? 'iconfont icon-liebiaoxunhuan' : this.$store.state.mode === 1 ? 'iconfont icon-danquxunhuan' : 'iconfont icon-suijixunhuan';
+    },
+    cdClass() {
+      return this.playing ? 'play' : 'play pause'
+    },
+    playing() {
+      return this.$store.state.playing;
+    },
+    musicUrl() {
+      return 'https://music.163.com/song/media/outer/url?id=1396973729.mp3'
+    },
+    percent() {
+      return this.currentTime/this.duration;
+    },
+  },
+  methods: { 
+
+    /* 改变播放顺序 */
+    changeMode() {
+      const mode = (this.$store.state.mode + 1) % 3;// 取余
+      this.$store.commit('SET_PALY_MODE',mode);
+
+    },
+    /* 播放·暂停 */
+    tegglepaly() {
+      this.$store.commit('SET_PLAYING_STATE',!this.playing);
+      if (this.currentLyric) {
+        this.currentLyric.togglePlay()
+      }
+    },
+
+    updateTime(e) {
+      this.currentTime = e.target.currentTime;  //获取audio当前播放时间
+    },
+    /* 歌曲进度条触摸后改变歌曲播放进度 */
+    percentChange(precent) {
+      const currentTime = this.currentSong.duration * precent;
+      this.$refs.audio.currentTime = currentTime;
+      // 歌词跟随进度条滚动
+      if (this.currentLyric) {
+        this.currentLyric.seek(currentTime * 1000);
+      }
+    },
+    /* 封装歌曲当前播放audio时间 */
+    format(interval) {
+      interval = interval | 0; //取整
+      const minute = interval/60 | 0;
+      const second = this._pad(interval % 60);
+      return `${minute}:${second}`;
+    },
+    _pad(num, n=2) {  //补零
+      let len = num.toString().length;
+      while(len < n) {
+        num = '0' + num;
+        len++;
+      };
+      return num;
+    },
+    collect() {//收藏
+      if(this.a==1){
+        this.a=2;
+        this.$toast({
+          message:"已添加到我喜欢的音乐",
+          position:"middle",
+          duration:1000,
+          iconClass:"iconfont icon-like",
+        });
+      }else{
+        this.a=1;
+        this.$toast({
+          message:"已取消喜欢",
+          position:"midddle",
+          duration:1000,
+        });
+      }
+    },
+    
     middle(){
       if(this.mid1.display=="block"){
         this.mid1.display="none";
@@ -152,6 +229,16 @@ export default {
       }
     },
 
+  },
+  watch: {
+
+    // 检测播放状态
+    playing(newPlaying) {
+      this.$nextTick(() => {
+        const audio = this.$refs.audio;
+        newPlaying ? audio.play() : audio.pause();
+      })
+    }
   },
   beforeCreate() {
     console.log("创建组件前...")
@@ -169,6 +256,10 @@ export default {
 </script>
 
 <style scoped lang="scss">
+@keyframes rotate{
+  from{transform: rotate(0deg)}
+  to{transform: rotate(359deg)}
+}
 .mid1{
   display:none;
 }
@@ -271,13 +362,23 @@ export default {
           border: .0625rem solid rgba(255, 255, 255, 0.2);
           box-shadow: 0 0 0 0.625rem rgba(255, 255, 255, 0.1) inset;
           border-radius: 50%;
+          
+
 
           .cd {
             position: absolute;
             left: -2%;
             top: -2%;
             width: 104%;
-            height: 104%;
+            height: 104%;  
+
+            &.play {
+              animation: rotate 12s linear infinite;
+            }
+
+            &.pause {
+              animation-play-state: paused;
+            }
 
             .image {
               position: absolute;
@@ -328,7 +429,11 @@ export default {
             &.disable {
               color: rgb(212, 68, 57);
             }
-  
+
+            i {
+              font-size: 32px;
+            }
+
             &.i-left {
               text-align: right;
             }
@@ -456,23 +561,23 @@ export default {
         .progress-bar-wrapper {
           flex: 1;
 
-          .bar-inner{
-            position: relative;
-            top: 0;
-            height: .1875rem;
-            background: rgba(219,219,219,.3);
+          // .bar-inner{
+          //   position: relative;
+          //   top: 0;
+          //   height: .1875rem;
+          //   background: rgba(219,219,219,.3);
 
-            .progress{
-              position: relative;
-              top: -0.0625rem;
-              left: 0;
-              box-sizing: border-box;
-              width: .375rem;
-              height: .375rem;
-              border-radius: 50%;
-              background: #f1f1f1;
-            }
-          }
+          //   .progress{
+          //     position: relative;
+          //     top: -0.0625rem;
+          //     left: 0;
+          //     box-sizing: border-box;
+          //     width: .375rem;
+          //     height: .375rem;
+          //     border-radius: 50%;
+          //     background: #f1f1f1;
+          //   }
+          // }
         }
       }
       //下 按键栏
@@ -488,6 +593,10 @@ export default {
             color: rgb(212, 68, 57);
           }
 
+          i {
+            font-size: 32px;
+          }
+          
           &.i-left {
             text-align: right;  
           }
@@ -495,6 +604,10 @@ export default {
           &.i-center {
             padding: 0 1.25rem;
             text-align: center;
+
+            i{
+              font-size:40px;
+            }
           }
 
           &.i-right {

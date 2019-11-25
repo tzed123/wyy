@@ -34,7 +34,7 @@
 <div class="list">
 <router-link to=""><div class="t-14 d-flex"><img src="../../assets/yh/order form.png" alt=""><div>我的订单</div></div></router-link>
 <router-link to=""><div class="t-14 d-flex"><img src="../../assets/yh/settime.png" alt=""><div>定时停止播放</div></div></router-link>
-<router-link to=""><div class="t-14 d-flex"><img src="../../assets/yh/sweep.png" alt=""><div>扫一扫</div></div></router-link>
+<router-link to="" ><div class="t-14 d-flex"><img src="../../assets/yh/sweep.png" alt=""><div>扫一扫</div></div></router-link>
 <router-link to=""><div class="t-14 d-flex"><img src="../../assets/yh/Music alarm clock.png" alt=""><div>音乐闹钟</div></div></router-link>
 <router-link to=""><div class="t-14 d-flex"><img src="../../assets/yh/coupon.png" alt=""><div>优惠券</div></div></router-link>
 <router-link to=""><div class="t-14 d-flex"><img src="../../assets/yh/teen-agers.png" alt=""><div>青少年模式</div></div></router-link>

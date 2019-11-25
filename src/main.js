@@ -27,7 +27,8 @@ import SongDetails from '@/components/zz/SongDetails.vue'
 import SongSheet from '@/components/zz/SongSheet.vue'
 import SongSheet2 from '@/components/zz/SongSheet2.vue'
 //dt引入路径
-
+//引入字体图片样式文件
+import './assets/dt/iconfont/iconfont.css'
 //tz注册全局组件标签
 Vue.component("discovery",Discovery);//发现页面
 //Vue.component("collect",Collect)收藏到歌单

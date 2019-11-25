@@ -33,7 +33,7 @@ export default {
       //1.2获取用户输入密码
       var $upwd = this.upwd;
       //1.3创建正则表达式验证用户名及密码6~16个字符，区分大小写
-      var x =/^\w{6,16}$/i;
+      var x =/^\w{6,16}$/;
       //1.4通过正则表达式验证用户名，没通过提示交互
       if(!x.test($uname)){
         this.$messagebox("用户名长度应为6~16个字符");
