@@ -1,32 +1,19 @@
 <template>
-<div id="container">
-  <p class="frame">歌单：<span>歌名</span></p>
   <ul>
-    <li class="frame" v-for="(val,i) of li" :key="i">
+    <li class="frame" v-for="(val,i) of lis" :key="i">
       <img class="pic" :src="require(`../../assets/tz/${val}.png`)">
       <p>{{i}}</p>
     </li>
   </ul>
-</div>
 </template>
 <script>
 export default {
-  data(){
-    return{
-      li:{"下载":"download","删除":"trashcan"}
-    }
-  }
+  props:[
+    'lis'
+  ]
 }
 </script>
 <style scoped>
-  #container{
-    border:0.1rem solid black;
-    border-top-right-radius:0.5rem;
-    border-top-left-radius:0.5rem;
-    width:90%;
-    margin:0 auto;
-    padding:1rem 0 0.3rem 0;
-  }
   .frame{
     display:flex;
     align-items:center;

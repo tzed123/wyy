@@ -18,9 +18,9 @@
   v-if="pagetype==0" @createlist='createlist'></page>
   <discovery v-else-if="pagetype==1"></discovery>
   <personal v-else="pagetype==2"></personal>
-  <playbar class="fix"></playbar>
+  <playbar></playbar>
   <collect></collect>
-  <controllist></controllist>
+  <c></c>
   <createlist v-show='crtlist' @cancel='cancel'></createlist>
   <timeclose v-show="close" @killself='killself'></timeclose>
 </div>
@@ -29,9 +29,9 @@
 import collect from '@/components/tz/Collect.vue'
 import timeclose from '@/components/tz/TimeClose.vue'
 import createlist from '@/components/tz/CreateList.vue'
-
+import c from '@/components/tz/Ellipsis.vue'
 export default{  
-  components:{collect,timeclose,createlist},
+  components:{collect,timeclose,createlist,c},
   data(){
     return {
       p:["我的","发现","VIP"],
@@ -190,10 +190,5 @@ export default{
   }
   .color{
     color:#e10000;
-  }
-  .fix{
-    position:fixed;
-    left:0;
-    bottom:0;
   }
 </style>

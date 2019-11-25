@@ -51,6 +51,10 @@ export default {
   .con{
     background:#fff;
     width:100%;
+    position:fixed;
+    left:0;
+    bottom:0;
+    z-index:99;
   }
   #container{
     margin-top:0.5rem;

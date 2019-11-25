@@ -10,11 +10,8 @@ import "../public/css/common.css"
 //引入tap事件
 //tz引入路径
 import Discovery from '@/components/tz/Discovery.vue'
-
-
 import PlayBar from '@/components/tz/PlayBar.vue'
-
-import ControlList from '@/components/tz/ControlList.vue'
+import Ellipsis from '@/components/tz/Ellipsis.vue'
 import Msk from '@/components/tz/Msk.vue'
 
 //yh引入路径
@@ -34,13 +31,9 @@ import SongSheet2 from '@/components/zz/SongSheet2.vue'
 import './assets/dt/iconfont/iconfont.css'
 //tz注册全局组件标签
 Vue.component("discovery",Discovery);//发现页面
-//Vue.component("collect",Collect)收藏到歌单
-
 Vue.component("playbar",PlayBar)//底部播放条
-
-Vue.component("controllist",ControlList)//歌单省略号拓展功能
+Vue.component("ellipsis",Ellipsis)//歌单省略号拓展功能
 Vue.component("msk",Msk)//歌单省略号拓展功能
-
 //yh注册全局组件标签
 Vue.component("index",index)
 Vue.component("personal",personal)
@@ -51,9 +44,7 @@ Vue.component("MultiSelect",MultiSelect)
 Vue.component("SongDetails",SongDetails)
 Vue.component("SongSheet",SongSheet)
 Vue.component("SongSheet2",SongSheet2)
-
 //dt注册全局组件标签
-
 //挂载mint-ui
 Vue.use(mintui)
 //配置axios基础路径
