@@ -4,7 +4,7 @@
     <ul @click="check($event)">
       <li class="dis-flex list" v-for="(val,i) of li" :key="val" @touchstart='killself' :data-memo="i">
       <p>{{val}}</p>
-      <img v-if="memo==i" src="@/assets/tz/check.png"> 
+      <img v-show="memo==i" src="@/assets/tz/check.png"> 
       </li>
     </ul>
     <div class="bottom-bar">

@@ -31,41 +31,47 @@
       <a href=""><div><img src="@/assets/dj/9.png"/><div>我的收藏</div></div></a>                   
     </div>
     <!--第四部分-->
-
-
+    <!--我创建的歌单-->
+    <div class='music' @click="song">我创建的歌单
+      <div class='like'>
+        <a href=""><img src="@/assets/dj/12.png"/></a> 
+        <a href=""><img src="@/assets/zz/ellipsis-black.png"/> </a> 
+      </div>
+    </div>
+    <div class='inlike' v-show="ismusicfraom"><img src="@/assets/dj/18.png"/>
+      <div class="musicfraom" v-show="ismusicfraom">我喜欢的音乐</div>
+    </div>
+    <!--我收藏的歌单-->
+    <div class='music' @click="sing">我收藏的歌单
+      <div class='like'>
+        <a href=""><img src="@/assets/dj/12.png"/></a> 
+        <a href=""><img src="@/assets/zz/ellipsis-black.png"/> </a> 
+      </div>
+    </div>
+    <div class='inlike' v-show="ismusicfrom"><img src="@/assets/dj/17.png"/>
+      <div class="musicfraom" v-show="ismusicfrom">rapper说情话</div>
+    </div>      
 </div>
 </template>
 <script>
 export default {
   data(){
-    return{}
+    return{
+      ismusicfraom:false,
+      ismusicfrom:false,
+    }
   },
   methods:{
-
+    song(){
+      this.ismusicfraom=!this.ismusicfraom;
+    },
+    sing(){
+      this.ismusicfrom=!this.ismusicfrom;
+    }
   }
 }
 </script>
 <style scoped>
-/* <!--第一部分--> */
-.top{
-  height:4rem;
-  text-align:center;
-}
-.top #left{
-  float:left ;
-  margin-top:15px;
-  margin-left:15px;
-}
-.top span{
-  font-size:16px;
-  font-weight:bold;
-  line-height:60px;
-}
-.top #right{
-  float:right;
-  margin-top:15px;
-  margin-right:10px; 
-}
 /* <!--第二部分--> */
 .banner{
   height:5rem;
@@ -110,5 +116,30 @@ hr{
   width:8%;
   height:8%;
 }
-/*<!--第四部分-->*/          
+/*<!--第四部分-->*/     
+.music{
+  display:flex;
+  font-size:1.2rem;
+}
+.music img{
+  width:1.5rem;
+  height:1.5rem;
+  margin-right:0.2rem;
+}
+.like{
+  margin-left:14rem;
+}
+.inlike{  
+  display:flex;
+}
+.inlike img{
+  margin-left:0.5rem;
+  width:12%;
+  height:12%
+}
+.inlike .musicfraom{
+  font-size:1.05rem;
+  margin-top:0.5rem;
+}
+
 </style>

@@ -6,39 +6,66 @@
     </div>   
     <!--手机号登录-->
     <button v-show="isLogin" @click="login" class="btn" id='d1'>账号登录</button>
-    <!--条款
-    <p><input type="checkbox" value="" >同意<a href="">《服务条款》</a><a href="">《隐私政策》</a><a href="">《儿童政策》</a></p> -->  
+    <!--立即体验-->
+    <button v-show="isLogin" @click="loginn" class="btn" id='d4'>立即体验</button>
+    <!--条款-->
+    <p v-show="!isLogout"><input type="checkbox" value="" v-model='isagree'>同意《服务条款》《隐私政策》《儿童政策》</p>
     <!--账号密码登录--> 
-    <div id='login' v-show="isLogout" >
-      <input type="text" ref="name" class="form-control" id='d2' placeholder="请输入账号">
-      <input type="password" ref="pwd" class="form-control" placeholder="请输入密码">
+    <button class="topback"  v-show="isreturn"  @click='login'>返回</button>
+    <div id='log' v-show="isLogout" > 
+      <input type="text"  class="form-control" id='d2' placeholder="请输入账号" v-model='uname'>
+      <input type="password" class="form-control" placeholder="请输入密码" v-model='upwd'>
       <div class='car'>
-        <button id='d3'>登录</button>
-        <button id='d3' @click="jump">注册</button>            
+        <button class='d3' @click='reg'>登录</button>
+        <button class='d3' @click="jump">注册</button>      
       </div>
-
     </div>
-  </div>  
+  </div >  
 </template>
 <script>
   export default {
     data(){
       return{
         isLogin:true,
-        isLogout:false
+        isLogout:false,
+        uname:'',
+        upwd:'',  
+        isagree:false,
+        isreturn:false
       }
     },
     methods:{
       login(){
+      if(this.isagree==false){
+       this.$toast("请勾选协议")
+       return;
+      }
         this.isLogin=false;
         this.isLogout=true;
+        this.isreturn=!this.isreturn
       },
       logout(){
         this.isLogin=true;
         this.isLogout=false;
       },
       jump(){
-        this.$router.push({path:'/'})/*注册页面*/
+        this.$router.push({path:'/reg'})
+      },
+      loginn(){
+        this.$router.push({path:'/'})
+      },
+      reg(){
+        var u=this.uname;
+        var p=this.upwd;
+        var reg=/^\w{6,16}$/;
+        if(!reg.test(u)){
+          this.$toast('账号格式不正确')
+          return;
+        }  
+        if(!reg.test(p)){
+          this.$toast('密码格式不正确')
+          return;                 
+        }
       },
     }
   } 
@@ -46,8 +73,8 @@
 <style scoped>
    /* <!--图标--> */
 .content{
-    width:100%;
-    height:100%;/*问题*/
+  width:100%;
+  height:100%;/*问题*/
 	background:#e10000;
 	position:fixed;
 }
@@ -81,13 +108,25 @@
 	color:white;
 }
 #d1{
-	margin-top:30rem;
+	margin-top:28rem;
   background:white;
   color:red;
 }
-#login{
+/*<!--立即体验-->*/
+#d4{
+  background:white;
+  color:red;
+  margin-top:2rem;
+}
+#log{
   width:100%;
   height:100%;
+}
+/*<!--条款-->*/
+.content p{
+  margin-left:2rem;
+  margin-top:2rem;
+  color:white;
 }
 /*<!--账号密码登录-->*/
 ::-webkit-input-placeholder{
@@ -104,17 +143,30 @@
 	background:white;
 	margin:20px auto;
   }
-#d2{
-  margin-top:25rem;
+/*<!--返回-->*/
+.topback{
+  background:#e10000;
+	margin:20px auto;
+	text-align:center;
+	border-radius:30px;
+	border:1px solid white;
+	width:15%;
+	height:4%;
+	outline:none;
+	color:white;
+  margin-left:1rem;
 }
-#d3{
+#d2{
+  margin-top:20rem;
+}
+.d3{
   float:left;
 	background:#e10000;
   margin-top:2rem;
   margin-left:5rem;
 	border-radius:24px;
 	border:1px solid white;
-  width:20%;
+  width:20%;              
   height:6%;
   color:white;
 }

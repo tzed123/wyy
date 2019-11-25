@@ -5,7 +5,7 @@
   @c='c'
   :style='{left:slideStyle.left,transition:slideStyle.transition}'></index> 
   <div id="main">
-    <img class="img-size" src="@/assets/tz/folder.png" alt="" @touchstart.stop="isShow=true;isMsk=true;slideStyle.left='0px'">
+    <img class="img-size" src="@/assets/tz/folder.png" alt="" @touchstart.stop="imgslide">
     <div class="dis-flex wid" @touchstart="tab($event)">
       <p :class="pagetype==index?'color':''" 
       v-for="(item,index) in p" :key="index" :data-num="index">{{item}}</p>
@@ -81,6 +81,12 @@ export default{
         this.slideStyle.left="-300px";
         e.preventDefault();
       }
+    },
+    imgslide(){
+       this.isShow=true;
+       this.isMsk=true;
+       this.slideStyle.left='0px';
+       this.slideStyle.transition='left 0.5s';
     },
     start(e){
       if(e.touches[0].clientX<20){
