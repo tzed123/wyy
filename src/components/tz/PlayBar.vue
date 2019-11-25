@@ -1,27 +1,25 @@
 <template>
-<div class="con">
-  <hr>
-  <div id="container" class="dis-flex">
-    <div class="left">
-      <div class="avatar" @touchstart="jump">
-        <img src="@/assets/tz/tx.jpg">
-      </div>
-      <div class="title">
-        <p>歌名</p>
-        <p>歌手</p>
-      </div>
+<div id="container" class="dis-flex">
+  <div class="left">
+    <div class="avatar" @touchstart="jump">
+      <img src="@/assets/tz/tx.jpg">
     </div>
-    <div class="control dis-flex">
-      <div class="play" @touchstart.stop="shifter">
-        <img v-show="img.i1" src="@/assets/tz/play1.png">
-        <img v-show="img.i2" src="@/assets/tz/pause.png">
-      </div>
-      <div class="icon">
-        <img src="@/assets/tz/folder1.png">
-      </div>
-    </div>    
+    <div class="title">
+      <p>歌名</p>
+      <p>歌手</p>
+    </div>
   </div>
+  <div class="control dis-flex">
+    <div class="play" @touchstart.stop="shifter">
+      <img v-show="img.i1" src="@/assets/tz/play1.png">
+      <img v-show="img.i2" src="@/assets/tz/pause.png">
+    </div>
+    <div class="icon">
+      <img src="@/assets/tz/folder1.png">
+    </div>
+  </div>    
 </div>
+
 </template>
 <script>
 export default {
@@ -48,17 +46,16 @@ export default {
 }
 </script>
 <style scoped>
-  .con{
+
+  #container{
+    border-top:0.05rem solid #ccc;
     background:#fff;
     width:100%;
     position:fixed;
     left:0;
     bottom:0;
     z-index:99;
-  }
-  #container{
-    margin-top:0.5rem;
-    margin-bottom:0.5rem;
+    padding:0.8rem 0.25rem;
     align-items:center;
   }
   .left{

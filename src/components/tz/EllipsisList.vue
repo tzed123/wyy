@@ -1,6 +1,6 @@
 <template>
   <ul>
-    <li class="frame" v-for="(val,i) of lis" :key="i">
+    <li class="frame" v-for="(val,i) of lis" :key="i" @touchstart='cancel'>
       <img class="pic" :src="require(`../../assets/tz/${val}.png`)">
       <p>{{i}}</p>
     </li>
@@ -10,7 +10,12 @@
 export default {
   props:[
     'lis'
-  ]
+  ],
+  methods:{
+    cancel(){
+      this.$emit('cancel')
+    }
+  }
 }
 </script>
 <style scoped>

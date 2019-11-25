@@ -13,6 +13,7 @@ import Discovery from '@/components/tz/Discovery.vue'
 import PlayBar from '@/components/tz/PlayBar.vue'
 import Ellipsis from '@/components/tz/Ellipsis.vue'
 import Msk from '@/components/tz/Msk.vue'
+import Mine from '@/components/tz/Mine.vue'
 
 //yh引入路径
 import index from '@/components/yh/index.vue'
@@ -34,6 +35,7 @@ Vue.component("discovery",Discovery);//发现页面
 Vue.component("playbar",PlayBar)//底部播放条
 Vue.component("ellipsis",Ellipsis)//歌单省略号拓展功能
 Vue.component("msk",Msk)//歌单省略号拓展功能
+Vue.component("mine",Mine)//我的界面
 //yh注册全局组件标签
 Vue.component("index",index)
 Vue.component("personal",personal)

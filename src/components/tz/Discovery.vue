@@ -6,24 +6,12 @@
   </mt-swipe>
   <!--推荐-->
   <ul id="circle">
-    <li class="circle-li" >
-     <img class="circle-img" src="@/assets/tz/circle.png" alt="">
-      <p class="size12 ">每日推荐</p>
-    </li>
-    <li class="circle-li">
-      <img class="circle-img" src="@/assets/tz/circle.png" alt="">
-      <p class="size12 ">每日推荐</p>
-    </li>
-    <li class="circle-li">
-      <img class="circle-img" src="@/assets/tz/circle.png" alt="">
-      <p class="size12 ">每日推荐</p>
-    </li>
-    <li class="circle-li">
-      <img class="circle-img" src="@/assets/tz/circle.png" alt="">
-      <p class="size12 ">每日推荐</p>
+    <li class="circle-li" v-for='(item,index) of circle'>
+     <img class="circle-img" :src="require(`@/assets/tz/${item}.png`)" alt="">
+      <p class="size12 ">{{index}}</p>
     </li>
   </ul>
-  <hr>
+
   <p class="size20 margin-t-b" >推荐歌单</p>
   <div id="song">
     <div class="song-unit">
@@ -62,8 +50,8 @@
 export default {
   data(){
     return{
+      circle:{'未开放1':'circle','未开放2':'circle','未开放3':'circle','未开放4':'circle'},
       carousel:["1","2","3"],
-
     }
   }
 }
@@ -77,19 +65,19 @@ export default {
   .carousel{
     height:9rem;
   }
-
   /* 红色圆圈区域 */
   #circle{
-    margin-top:1.5rem;
-    margin-bottom:1.5rem;
+    padding-top:1.5rem;
+    padding-bottom:1.5rem;
     display:flex;
     justify-content:space-around;
+    border-bottom:0.05rem solid #ccc;
   }
   .circle-li{
     text-align:center;
   }
   .circle-img{
-    width:3rem;
+    width:2.8rem;
   }
 
   /* 推荐歌单 */

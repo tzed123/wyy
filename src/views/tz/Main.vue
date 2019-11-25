@@ -14,13 +14,16 @@
       <img class="img-size" src="@/assets/tz/search.png" alt="">
     </router-link>
   </div>
-  <page
-  v-if="pagetype==0" @createlist='createlist'></page>
+  <mine
+  v-if="pagetype==0" 
+  @createlist='createlist'
+  @ellipsis='ellipsis'
+  ></mine>
   <discovery v-else-if="pagetype==1"></discovery>
   <personal v-else="pagetype==2"></personal>
   <playbar></playbar>
-  <collect></collect>
-  <c></c>
+  <!--<collect></collect>-->
+  <ellipsis v-show="ellip" @ellipsis='ellipsis' @cancel='cancel' ></ellipsis>
   <createlist v-show='crtlist' @cancel='cancel'></createlist>
   <timeclose v-show="close" @killself='killself'></timeclose>
 </div>
@@ -29,9 +32,9 @@
 import collect from '@/components/tz/Collect.vue'
 import timeclose from '@/components/tz/TimeClose.vue'
 import createlist from '@/components/tz/CreateList.vue'
-import c from '@/components/tz/Ellipsis.vue'
+import ellipsis from '@/components/tz/Ellipsis.vue'
 export default{  
-  components:{collect,timeclose,createlist,c},
+  components:{collect,timeclose,createlist,ellipsis},
   data(){
     return {
       p:["我的","发现","VIP"],
@@ -40,6 +43,7 @@ export default{
       isMsk:false, //显示蒙板
       close:false, //显示定时关闭
       crtlist:false, //显示创建歌单
+      ellip:false,//显示省略号扩展
       //滑动
       remsize:0,
       flag:false,
@@ -72,16 +76,21 @@ export default{
       that.isMsk=false;
       },200)
     },
-    createlist(){
+    createlist(){//创建列表
       this.crtlist=true;
       this.isMsk=true;
     },
-    cancel(){
+    cancel(){//取消创建列表/省略号
       var that=this;
       setTimeout(function(){
         that.crtlist=false;
         that.isMsk=false;
+        that.ellip=false;
       },200)
+    },
+    ellipsis(){
+      this.ellip=true;
+      this.isMsk=true;
     },
     tab(e){
       if(e.target.nodeName=="P"){
@@ -94,6 +103,7 @@ export default{
         this.isMsk=false;
         this.close=false;
         this.crtlist=false;
+        this.ellip=false;
         this.slideStyle.left="-300px";
         e.preventDefault();
       }
