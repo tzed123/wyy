@@ -21,14 +21,14 @@
   <collect></collect>
   <controllist></controllist>
   <createlist></createlist>
-  <sendmsg></sendmsg>
   <timeclose v-show="close" @killself='killself'></timeclose>
 </div>
 </template>
 <script>
 import collect from '@/components/tz/Collect.vue'
+import timeclose from '@/components/tz/TimeClose.vue'
 export default{  
-  components:{collect},
+  components:{collect,timeclose},
   data(){
     return {
       p:["我的","发现","VIP"],
@@ -37,6 +37,7 @@ export default{
       isMsk:false,
       close:false,
       //touch
+      remsize:0,
       flag:false,
       startX:0,
       endX:0,
@@ -83,6 +84,7 @@ export default{
     },
     start(e){
       if(e.touches[0].clientX<20){
+        this.remsize=getComputedStyle(window.document.documentElement)['font-size']
         this.flag=true;
         this.startX=e.touches[0].clientX;//移动起点
         this.endX=this.$refs.slide.offsetLeft;//元素左外边框与父级元素的左内边框的距离 
