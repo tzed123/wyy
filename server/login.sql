@@ -13,6 +13,7 @@ CREATE TABLE reg(
 );
 INSERT INTO reg VALUES(NULL,'wyy','123456789','0','default');
 #ALTER TABLE reg ADD username VARCHAR(16);
+INSERT INTO reg VALUES(NULL,'tz','123456789','0','default');
 
 --歌曲表
 CREATE TABLE songs( 
@@ -77,5 +78,26 @@ CREATE TABLE comment(
   FOREIGN KEY (songid) REFERENCES songs(sid)
 );
 INSERT INTO comment VALUES(NULL,"1","1","人在蒙古,刚下航母","439000","2015-11-02",true);
+
+--歌单库
+CREATE TABLE songbases( 
+  sbid INT PRIMARY KEY AUTO_INCREMENT,
+  sbuid INT,
+  FOREIGN KEY (sbuid) REFERENCES reg(uid)
+);
+INSERT INTO songbases VALUES(NULL,"1");
+INSERT INTO songbases VALUES(NULL,"1");
+INSERT INTO songbases VALUES(NULL,"1");
+
+--歌单详情
+CREATE TABLE songlistdetails( 
+  sldid INT,
+  sldsid INT,
+  FOREIGN KEY (sldsid) REFERENCES songs(sid)
+);
+INSERT INTO songlistdetails VALUES("1","1");
+INSERT INTO songlistdetails VALUES("1","2");
+INSERT INTO songlistdetails VALUES("1","3");
+
 
 
