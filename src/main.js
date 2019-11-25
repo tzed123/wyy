@@ -11,7 +11,7 @@ import "../public/css/common.css"
 //tz引入路径
 import Discovery from '@/components/tz/Discovery.vue'
 
-import CreateList from '@/components/tz/CreateList.vue'
+
 import PlayBar from '@/components/tz/PlayBar.vue'
 
 import ControlList from '@/components/tz/ControlList.vue'
@@ -35,7 +35,7 @@ import './assets/dt/iconfont/iconfont.css'
 //tz注册全局组件标签
 Vue.component("discovery",Discovery);//发现页面
 //Vue.component("collect",Collect)收藏到歌单
-Vue.component("createlist",CreateList)//创建歌单
+
 Vue.component("playbar",PlayBar)//底部播放条
 
 Vue.component("controllist",ControlList)//歌单省略号拓展功能

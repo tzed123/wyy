@@ -50,7 +50,6 @@ export default {
     left:5%;
     border-radius:0.5rem;
     width:90%;
-    margin:0 auto;
     background:white;
    
   }

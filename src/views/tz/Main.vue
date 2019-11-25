@@ -14,33 +14,37 @@
       <img class="img-size" src="@/assets/tz/search.png" alt="">
     </router-link>
   </div>
-  <page v-if="pagetype==0" ></page>
+  <page
+  v-if="pagetype==0" @createlist='createlist'></page>
   <discovery v-else-if="pagetype==1"></discovery>
   <personal v-else="pagetype==2"></personal>
   <playbar class="fix"></playbar>
   <collect></collect>
   <controllist></controllist>
-  <createlist></createlist>
+  <createlist v-show='crtlist' @cancel='cancel'></createlist>
   <timeclose v-show="close" @killself='killself'></timeclose>
 </div>
 </template>
 <script>
 import collect from '@/components/tz/Collect.vue'
 import timeclose from '@/components/tz/TimeClose.vue'
+import createlist from '@/components/tz/CreateList.vue'
+
 export default{  
-  components:{collect,timeclose},
+  components:{collect,timeclose,createlist},
   data(){
     return {
       p:["我的","发现","VIP"],
       pagetype:0,
-      isShow:false,
-      isMsk:false,
-      close:false,
-      //touch
+      isShow:false, //显示个人中心
+      isMsk:false, //显示蒙板
+      close:false, //显示定时关闭
+      crtlist:false, //显示创建歌单
+      //滑动
       remsize:0,
       flag:false,
       startX:0,
-      endX:0,
+      endX:0,      
       slideStyle:{
         left:'-300px',
         transition:'none'
@@ -48,7 +52,7 @@ export default{
     }
   },
   watch:{
-    isMsk(news,olds){news?document.body.style.overflow='hidden':document.body.style.overflow='visible';}
+    isMsk(news,olds){news?document.body.style.overflow='hidden':document.body.style.overflow='visible'}
   },
   methods:{
     c(){
@@ -59,16 +63,27 @@ export default{
       setTimeout(function(){
         that.close=true;
         that.isMsk=true;
-      },100)
+      },300)
     },
-    killself(){
+    killself(){//定时器自身关闭
       var that=this;
       setTimeout(function(){
       that.close=false;
       that.isMsk=false;
-      },500)
+      },200)
     },
-    tab:function(e){     
+    createlist(){
+      this.crtlist=true;
+      this.isMsk=true;
+    },
+    cancel(){
+      var that=this;
+      setTimeout(function(){
+        that.crtlist=false;
+        that.isMsk=false;
+      },200)
+    },
+    tab(e){
       if(e.target.nodeName=="P"){
         this.pagetype=e.target.dataset.num
       }
@@ -78,6 +93,7 @@ export default{
         this.isShow=false;
         this.isMsk=false;
         this.close=false;
+        this.crtlist=false;
         this.slideStyle.left="-300px";
         e.preventDefault();
       }
@@ -131,7 +147,6 @@ export default{
 }
 </script>
 <style scoped>
-
   .test{
     width:2rem;
     height:2rem;
@@ -145,10 +160,10 @@ export default{
   }
   .msk{
     position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    width: 100%;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
     background-color: rgba(0,0,0,.3);
     z-index: 100;
   }

@@ -32,10 +32,10 @@
     </div>
     <!--第四部分-->
     <!--我创建的歌单-->
-    <div class='music' @click="song"><img :class="[flag?'tran':'']" src="@/assets/dj/19.png"/>我创建的歌单
+    <div class='music' @click="song"><img :class="flag?'tran':''" src="@/assets/dj/19.png"/>我创建的歌单
       <div class='like'>
-        <a href=""><img src="@/assets/dj/12.png"/></a> 
-        <a href=""><img src="@/assets/zz/ellipsis-black.png"/></a> 
+        <img src="@/assets/dj/12.png" @touchstart.stop="createlist">
+        <img src="@/assets/zz/ellipsis-black.png"/>
       </div>
     </div>
     <div class="left" v-show="ismusicfraom">
@@ -43,12 +43,14 @@
         <img src="@/assets/dj/21.png">
       </div>
       <div class="desc">
-        <p>我喜欢的音乐</p>
-        <p class="size12">1314首</p>
+        <router-link to='/songsheetz'>
+          <p>我喜欢的音乐</p>
+          <p class="size12">1314首</p>
+        </router-link>
       </div>
     </div>
-    <ul>
-      <li v-show="ismusicfraom">
+    <ul v-show="ismusicfraom">
+      <li>
         <div class="left">
         <div class="avatar">
           <img src="@/assets/dj/18.png">
@@ -57,12 +59,12 @@
           <p>董先生</p>
           <p class="size12">520首</p>
         </div>
-        <a href=""><img class='d2' src="@/assets/zz/ellipsis-black.png"/></a> 
-      </div>
+      
+        </div>
       </li>
     </ul>
     <!--我收藏的歌单-->
-    <div class='music' @click="sing"><img id='d1' :class="[flagg?'tran':'']" src="@/assets/dj/19.png"/>我收藏的歌单
+    <div class='music' @click="sing"><img id='d1' :class="flagg?'tran':''" src="@/assets/dj/19.png"/>我收藏的歌单
       <div class='like'>
         <a href=""><img src="@/assets/zz/ellipsis-black.png"/></a> 
       </div>
@@ -93,7 +95,6 @@ export default {
       ismusicfrom:false,
       flag:false,
       flagg:false,
-      
     }
   },
   methods:{
@@ -105,7 +106,9 @@ export default {
       this.ismusicfrom=!this.ismusicfrom;
       this.flagg=!this.flagg;
     },
-
+    createlist(){
+      this.$emit('createlist')
+    }
   }
 }
 </script>
