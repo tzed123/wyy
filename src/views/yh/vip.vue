@@ -1,7 +1,7 @@
 <template>
   <div>
      <div class="bg d-flex header">
-    <a href=""><img src="../../assets/yh/return.png" alt=""></a><div class="t-24">网易云音乐会员</div> 
+    <router-link to="/"><img src="../../assets/yh/return.png" alt=""></router-link><div class="t-24">网易云音乐会员</div> 
       </div>
 
       <!-- vip -->
@@ -89,7 +89,7 @@
 
       <!-- 计算 -->
       <div class="d-flex cal">
-        <div>总计:</div><div class="price">${{price}}</div><div class="yes" @click="conforme">确认支付</div>
+        <div>总计:</div><div class="price">¥{{price}}</div><div class="yes" @click="conforme">确认支付</div>
       </div>
   </div>
 </template>

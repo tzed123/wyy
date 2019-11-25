@@ -6,7 +6,10 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {//共享数据
     state:{
-      
+      currentUser:null,
+      isLogin:false,
+      token:"",
+      vip:false,
     }
   },
   mutations: {//修改函数

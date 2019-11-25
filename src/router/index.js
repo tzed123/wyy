@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-
 Vue.use(VueRouter)
 
 const routes = [
@@ -20,7 +19,6 @@ const routes = [
   {path: '/reg',component: () => import('@/views/dt/reg.vue')},
 
   //yh
-  {path:"/index",component:()=>import("@/components/yh/index.vue")},
   {path:"/buymusic",component:()=>import("@/views/yh/buymusic.vue")},
   {path:"/order",component:()=>import("@/views/yh/order.vue")},
   {path:"/vip",component:()=>import("@/views/yh/vip.vue")},
