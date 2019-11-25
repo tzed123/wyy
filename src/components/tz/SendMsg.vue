@@ -5,18 +5,20 @@
   </div>
 </template>
 <script>
+
 export default {
   name:"SendMsg",
   data() {
     return {
       content:"",//内容
+      comments:[]
     }
   },
   methods:{
     comment() {
       var $content= this.content;
       //ajax
-      var url="http://127.0.0.1:3000/comment";
+      var url="/comment";
       var obj=`content=${$content}`      
       this.axios.post(url,obj)
       .then(res=>{
@@ -24,9 +26,15 @@ export default {
       })  
       .catch(err=>{
         console.log(err);
-      })
+      });
+    //   this.axios.get("http://localhost:3000/comment").then(res=>{
+    //     var $comments=res.data;
+    //     this.comments=$comments;
+    //     console.log(comments);
+    // })
+    // this.$emit('func',this.comments);
     }
-  }
+  },
 }
 </script>
 <style scoped>
