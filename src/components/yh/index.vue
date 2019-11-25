@@ -3,6 +3,7 @@
 <!-- 头像部分 -->
 <div class="header">
 <a href="#"><div class="head_portrait"></div></a>
+
 <!-- 姓名等级签到 -->
 <div class="d-flex last">
   <!-- id -->
@@ -18,6 +19,7 @@
 <div class="vip">
 <a href=""><img src="../../assets/yh/vip.jpg" alt=""></a>
 </div>
+
 <!-- 图标 -->
 <div class="icon">
 <div ><a><img class="t-center" src="../../assets/yh/email.png" alt=""><p>我的消息</p></a></div>

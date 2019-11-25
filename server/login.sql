@@ -5,7 +5,10 @@ USE bubble;
 CREATE TABLE reg(
   uid INT PRIMARY KEY AUTO_INCREMENT,
   uname VARCHAR(16),
+<<<<<<< HEAD
 
+=======
+>>>>>>> 6f73bec3d7ed869b802abcebd5aadc972ee952b1
   upwd VARCHAR(32),
   isvip BOOLEAN
 );

@@ -6,51 +6,73 @@
 
       <!-- vip -->
       <div class="bg d-flex">
-        <div class="vip" @click="change1" :class="{'zhuanghuanghong':true,'zhuanghuangbai':false}">黑胶VIP</div>
-        <div class="musicbag  "  @click="change2" :class="{'zhuanghuanghong':false,'zhuanghuangbai':true}">音乐包</div>
+        <div class="vip" :class="{hong:ishong,bai:isbai}" @touchstart="choosecolor1($event)">黑胶VIP</div>
+        <div  class="musicbag hong" :class="{hong:!ishong,bai:!isbai}"  @touchstart="choosecolor2($event)">音乐包</div>
       </div>
 
       <!-- 特权 -->
       <div class="tq">
-      <div @click="up">畅享黑胶VIP专属特权+音乐包特权<img :src="require(`../../assets/yh/${imgs}.png`)" alt=""></div>
+      <div @touchstart="up">畅享黑胶VIP专属特权+音乐包特权<img :src="require(`../../assets/yh/${imgs}.png`)" alt=""></div>
      </div>
 
      <!-- 类型 -->
      <div class="lx" v-show="vip">
        <ul class="lx-ul">
-         <li>会员曲库</li>
+         <li v-show="music">会员曲库</li>
          <li>无损音质</li>
          <li>免费下载</li>
-         <li>免除广告</li>
+         <li  v-show="music">免除广告</li>
          <li>音画主题</li>
-         <li>头像挂件</li>
-         <li>个性皮肤</li>
-         <li>商场折扣</li>
-         <li>票务特权</li>
-         <li>福利购券</li>
+         <li  v-show="music">头像挂件</li>
+         <li  v-show="music">个性皮肤</li>
+         <li  v-show="music">商场折扣</li>
+         <li  v-show="music">票务特权</li>
+         <li  v-show="music">福利购券</li>
          <li>歌词图片</li>
-         <li>专属电台</li>
+         <li  v-show="music">专属电台</li>
        </ul>
      </div>
 
      <!-- 包月 -->
-     <div class="month">
+     <div class="month " v-show="music">
        <ul>
-         <li class="kuan gd">
-           <div>连续包月<div class="month-div-size">到期可自动续费，可随时取消</div></div>
-           <div class="price1">¥11</div>
+         <li class="gd" :class="{kuan:iskuan1}" @touchstart="ischoose1($event)" :data-price="11">
+           <div :data-price="11">连续包月<div :data-price="11" class="month-div-size">到期可自动续费，可随时取消</div></div>
+           <div :data-price="11" class="price1" >¥11</div>
         </li>
-        <li>
-            <div>12个月<div class="month-div-size op">到期可自动续费，可随时取消</div></div>
-            <div class="price1">¥11</div><div class="pj1">¥11.5/月</div>
+        <li :class="{kuan:iskuan2}" @touchstart="ischoose2($event)" :data-price="138">
+            <div :data-price="138">12个月<div :data-price="138" class="month-div-size op">到期可自动续费，可随时取消</div></div>
+            <div :data-price="138" class="price1" >¥138</div><div class="pj1" :data-price="138">¥11.5/月</div>
          </li>
-         <li>
-            <div>3个月<div class="month-div-size op">到期可自动续费，可随时取消</div></div>
-            <div class="price1">¥11</div><div class="pj1">¥13.3/月</div>
+         <li :class="{kuan:iskuan3}" @touchstart="ischoose3($event)" :data-price="39.9">
+            <div :data-price="39.9">3个月<div class="month-div-size op" :data-price="39.9">到期可自动续费，可随时取消</div></div>
+            <div class="price1" :data-price="39.9">¥39.9</div><div class="pj1" :data-price="39.9">¥13.3/月</div>
          </li>   
-         <li>
-            <div>1个月<div class="month-div-size op">到期可自动续费，可随时取消</div></div>
-            <div class="price1">¥15</div><div class="pj1">¥15/月</div>
+         <li :class="{kuan:iskuan4}" @touchstart="ischoose4($event)" :data-price="15">
+            <div :data-price="15">1个月<div class="month-div-size op" :data-price="15">到期可自动续费，可随时取消</div></div>
+            <div class="price1" :data-price="15">¥15</div><div class="pj1" :data-price="15">¥15/月</div>
+         </li>         
+       </ul>
+     </div>
+
+          <!-- 音乐包 -->
+     <div class="month" :class="{dn:isdn}">
+       <ul>
+         <li class="gd" :class="{kuan:iskuan1}" @touchstart="ischoose1($event)" :data-price="8">
+           <div :data-price="8">连续包月<div :data-price="8" class="month-div-size">到期可自动续费，可随时取消</div></div>
+           <div :data-price="8" class="price1">¥8</div>
+        </li>
+        <li :class="{kuan:iskuan2}" @touchstart="ischoose2($event)" :data-price="84">
+            <div :data-price="84">12个月<div :data-price="84" class="month-div-size op">到期可自动续费，可随时取消</div></div>
+            <div :data-price="84" class="price1" >¥84</div><div :data-price="84" class="pj1">¥7/月</div>
+         </li>
+         <li :class="{kuan:iskuan3}" @touchstart="ischoose3($event)" :data-price="22.5">
+            <div :data-price="22.5">3个月<div :data-price="22.5" class="month-div-size op">到期可自动续费，可随时取消</div></div>
+            <div :data-price="22.5" class="price1" >¥22.5</div><div :data-price="22.5" class="pj1">¥7.5/月</div>
+         </li>   
+         <li :class="{kuan:iskuan4}" @touchstart="ischoose4($event)" :data-price="10">
+            <div :data-price="10">1个月<div class="month-div-size op" :data-price="10">到期可自动续费，可随时取消</div></div>
+            <div class="price1":data-price="10" >¥10</div><div class="pj1" :data-price="10">¥10/月</div>
          </li>         
        </ul>
      </div>
@@ -62,13 +84,12 @@
 
      <!-- 支付部分 -->
      <div class="pay">
-       <div class="alpay d-flex"><img src="../../assets/yh/Alipay.png" alt=""><div>支付宝支付</div><div class="yuan"></div></div>
-       <div class="d-flex wechat"><img src="../../assets/yh/Wechat.png" alt=""><div>微信支付</div><div class="yuan"></div></div>
+       <div class="wechat d-flex" v-for="item,i of payment" :key="i"  @touchstart="pay(i)"><img :src="require(`../../assets/yh/${paymentimg[i]}.png`)" alt=""><div class="wechat-font">{{payment[i]}}</div><div class="yuan" :class="{yuanbg:isyuanbg==i?true:false}"></div></div>
       </div>
 
       <!-- 计算 -->
       <div class="d-flex cal">
-        <div>总计:</div><div class="price">$11</div><div class="yes">确认支付</div>
+        <div>总计:</div><div class="price">${{price}}</div><div class="yes" @click="conforme">确认支付</div>
       </div>
   </div>
 </template>
@@ -78,21 +99,85 @@ export default {
     return {
       vip:true,
       imgs:"down",
-      neirong:{zhuanghuanghong:true,zhuanghuangbai:false},
+      iskuan1:true,
+      iskuan2:false,
+      iskuan3:false,
+      iskuan4:false,
+      isyuanbg:false,
+      ishong:true,
+      isbai:false,
+      music:1,
+      isdn:true,
+      payment:["支付宝","微信"],
+      paymentimg:["Alipay","Wechat"],
+      id:[1,2],
+      price:11,
 
     }
   },
   methods: {
+    conforme(){
+     this.$messagebox.confirm("确认支付?");
+    },
+    choosecolor1(e){
+      this.music=1;
+      this.ishong=true;
+      this.isbai=false;
+      this.isdn=true;
+      this.iskuan1=true;
+      this.iskuan2=false;
+      this.iskuan3=false;
+      this.iskuan4=false;
+      this.price=11;
+    },
+       choosecolor2(e){
+      this.music=0;
+      this.ishong=false;
+      this.isbai=true;
+      this.isdn=false;
+      this.iskuan1=true;
+      this.iskuan2=false;
+      this.iskuan3=false;
+      this.iskuan4=false;
+      this.price=8;
+    },
     up(){
       this.vip?this.vip=false:this.vip=true;
       this.imgs=="up"?this.imgs="down":this.imgs="up";
     },
-    change1(){
-
+    ischoose1(e){
+      this.iskuan1=true;
+      this.iskuan2=false;
+      this.iskuan3=false;
+      this.iskuan4=false;
+      this.price=e.target.dataset.price;
+      console.log(this.price);
     },
-      change2(){
-
+      ischoose2(e){
+      this.iskuan1=false;
+      this.iskuan2=true;
+      this.iskuan3=false;
+      this.iskuan4=false;
+      this.price=e.target.dataset.price;
     },
+        ischoose3(e){
+      this.iskuan1=false;
+      this.iskuan2=false;
+      this.iskuan3=true;
+      this.iskuan4=false;
+      this.price=e.target.dataset.price;
+    },
+        ischoose4(e){
+      this.iskuan1=false;
+      this.iskuan2=false;
+      this.iskuan3=false;
+      this.iskuan4=true;
+      this.price=e.target.dataset.price;
+    },
+    pay(e){
+      this.isyuanbg=e;
+    }
+    
   },
 }
 </script>
@@ -111,13 +196,15 @@ export default {
   margin-left:5%;
 }
 /* vip */
-.zhuanghuanghong{
+.hong{
   background-image: linear-gradient(to right,#ff393b, #f5ad96);
-  color: #fff;
+  color:#fff;
+  z-index:999;
 }
-.zhuanghuangbai{
+.bai{
 background:#fff;
-color: red;
+color:#f00;
+z-index:1;
 }
 .vip{
   width: 10rem;
@@ -125,7 +212,6 @@ color: red;
   border-radius: 50px;
   text-align: center;
   line-height: 2.75;
-  color: #fff;
   font-size:16px;
   border:1px solid #f5ad96;
   position: relative;
@@ -134,15 +220,15 @@ color: red;
 .musicbag{
   width: 10rem;
   height:3rem;
-  background:#fff;
   border-radius: 50px;
   text-align: center;
   line-height: 2.75;
-  color: red;
   font-size:16px;
   border:1px solid #f5ad96;
   text-align: right;
   padding-right:3rem;
+  position: relative;
+  margin-left:0.75rem;
 }
 /* 特权 */
 .tq{
@@ -256,8 +342,15 @@ padding:3% 3%;
    position: absolute;
    right:12%;
  }
+ .yuanbg{
+   background:red;
+ }
  .wechat{
    margin-top:2%;
+ }
+ .wechat-font{
+   line-height:2.25;
+   margin-left:0.5rem;
  }
  .cal{
   margin-left:9%;
@@ -276,5 +369,8 @@ margin-top:3%;
  .price{
    color:red;
    margin-left: 3%;
+ }
+ .dn{
+   display:none
  }
 </style>
