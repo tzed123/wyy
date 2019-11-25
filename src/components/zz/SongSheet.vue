@@ -21,9 +21,9 @@
             <div class="songSheet-info">
                 <h3>么么</h3>
                 <a href="" class="user-info">
-                    <img src="@/assets/zz/aimer.jpg" alt=""><p>原创君 ></p>
+                    <img src="@/assets/zz/aimer.jpg" alt=""><p>原创君</p>
                 </a>
-            <h6 class="songSheet-edit">编辑信息 ></h6>
+            <h6 class="songSheet-edit">编辑信息</h6>
             </div>
         </div>
         <ul class="songSheet-handle">
@@ -37,7 +37,7 @@
 </template>
 <script>
 export default{
-    name:'SongSheet',
+    
 }
 </script>
 <style scoped>

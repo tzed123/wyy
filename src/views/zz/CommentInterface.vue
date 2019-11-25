@@ -149,9 +149,6 @@ export default {
             abc:''
         }
     },
-    mounted(){
-        
-    },
     methods:{
         reply(){
             this.abc=!this.abc;
