@@ -35,7 +35,7 @@
     <div class='music' @click="song"><img :class="[flag?'tran':'']" src="@/assets/dj/19.png"/>我创建的歌单
       <div class='like'>
         <a href=""><img src="@/assets/dj/12.png"/></a> 
-        <a href=""><img src="@/assets/ellipsis-black.png"/></a> 
+        <a href=""><img src="@/assets/zz/ellipsis-black.png"/></a> 
       </div>
     </div>
     <div class="left" v-show="ismusicfraom">
@@ -57,14 +57,14 @@
           <p>董先生</p>
           <p class="size12">520首</p>
         </div>
-        <a href=""><img class='d2' src="@/assets/ellipsis-black.png"/></a> 
+        <a href=""><img class='d2' src="@/assets/zz/ellipsis-black.png"/></a> 
       </div>
       </li>
     </ul>
     <!--我收藏的歌单-->
     <div class='music' @click="sing"><img id='d1' :class="[flagg?'tran':'']" src="@/assets/dj/19.png"/>我收藏的歌单
       <div class='like'>
-        <a href=""><img src="@/assets/ellipsis-black.png"/></a> 
+        <a href=""><img src="@/assets/zz/ellipsis-black.png"/></a> 
       </div>
     </div>
     <ul>
