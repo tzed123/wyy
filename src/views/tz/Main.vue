@@ -22,7 +22,7 @@
   <discovery v-else-if="pagetype==1"></discovery>
   <personal v-else="pagetype==2"></personal>
   <playbar></playbar>
-  <!--<collect></collect>-->
+  <collect></collect>
   <ellipsis v-show="ellip" @ellipsis='ellipsis' @cancel='cancel' ></ellipsis>
   <createlist v-show='crtlist' @cancel='cancel'></createlist>
   <timeclose v-show="close" @killself='killself'></timeclose>
@@ -72,13 +72,16 @@ export default{
     killself(){//定时器自身关闭
       var that=this;
       setTimeout(function(){
-      that.close=false;
-      that.isMsk=false;
+        that.close=false;
+        that.isMsk=false;
       },200)
     },
     createlist(){//创建列表
-      this.crtlist=true;
-      this.isMsk=true;
+      var that=this;
+      setTimeout(function(){
+        that.crtlist=true;
+        that.isMsk=true;
+      },200)
     },
     cancel(){//取消创建列表/省略号
       var that=this;
@@ -88,9 +91,12 @@ export default{
         that.ellip=false;
       },200)
     },
-    ellipsis(){
-      this.ellip=true;
-      this.isMsk=true;
+    ellipsis(){//省略号
+      var that=this;
+      setTimeout(function(){
+        that.ellip=true;
+        that.isMsk=true;
+      },200)
     },
     tab(e){
       if(e.target.nodeName=="P"){
@@ -98,7 +104,7 @@ export default{
       }
     },
     show(e){
-      if(e.target.nodeName=='SPAN'){
+      if(e.target.nodeName=='SPAN'){//点击蒙板取消组件显示
         this.isShow=false;
         this.isMsk=false;
         this.close=false;
@@ -164,7 +170,7 @@ export default{
     background:red;
   }
   .pad{
-    padding-bottom:4rem;
+    padding-bottom:4.7rem;
     overflow-y:hidden;
     height:100%
   }

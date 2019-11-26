@@ -19,8 +19,7 @@ import Mine from '@/components/tz/Mine.vue'
 import index from '@/components/yh/index.vue'
 import personal from '@/components/yh/personal.vue'
 //dj引入路径
-import page from '@/components/dj/page.vue'
-import login from '@/components/dj/login.vue'
+
 
 //zz引入路径
 import MultiSelect from '@/components/zz/MultiSelect.vue'
@@ -40,7 +39,7 @@ Vue.component("mine",Mine)//我的界面
 Vue.component("index",index)
 Vue.component("personal",personal)
 //dj注册全局组件标签
-Vue.component("page",page)
+
 //zz注册全局组件标签
 Vue.component("MultiSelect",MultiSelect)
 Vue.component("SongDetails",SongDetails)

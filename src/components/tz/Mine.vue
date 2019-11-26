@@ -16,14 +16,15 @@
   </ul>
   <!--创建歌单-->
   <div class="slist dis-flex" @touchstart='shifter'>
-    <div class='d-flex' ><!-- @touchstart="song"-->
-      <img class='slist-img' src="@/assets/dj/19.png" :class="todown?'trans':''"/><!-- :class="flag?'tran':''" -->
+    <div class='d-flex' >
+      <img class='slist-img' src="@/assets/dj/19.png" :class="todown?'trans':''"/>
       <p class="slist-p">创建的歌单</p>
     </div>
-    <img class='plus' src="@/assets/dj/12.png" @touchstart.stop="createlist"><!-- @touchstart.stop="createlist"-->
+    <img class='plus' src="@/assets/dj/12.png" @touchstart.stop="createlist">
   </div>
   <!--歌单列表-->
     <!--我喜欢-->
+  <router-link to='/songsheetz'>
   <div class="d-flex clist" v-show="todown">
     <img class="clist-img" src="@/assets/tz/like.png">
     <div class="desc">
@@ -31,34 +32,39 @@
       <p ><span>15</span>首</p>
     </div>
   </div>
+  </router-link>
     <!--循环部分-->
   <ul v-show="todown">
-    <li class="dis-flex clist">  
-    <div class="dis-flex">
-      <img class="clist-img" src="@/assets/tz/tx.jpg">
-      <div class="desc">
-        <p>歌单1</p>
-        <p>15首</p>
+    <li class="dis-flex clist">
+    <router-link to='songsheetz'>
+      <div class="dis-flex">
+        <img class="clist-img" src="@/assets/tz/tx.jpg">
+        <div class="desc">
+          <p>歌单1</p>
+          <p>15首</p>
+        </div>
       </div>
-    </div>
+    </router-link>
     <img class='ellipsis' src='@/assets/tz/ellipsis.png' @touchstart='ellipsis'>
     </li>
   </ul>
   <!--收藏歌单-->
   <div class="slist d-flex" @touchstart='shift'>    
-    <img class='slist-img' src="@/assets/dj/19.png" :class="todo?'trans':''" /><!-- :class="flag?'tran':''" -->
+    <img class='slist-img' src="@/assets/dj/19.png" :class="todo?'trans':''" />
     <p class="slist-p">收藏的歌单</p>
   </div>
   <ul v-show='todo'>
-    <li class="dis-flex clist">  
-    <div class="dis-flex">
-      <img class="clist-img" src="@/assets/tz/tx.jpg">
-      <div class="desc">
-        <p>歌单1</p>
-        <p >15首</p>
+    <li class="dis-flex clist">
+      <router-link to='/songsheetz'>
+      <div class="dis-flex">
+        <img class="clist-img" src="@/assets/tz/tx.jpg">
+        <div class="desc">
+          <p>歌单1</p>
+          <p >15首</p>
+        </div>
       </div>
-    </div>
-    <img class='ellipsis' src='@/assets/tz/ellipsis.png' @touchstart='ellipsis'>
+      </router-link>
+      <img class='ellipsis' src='@/assets/tz/ellipsis.png' @touchstart='ellipsis'>
     </li>
   </ul>
 </div>
@@ -73,7 +79,7 @@ export default {
       todo:false,
     }
   },
-  methods:{    
+  methods:{
     shifter(){
       if(this.todown==false){
         this.todown=true
@@ -117,6 +123,9 @@ export default {
     border-bottom:0.05rem solid #eee;
     align-items:center;
   }
+  .list-li:active{
+    background:#eee;
+  }
   .list-img{
     width:2rem;
   }
@@ -127,6 +136,9 @@ export default {
   .slist{    
     padding:0.4rem 1rem;
     align-items:center;
+  }
+  .slist:active{
+    background:#eee;
   }
   .slist-img{
     width:1.5rem;
@@ -139,10 +151,16 @@ export default {
   .plus{
     width:1.5rem;
   }
+  .plus:active{
+    background:#eee;
+  }
   /*歌单列表*/
   .clist{
     padding:0.25rem 1rem;
     align-items:center;
+  }
+  .clist:active{
+    background:#eee;
   }
   .clist-img{
     width:3rem;
@@ -153,6 +171,9 @@ export default {
   .ellipsis{
     width:1.5rem;
     height:1.5rem;
+  }
+  .ellipsis:active{
+    background:#eee;
   }
   /* 旋转 */
   .trans{

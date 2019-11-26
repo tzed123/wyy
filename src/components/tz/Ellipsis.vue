@@ -1,7 +1,7 @@
 <template>
 <div id="container">
   <ellipsistitle></ellipsistitle>
-  <ellipsislist :lis='lis'></ellipsislist>
+  <ellipsislist :lis='lis' @cancel='cancel'></ellipsislist>
 </div>
 </template>
 <script>
@@ -13,6 +13,11 @@ export default {
     return{
       title:["歌单:","歌单名"],
       lis:{"下载":"download","删除":"trashcan"}
+    }
+  },
+  methods:{
+     cancel(){
+      this.$emit('cancel')
     }
   }
 }

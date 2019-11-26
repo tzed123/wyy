@@ -1,5 +1,6 @@
 <template> 
   <div class="container">
+  <msk></msk>
     <div class="bg">
       <div class="bg-f">
         <img src="@/assets/zz/aimer.jpg" alt="">
@@ -8,7 +9,7 @@
     <div class="songSheet-title">
         <h3 class="songSheet-header">
             <div class="title">
-                <img src="@/assets/zz/back-white.png" alt="">
+                <router-link to='/'><img src="@/assets/zz/back-white.png" alt=""></router-link>
                 <span class="songSheet-font">歌单</span>
             </div>
             <div class="title">
@@ -33,11 +34,24 @@
             <li><img src="@/assets/zz/multipleSelection-white.png" alt=""><p>多选</p></li>
         </ul>
     </div>
+  <ellipsis ></ellipsis>
   </div>
 </template>
 <script>
-export default{
-    
+export default {
+  data(){
+    return{
+      lis:{'下载':'download','评论':'comment','歌手':'singer','购买单曲':'purchase'},
+    }
+  },
+  methods:{
+
+  },
+  computed:{
+    value(){
+      return this.$store.isShow;
+    }
+  }
 }
 </script>
 <style scoped>
