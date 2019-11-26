@@ -23,6 +23,7 @@ export default {
       this.axios.post(url,obj)
       .then(res=>{
         console.log(res);
+        this.$router.push("/commentinterface")
       })  
       .catch(err=>{
         console.log(err);

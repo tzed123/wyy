@@ -99,5 +99,34 @@ INSERT INTO songlistdetails VALUES("1","1");
 INSERT INTO songlistdetails VALUES("1","2");
 INSERT INTO songlistdetails VALUES("1","3");
 
+--我的喜欢
+CREATE TABLE liked( 
+  userid INT,
+  song_id INT,
+  FOREIGN KEY (userid) REFERENCES my(user)
+);
+INSERT INTO liked VALUES("1","1");
 
+--创建的歌单
+CREATE TABLE createdlist( 
+  userid INT,
+  song_id INT,
+  FOREIGN KEY (userid) REFERENCES reg(uid)
+);
+INSERT INTO createdlist VALUES("1","1");
+
+--歌手的歌
+CREATE TABLE singer_song(
+  singer_id INT,
+  song_id INT,
+  FOREIGN KEY (singer_id) REFERENCES singers(singerid),
+  FOREIGN KEY (song_id) REFERENCES songs(sid)
+);
+INSERT INTO singer_song VALUES("1","1");
+
+
+--收藏的歌单
+
+
+--收藏的歌曲
 
