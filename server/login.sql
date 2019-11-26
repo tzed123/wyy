@@ -126,7 +126,17 @@ INSERT INTO singer_song VALUES("1","1");
 
 
 --收藏的歌单
-
+CREATE TABLE listcollect(
+  userid INT,
+  song_id INT,
+  FOREIGN KEY (userid) REFERENCES my(user)
+);
+INSERT INTO listcollect VALUES("1","1");
 
 --收藏的歌曲
-
+CREATE TABLE songcollect(
+  userid INT,
+  song_id INT,
+  FOREIGN KEY (userid) REFERENCES reg(uid)
+);
+INSERT INTO songcollect VALUES("1","1");
