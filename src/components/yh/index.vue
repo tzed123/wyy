@@ -22,10 +22,10 @@
 
 <!-- 图标 -->
 <div class="icon">
-<div ><a><img class="t-center" src="../../assets/yh/email.png" alt=""><p>我的消息</p></a></div>
-<div><a><img class="t-center" src="../../assets/yh/user.png" alt=""><p>我的好友</p></a></div>
-<div><a><img class="t-center" src="../../assets/yh/music.png" alt=""><p>听歌识曲</p></a></div>
-<div><a><img class="t-center" src="../../assets/yh/dress.png" alt=""><p>个性装扮</p></a></div>
+<div><router-link to=""><img class="t-center" src="../../assets/yh/email.png" alt=""><p>我的消息</p></router-link></div>
+<div><router-link to=""><img class="t-center" src="../../assets/yh/user.png" alt=""><p>我的好友</p></router-link></div>
+<div><router-link to=""><img class="t-center" src="../../assets/yh/music.png" alt=""><p>听歌识曲</p></router-link></div>
+<div><router-link to=""><img class="t-center" src="../../assets/yh/dress.png" alt=""><p>个性装扮</p></router-link></div>
 </div>
 <hr>
 <!-- 列表 -->
@@ -129,6 +129,9 @@ hr{
   margin-top:5%;
   opacity: 0.2;
 }
+.router-link{
+  color:#fff;
+} 
 /* 列表 */
 .list{
   margin-top:5%;

@@ -45,10 +45,12 @@ export default {
     }
   },
   methods:{
-
+    isShow(){
+      this.$store.commit('')
+    }
   },
   computed:{
-    value(){
+    s(){
       return this.$store.isShow;
     }
   }
