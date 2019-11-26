@@ -186,8 +186,10 @@ export default {
     mounted(){
     this.axios.get("http://localhost:3000/comment").then(res=>{
         var $comments=res.data;
+        $comments=$comments.reverse();
         this.comments=$comments;
-        console.log(comments);
+    }).catch(err=>{
+        console.log(err);
     })
   }
 }
@@ -300,6 +302,7 @@ export default {
 }
 .user-reply{
   font-size:0.8rem;
+  margin-top:0.5rem;
 }
 .comment-underline{
   background-color:#555;
