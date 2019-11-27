@@ -10,7 +10,7 @@
     <div class="bottom-bar">
     <div class="checkbox" @touchstart="shiftercheck">
         <img v-if="checked==0" src="@/assets/tz/select.png">
-        <img v-else="checked==1" src="@/assets/tz/select-check.png">
+        <img v-else src="@/assets/tz/select-check.png">
       </div>
     <p>计时结束后播放完当前歌曲再停止</p>
     </div>    
