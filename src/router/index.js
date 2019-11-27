@@ -24,12 +24,16 @@ const routes = [
   {path:"/vip",component:()=>import("@/views/yh/vip.vue")},
   {path:"/index",component:()=>import("@/components/yh/index.vue")},
   {path:"/personal",component:()=>import("@/components/yh/personal.vue")},
+  {path:"/favourable",component:()=>import("@/views/yh/favourable.vue")},
 
 ]
 
 
 const router = new VueRouter({
   routes
+  
 })
 
 export default router
+
+

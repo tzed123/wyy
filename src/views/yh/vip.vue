@@ -16,7 +16,7 @@
      </div>
 
      <!-- 类型 -->
-     <div class="lx" v-show="vip">
+     <div class="lx" v-show="vips">
        <ul class="lx-ul">
          <li v-show="music">会员曲库</li>
          <li>无损音质</li>
@@ -97,7 +97,8 @@
 export default {
   data() {
     return {
-      vip:true,
+      vips:true,
+      vip:false,
       imgs:"down",
       iskuan1:true,
       iskuan2:false,
@@ -117,12 +118,19 @@ export default {
   },
   methods: {
     conforme(){
-     this.$messagebox.confirm("确认支付?");
+       
+     var ispay=this.$messagebox.confirm("确认支付?").then(action => {
+       this.vip=true;
+       console.log(this.vip);   
+          }).catch(err=>{
+       this.vip=false;
+       console.log(this.vip);   
+        });
     },
     choosecolor1(e){
       this.music=1;
       this.ishong=true;
-      this.isbai=false;
+      this.isbai=false; 
       this.isdn=true;
       this.iskuan1=true;
       this.iskuan2=false;
@@ -142,7 +150,7 @@ export default {
       this.price=8;
     },
     up(){
-      this.vip?this.vip=false:this.vip=true;
+      this.vips?this.vips=false:this.vips=true;
       this.imgs=="up"?this.imgs="down":this.imgs="up";
     },
     ischoose1(e){
