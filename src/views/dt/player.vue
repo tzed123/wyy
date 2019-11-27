@@ -13,8 +13,7 @@
             <img src="@/assets/dt/icon-sdf.png" alt="">
           </i>
         </div>
-        <h1 class="title">大田後生仔
-          （欢乐加速版）</h1>
+        <h1 class="title">大田後生仔（欢乐加速版）</h1>
         <h2 class="subtitle">丫蛋蛋></h2>
       </div>
       <!-- 中部 -->
@@ -85,7 +84,7 @@
           <div class="progress-bar-wrapper">
             <progress-bar :percent="percent" @percentChange=" percentChange"/>
           </div>
-          <span class="time time-r">{{duration}}</span>
+          <span class="time time-r">{{format(duration)}}</span>
         </div>
         <!-- 下 按键栏 -->
         <div class="operators1">
@@ -112,7 +111,7 @@
         </div>
       </div>
     </div>
-    <audio @timeupdate="updateTime" ref="audio" :src="musicUrl"></audio>
+    <audio @canplay="getduration" @timeupdate="updateTime" ref="audio" :src="musicUrl"></audio>
   </div>
 </template>
 <script>
@@ -135,11 +134,11 @@ export default {
     }
   },
   components: {//用来注册子组件的节点
-    progressBar
+    progressBar,
   },
   computed: {
     playIcon() {
-      return this.playing ? 'iconfont icon-bofang' : 'iconfont icon-zanting'
+      return this.playing ? 'iconfont icon-zanting' : 'iconfont icon-bofang'
     },
     iconMode() {
       return this.$store.state.mode === 0 ? 'iconfont icon-liebiaoxunhuan' : this.$store.state.mode === 1 ? 'iconfont icon-danquxunhuan' : 'iconfont icon-suijixunhuan';
@@ -173,9 +172,7 @@ export default {
       }
     },
 
-    updateTime(e) {
-      this.currentTime = e.target.currentTime;  //获取audio当前播放时间
-    },
+
     /* 歌曲进度条触摸后改变歌曲播放进度 */
     percentChange(precent) {
       const currentTime = this.currentSong.duration * precent;
@@ -184,6 +181,12 @@ export default {
       if (this.currentLyric) {
         this.currentLyric.seek(currentTime * 1000);
       }
+    },
+    getduration() {
+      this.duration = this.$refs.audio.duration;
+    },
+    updateTime(e) {
+      this.currentTime = e.target.currentTime;  //获取audio当前播放时间
     },
     /* 封装歌曲当前播放audio时间 */
     format(interval) {
@@ -362,8 +365,6 @@ export default {
           border: .0625rem solid rgba(255, 255, 255, 0.2);
           box-shadow: 0 0 0 0.625rem rgba(255, 255, 255, 0.1) inset;
           border-radius: 50%;
-          
-
 
           .cd {
             position: absolute;
@@ -560,24 +561,6 @@ export default {
 
         .progress-bar-wrapper {
           flex: 1;
-
-          // .bar-inner{
-          //   position: relative;
-          //   top: 0;
-          //   height: .1875rem;
-          //   background: rgba(219,219,219,.3);
-
-          //   .progress{
-          //     position: relative;
-          //     top: -0.0625rem;
-          //     left: 0;
-          //     box-sizing: border-box;
-          //     width: .375rem;
-          //     height: .375rem;
-          //     border-radius: 50%;
-          //     background: #f1f1f1;
-          //   }
-          // }
         }
       }
       //下 按键栏

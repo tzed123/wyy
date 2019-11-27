@@ -12,7 +12,7 @@ const routes = [
   //dt导入路径
   {path: '/player',component: () => import('@/views/dt/player.vue')},
   {path: '/reg',component: () => import('@/views/dt/reg.vue')},
-
+  {path: '/playingList',component: () => import('@/views/dt/playingList.vue')},
 ]
 
 const router = new VueRouter({
