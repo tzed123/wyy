@@ -15,18 +15,11 @@ const routes = [
   //dt导入路径
   {path: '/player',component: () => import('@/views/dt/player.vue')},
   {path: '/reg',component: () => import('@/views/dt/reg.vue')},
-<<<<<<< HEAD
-  //yh  
-  {path:"/index",component:()=>import("@/components/yh/index.vue")},
-=======
 
   //yh
->>>>>>> a3ebd92da6353f90f8dd3ad5a25e4043efeeedc6
   {path:"/buymusic",component:()=>import("@/views/yh/buymusic.vue")},
   {path:"/order",component:()=>import("@/views/yh/order.vue")},
   {path:"/vip",component:()=>import("@/views/yh/vip.vue")},
-  {path:"/index",component:()=>import("@/components/yh/index.vue")},
-  {path:"/personal",component:()=>import("@/components/yh/personal.vue")},
 ]
 
 

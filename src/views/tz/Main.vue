@@ -22,7 +22,7 @@
   <discovery v-else-if="pagetype==1"></discovery>
   <personal v-else="pagetype==2"></personal>
   <playbar></playbar>
-  <collect></collect>
+  <!--<collect></collect>-->
   <ellipsis v-show="ellip" @ellipsis='ellipsis' @cancel='cancel' ></ellipsis>
   <createlist v-show='crtlist' @cancel='cancel'></createlist>
   <timeclose v-show="close" @killself='killself'></timeclose>
