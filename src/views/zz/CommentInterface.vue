@@ -17,8 +17,30 @@
             </div>
             <div class="comment-title-right">></div>
         </div>
-        <div class="comment-content">
-            <p class="comment-content-title">精彩评论</p>
+        <p class="comment-content-title">精彩评论</p>
+        <div class="comment-content" v-for="(item,index) in comments" :key="index">
+            <div class="brilliant-comment">
+                <div class="brilliant-comment-left">
+                    <img src="@/assets/zz/aimer.jpg" alt="">
+                    <div>
+                        <p class="user-name">末班车</p>
+                        <p class="comment-date">2015年11月2日</p>
+                    </div>
+                </div>
+                <div class="brilliant-comment-right">
+                    <span class="up-number">43.9万</span>
+                    <img src="@/assets/zz/up.png" alt="">
+                </div>
+            </div>
+            <div class="user-comment">
+                <p class="user-comment-content">{{item.content}}</p>
+                <p href="" class="user-reply" @click="reply">1024条回复 ></p>
+                <p v-if="abc" class="reply">别回复了,我太难了</p>
+            </div>
+            <hr class="comment-underline">
+        </div>
+
+        <div>
             <div class="brilliant-comment">
                 <div class="brilliant-comment-left">
                     <img src="@/assets/zz/aimer.jpg" alt="">
@@ -34,7 +56,8 @@
             </div>
             <div class="user-comment">
                 <p class="user-comment-content">人在蒙古,刚下航母</p>
-                <a href="" class="user-reply">1024条回复 ></a>
+                <p href="" class="user-reply" @click="reply">1024条回复 ></p>
+                <p v-if="abc" class="reply">别回复了,我太难了</p>
             </div>
             <hr class="comment-underline">
             <div class="brilliant-comment">
@@ -52,7 +75,7 @@
             </div>
             <div class="user-comment">
                 <p class="user-comment-content">人在蒙古,刚下航母</p>
-                <a href="" class="user-reply">1024条回复 ></a>
+                <p href="" class="user-reply">1024条回复 ></p>
             </div>
             <hr class="comment-underline">
             <div class="brilliant-comment">
@@ -70,7 +93,7 @@
             </div>
             <div class="user-comment">
                 <p class="user-comment-content">人在蒙古,刚下航母</p>
-                <a href="" class="user-reply">1024条回复 ></a>
+                <p href="" class="user-reply">1024条回复 ></p>
             </div>
             <hr class="comment-underline">
             <p id="lookforMore">全部精彩评论 ></p>
@@ -94,7 +117,7 @@
             </div>
             <div class="user-comment">
                 <p class="user-comment-content">人在蒙古,刚下航母</p>
-                <a href="" class="user-reply">1024条回复 ></a>
+                <p href="" class="user-reply">1024条回复 ></p>
             </div>
             <hr class="comment-underline">
             <div class="brilliant-comment">
@@ -112,7 +135,7 @@
             </div>
             <div class="user-comment">
                 <p class="user-comment-content">人在蒙古,刚下航母</p>
-                <a href="" class="user-reply">1024条回复 ></a>
+                <p href="" class="user-reply">1024条回复 ></p>
             </div>
             <hr class="comment-underline">
             <div class="brilliant-comment">
@@ -130,24 +153,49 @@
             </div>
             <div class="user-comment">
                 <p class="user-comment-content">人在蒙古,刚下航母</p>
-                <a href="" class="user-reply">1024条回复 ></a>
+                <p href="" class="user-reply">1024条回复 ></p>
             </div>
             <hr class="comment-underline">
         </div>
         <div class="blank-area"></div>
+        <SendMsg></SendMsg>
     </div>
 </template>
 
 <script>
+import SendMsg from '@/components/tz/SendMsg.vue'
 export default {
-    name:'CommentInterface'
+    name:'CommentInterface',
+    data(){
+        return{
+            comments:[],
+            abc:''
+        }
+    },
+    components:{
+        SendMsg
+    },
+    methods:{
+        reply(){
+            this.abc=!this.abc;
+        },
+        // getComments(){
+
+        // }
+    },
+    mounted(){
+    this.axios.get("http://localhost:3000/comment").then(res=>{
+        var $comments=res.data;
+        this.comments=$comments;
+        console.log(comments);
+    })
+  }
 }
 </script>
 <style scoped>
 #container{
   width:100%;
   height:100%;
-  background-color:yellow;
 }
 .comment-header{
   display:flex;

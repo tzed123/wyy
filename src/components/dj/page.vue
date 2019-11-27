@@ -34,10 +34,11 @@
     <!--我创建的歌单-->
     <div class='music' @click="song"><img :class="[flag?'tran':'']" src="@/assets/dj/19.png"/>我创建的歌单
       <div class='like'>
-        <a href=""><img src="@/assets/dj/12.png"/></a> 
-        <a href=""><img src="@/assets/zz/ellipsis-black.png"/></a> 
+        <img src="@/assets/dj/12.png"/>
+        <img src="@/assets/zz/ellipsis-black.png"/>                       
       </div>
     </div>
+    <!--我喜欢的音乐-->
     <div class="left" v-show="ismusicfraom">
       <div class="avatar">
         <img src="@/assets/dj/21.png">
@@ -47,8 +48,9 @@
         <p class="size12">1314首</p>
       </div>
     </div>
-    <ul>
-      <li v-show="ismusicfraom">
+    <!--董先生歌单-->
+    <ul v-show="ismusicfraom">
+      <li>
         <div class="left">
         <div class="avatar">
           <img src="@/assets/dj/18.png">
@@ -57,25 +59,26 @@
           <p>董先生</p>
           <p class="size12">520首</p>
         </div>
-        <a href=""><img class='d2' src="@/assets/zz/ellipsis-black.png"/></a> 
+        <img class='d2' src="@/assets/zz/ellipsis-black.png"/>
       </div>
       </li>
     </ul>
     <!--我收藏的歌单-->
     <div class='music' @click="sing"><img id='d1' :class="[flagg?'tran':'']" src="@/assets/dj/19.png"/>我收藏的歌单
       <div class='like'>
-        <a href=""><img src="@/assets/zz/ellipsis-black.png"/></a> 
+        <img class='d3' src="@/assets/zz/ellipsis-black.png"/>
       </div>
     </div>
-    <ul>
-      <li v-show="ismusicfrom">
+    <!--rapper说情话歌单-->
+    <ul v-show="ismusicfrom">
+      <li>
         <div class="left">
         <div class="avatar">
           <img src="@/assets/dj/17.png">
         </div>
         <div class="desc">
           <p>rapper说情话</p>
-          <p class="size12">888首</p>
+          <p class="size12">52首</p>
         </div>
       </div>
       </li>
@@ -93,7 +96,6 @@ export default {
       ismusicfrom:false,
       flag:false,
       flagg:false,
-      
     }
   },
   methods:{
@@ -169,6 +171,9 @@ hr{
 }
 .like{
   margin-left:12rem;
+}
+.like .d3{
+  margin-left:1.4rem;
 }
   .list{
     padding:0.5rem;

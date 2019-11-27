@@ -6,8 +6,8 @@
 
       <!-- vip -->
       <div class="bg d-flex">
-        <div class="vip">黑胶VIP</div>
-        <div class="musicbag">音乐包</div>
+        <div class="vip" @click="change1" :class="{'zhuanghuanghong':true,'zhuanghuangbai':false}">黑胶VIP</div>
+        <div class="musicbag  "  @click="change2" :class="{'zhuanghuanghong':false,'zhuanghuangbai':true}">音乐包</div>
       </div>
 
       <!-- 特权 -->
@@ -36,7 +36,7 @@
      <!-- 包月 -->
      <div class="month">
        <ul>
-         <li class="kuan">
+         <li class="kuan gd">
            <div>连续包月<div class="month-div-size">到期可自动续费，可随时取消</div></div>
            <div class="price1">¥11</div>
         </li>
@@ -46,11 +46,11 @@
          </li>
          <li>
             <div>3个月<div class="month-div-size op">到期可自动续费，可随时取消</div></div>
-            <div class="price1">¥11</div><div class="pj2">¥13.3/月</div>
+            <div class="price1">¥11</div><div class="pj1">¥13.3/月</div>
          </li>   
          <li>
             <div>1个月<div class="month-div-size op">到期可自动续费，可随时取消</div></div>
-            <div class="price1">¥15</div><div class="pj3">¥15/月</div>
+            <div class="price1">¥15</div><div class="pj1">¥15/月</div>
          </li>         
        </ul>
      </div>
@@ -78,14 +78,21 @@ export default {
     return {
       vip:true,
       imgs:"down",
+      neirong:{zhuanghuanghong:true,zhuanghuangbai:false},
+
     }
   },
   methods: {
     up(){
       this.vip?this.vip=false:this.vip=true;
       this.imgs=="up"?this.imgs="down":this.imgs="up";
+    },
+    change1(){
 
-    }
+    },
+      change2(){
+
+    },
   },
 }
 </script>
@@ -104,10 +111,17 @@ export default {
   margin-left:5%;
 }
 /* vip */
+.zhuanghuanghong{
+  background-image: linear-gradient(to right,#ff393b, #f5ad96);
+  color: #fff;
+}
+.zhuanghuangbai{
+background:#fff;
+color: red;
+}
 .vip{
   width: 10rem;
   height:3rem;
-  background-image: linear-gradient(to right,#ff393b, #f5ad96);
   border-radius: 50px;
   text-align: center;
   line-height: 2.75;
@@ -159,6 +173,9 @@ top:-30%;
   margin-right:4%;
  }
  /* 包月 */
+ .gu{
+   height:61px;
+ }
  .month{
    margin-top:5%;
    margin-left:9%;
@@ -193,10 +210,8 @@ padding:3% 3%;
   font-size:18px;
  }
  .pj1{
-  position: absolute;
-  right:16%;
-  top:54.5%;
-   margin-top:0;
+   margin-left:25%;
+   margin-top:10%;
    color:#c2c2c2;
    font-size: 8px;
  }
