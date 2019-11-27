@@ -1,6 +1,5 @@
 <template> 
-  <div class="container">
-  <msk></msk>
+  <div class="container">  
     <div class="bg">
       <div class="bg-f">
         <img src="@/assets/zz/aimer.jpg" alt="">
