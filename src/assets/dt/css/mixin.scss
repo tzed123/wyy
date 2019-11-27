@@ -1,0 +1,6 @@
+// rem 基准
+$screen-width: 16;
+
+@function rem($px) {
+  	@return $px / $screen-width * 1rem;
+}
