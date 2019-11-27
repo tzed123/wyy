@@ -2,16 +2,16 @@
   <div class='content'>
     <!--图标-->
     <div class='content_one'>
-        <img src="@/assets/dj/14.png"/>
+        <img src="@/assets/dj/26.png"/>
     </div>   
     <!--手机号登录-->
     <button v-show="isLogin" @click="login" class="btn" id='d1'>账号登录</button>
     <!--立即体验-->
-    <button v-show="isLogin" @click="loginn" class="btn" id='d4'>立即体验</button>
+    <button v-show="isLogin" @click="away" class="btn" id='d4'>立即体验</button>
     <!--条款-->
-    <p v-show="!isLogout"><input type="checkbox" value="" v-model='isagree'>同意《服务条款》《隐私政策》《儿童政策》</p>
+    <p><input type="checkbox"  v-model='isagree' >同意《服务条款》《隐私政策》《儿童政策》</p>
     <!--账号密码登录--> 
-    <button class="topback"  v-show="isreturn"  @click='login'>返回</button>
+    <button class="topback" v-show="isreturn" @click='login'>返回</button>
     <div id='log' v-show="isLogout" > 
       <input type="text"  class="form-control" id='d2' placeholder="请输入账号" v-model='uname'>
       <input type="password" class="form-control" placeholder="请输入密码" v-model='upwd'>
@@ -30,19 +30,27 @@
         isLogout:false,
         uname:'',
         upwd:'',  
-        isagree:false,
-        isreturn:false
+        isagree:true,
+        isreturn:false,
       }
     },
     methods:{
       login(){
+        console.log(this.$refs.check)
       if(this.isagree==false){
-       this.$toast("请勾选协议")
-       return;
+        this.$toast("请勾选协议")
+        return;
       }
-        this.isLogin=false;
-        this.isLogout=true;
-        this.isreturn=!this.isreturn
+        this.isLogin=!this.isLogin;
+        this.isLogout=!this.isLogout;
+        this.isreturn=!this.isreturn;
+      },
+      away(){
+      if(this.isagree==false){
+        this.$toast("请勾选协议")
+        return;
+      }
+        this.$router.push({path:'/'})
       },
       logout(){
         this.isLogin=true;
@@ -50,9 +58,6 @@
       },
       jump(){
         this.$router.push({path:'/reg'})
-      },
-      loginn(){
-        this.$router.push({path:'/'})
       },
       reg(){
         var u=this.uname;
@@ -89,10 +94,9 @@
     left:42%;      
 }
 .content img{
-    height:3rem;
-    width:3rem;
-    margin-left:0.5rem;
-    margin-top:0.4rem;
+    height:4rem;
+    width:4rem;
+    margin-left:0.2rem;
 }
 /*<!--手机号登录-->*/
 .content .btn{
@@ -127,6 +131,9 @@
   margin-left:2rem;
   margin-top:2rem;
   color:white;
+  position:fixed;
+  top:85%;
+  
 }
 /*<!--账号密码登录-->*/
 ::-webkit-input-placeholder{
