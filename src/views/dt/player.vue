@@ -111,7 +111,7 @@
         </div>
       </div>
     </div>
-    <audio @canplay="getduration" @timeupdate="updateTime" ref="audio" :src="musicUrl"></audio>
+    <audio @ended="end" @canplay="getduration" @timeupdate="updateTime" ref="audio" :src="musicUrl"></audio>
   </div>
 </template>
 <script>
@@ -171,11 +171,26 @@ export default {
         this.currentLyric.togglePlay()
       }
     },
-
-
+     /* 歌曲播放完毕 */
+    end() {
+      if(this.$store.state.mode === 1) {
+        this.loop();   //单曲循环使调用loop方法
+      } else {
+        this.$store.commit('SET_PLAYING_STATE',!this.playing);
+      }
+    },
+    /* 单曲循环播放调会播放初始 */
+      loop() {
+        this.$refs.audio.currentTime = 0;
+        this.$refs.audio.play();
+        // 单曲循环播放结束歌词回到初始位置
+        if(this.currentLyric) {
+          this.currentLyric.seek(0);
+        }
+      },
     /* 歌曲进度条触摸后改变歌曲播放进度 */
     percentChange(precent) {
-      const currentTime = this.currentSong.duration * precent;
+      const currentTime = this.duration * precent;
       this.$refs.audio.currentTime = currentTime;
       // 歌词跟随进度条滚动
       if (this.currentLyric) {
