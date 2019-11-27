@@ -34,26 +34,20 @@
             <li><img src="@/assets/zz/multipleSelection-white.png" alt=""><p>多选</p></li>
         </ul>
     </div>
-  <ellipsis ></ellipsis>
+  
   </div>
 </template>
 <script>
 export default {
   data(){
     return{
-      lis:{'下载':'download','评论':'comment','歌手':'singer','购买单曲':'purchase'},
+     
     }
   },
   methods:{
-    isShow(){
-      this.$store.commit('')
-    }
+
   },
-  computed:{
-    s(){
-      return this.$store.isShow;
-    }
-  }
+
 }
 </script>
 <style scoped>

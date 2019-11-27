@@ -2,8 +2,10 @@
     <div id="container">
         <div class="comment-header">
             <div class="comment-header-left">
+              <router-link to='/songsheetz'>
                 <img src="@/assets/zz/back-black.png" alt="">
-                <p>评论</p>
+              </router-link>
+              <p>评论</p>
             </div>
             <img src="@/assets/zz/share-black.png" alt="">
         </div>

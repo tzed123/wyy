@@ -1,9 +1,9 @@
 <template>
-<p class="frame">歌单：<span>歌单名</span></p>
+<p class="frame">{{title}}</p>
 </template>
 <script>
 export default {
- 
+ props:['title']
 }
 </script>
 <style scoped>

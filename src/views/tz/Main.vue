@@ -23,7 +23,11 @@
   <personal v-else="pagetype==2"></personal>
   <playbar></playbar>
   <!--<collect></collect>-->
-  <ellipsis v-show="ellip" @ellipsis='ellipsis' @cancel='cancel' ></ellipsis>
+  <ellipsis v-show="ellip"
+  :title='title'
+  :lis='lis'
+  @ellipsis='ellipsis' 
+  @cancel='cancel' ></ellipsis>
   <createlist v-show='crtlist' @cancel='cancel'></createlist>
   <timeclose v-show="close" @killself='killself'></timeclose>
 </div>
@@ -37,6 +41,8 @@ export default{
   components:{collect,timeclose,createlist,ellipsis},
   data(){
     return {
+      title:["歌单:","歌单名"],
+      lis:{"下载":"download","删除":"trashcan"},
       p:["我的","发现","VIP"],
       pagetype:0,
       isShow:false, //显示个人中心

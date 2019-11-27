@@ -10,7 +10,7 @@
           </div>
           <div class="songSheet-list-right">
               <img src="@/assets/zz/play02-black.png" alt="">
-              <img src="@/assets/zz/ellipsis-black.png" alt="">
+              <img src="@/assets/zz/ellipsis-black.png" alt="" @touchstart='ellipsis'>
           </div>
       </div>
     </div>
@@ -18,7 +18,14 @@
 
 <script>
 export default {
-    
+  data(){
+    return{}
+  },
+  methods:{
+    ellipsis(){
+      this.$emit("ellipsis")
+    }
+  }
 }
 </script>
 <style scoped>

@@ -1,6 +1,6 @@
 <template>
 <div id="container">
-  <ellipsistitle></ellipsistitle>
+  <ellipsistitle :title='title'></ellipsistitle>
   <ellipsislist :lis='lis' @cancel='cancel'></ellipsislist>
 </div>
 </template>
@@ -9,10 +9,10 @@ import ellipsistitle from '@/components/tz/EllipsisTitle.vue'
 import ellipsislist from '@/components/tz/EllipsisList.vue'
 export default {
   components:{ellipsistitle,ellipsislist},
+  props:['title','lis'],
   data(){
     return{
-      title:["歌单:","歌单名"],
-      lis:{"下载":"download","删除":"trashcan"}
+      
     }
   },
   methods:{
