@@ -2,11 +2,11 @@
   <div class="songSheet-list" @touchstart='test($event)'>
     <div class="tanyixia">
       <div class="songSheet-list-left">
-          <p>1</p>
-          <div>
-              <p class="song-name">淘汰</p>
-              <p class="singer">陈奕迅-认了吧</p>
-          </div>
+          <router-link tag="p" to="/player">1</router-link>
+          <router-link to="/player" tag="div">
+            <p class="song-name">大田後生仔</p>
+            <p class="singer">丫蛋蛋</p>
+          </router-link> 
       </div>
       <div class="songSheet-list-right">
           <img src="@/assets/zz/play02-black.png" alt="">
