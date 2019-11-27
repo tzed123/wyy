@@ -1,5 +1,5 @@
 <template>
-    <div class="container">
+    <div class="container" @touchstart="test($event)">
       <div class="songSheet-list">
           <div class="songSheet-list-left">
               <p>1</p>
@@ -24,6 +24,9 @@ export default {
   methods:{
     ellipsis(){
       this.$emit("ellipsis")
+    },
+    test(e){
+      console.log(e.target)
     }
   }
 }
