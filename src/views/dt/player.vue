@@ -175,7 +175,7 @@ export default {
 
     /* 歌曲进度条触摸后改变歌曲播放进度 */
     percentChange(precent) {
-      const currentTime = this.currentSong.duration * precent;
+      const currentTime = this.duration * precent;
       this.$refs.audio.currentTime = currentTime;
       // 歌词跟随进度条滚动
       if (this.currentLyric) {
