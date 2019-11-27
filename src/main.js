@@ -33,7 +33,7 @@ import './assets/dt/iconfont/iconfont.css'
 Vue.component("discovery",Discovery);//发现页面
 Vue.component("playbar",PlayBar)//底部播放条
 Vue.component("ellipsis",Ellipsis)//歌单省略号拓展功能
-Vue.component("msk",Msk)//歌单省略号拓展功能
+Vue.component("msk",Msk)//蒙板
 Vue.component("mine",Mine)//我的界面
 //yh注册全局组件标签
 Vue.component("index",index)

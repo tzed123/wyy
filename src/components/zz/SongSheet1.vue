@@ -1,13 +1,13 @@
 <template>
-    <div class="songSheet-content">
-        <div class="content-title">
-            <div class="content-title-left">
-                <img src="@/assets/zz/play01-black.png" alt="" class="play-icon1">
-                <p>播放全部<span>(共66首)</span></p>
-            </div> 
-            <button class="collection">+ 收藏(38413)</button>
-        </div>
-    </div>
+  <div class="songSheet-content">
+      <div class="content-title">
+          <div class="content-title-left">
+              <img src="@/assets/zz/play01-black.png" alt="" class="play-icon1">
+              <p>播放全部<span>(共66首)</span></p>
+          </div> 
+          <button class="collection">+ 收藏(38413)</button>
+      </div>
+  </div>
 </template>
 
 <script>

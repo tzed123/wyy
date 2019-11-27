@@ -15,7 +15,9 @@ const bodyParser=require('body-parser');
 //引入路由器
 //(1)引入注册路由
 const regRouter=require("./routers/reg.js");
-//(2)引入评论路由
+//(2)引入登入路由
+const loginRouter=require("./routers/login.js");
+//(3)引入评论路由
 const commentRouter=require("./routers/comment.js");
 //4:配置数据库连接池:基本效率高保证
 
@@ -43,4 +45,5 @@ server.use(express.static("public"))
 server.listen(3000);
 //用户路由在服务器下使用，并挂载到/ajax
 server.use('',regRouter);
+server.use('',loginRouter);
 server.use('',commentRouter);

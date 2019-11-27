@@ -17,4 +17,6 @@ var {uname,upwd}=req.body
 		}	
   })
 })
+
+
 module.exports=router;

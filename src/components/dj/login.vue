@@ -67,8 +67,8 @@
           return;                 
         }
       },
-    }
   } 
+}
 </script>
 <style scoped>
    /* <!--图标--> */

@@ -1,19 +1,19 @@
 <template>
-    <div class="container" @touchstart="test($event)">
-      <div class="songSheet-list">
-          <div class="songSheet-list-left">
-              <p>1</p>
-              <div>
-                  <p class="song-name">淘汰</p>
-                  <p class="singer">陈奕迅-认了吧</p>
-              </div>
-          </div>
-          <div class="songSheet-list-right">
-              <img src="@/assets/zz/play02-black.png" alt="">
-              <img src="@/assets/zz/ellipsis-black.png" alt="" @touchstart='ellipsis'>
+  <div class="songSheet-list" @touchstart='test($event)'>
+    <div class="tanyixia">
+      <div class="songSheet-list-left">
+          <p>1</p>
+          <div>
+              <p class="song-name">淘汰</p>
+              <p class="singer">陈奕迅-认了吧</p>
           </div>
       </div>
-    </div>
+      <div class="songSheet-list-right">
+          <img src="@/assets/zz/play02-black.png" alt="">
+          <img src="@/assets/zz/ellipsis-black.png" alt="" @touchstart='ellipsis'>
+      </div>
+    </div>  
+  </div>
 </template>
 
 <script>
@@ -32,15 +32,13 @@ export default {
 }
 </script>
 <style scoped>
-.container{
-  width:100%;
-  height:100%;
-  margin-top:19rem;
-}
 .songSheet-list{
+  position:relative;
+  top:19rem;
+}
+.tanyixia{
   display:flex;
   justify-content: space-between;
-  margin-bottom:0.6rem;
 }
 .songSheet-list-left{
   display:flex;
