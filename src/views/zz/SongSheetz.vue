@@ -1,6 +1,6 @@
 <template>
   <div id="container">
-    <msk></msk>
+    <msk v-show="isMsk"></msk>
     <SongSheet></SongSheet>
     <SongSheet1></SongSheet1>
     <SongSheet2 @ellipsis="ellipsis"></SongSheet2>

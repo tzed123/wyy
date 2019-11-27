@@ -40,8 +40,12 @@ export default {
   display:flex;
   justify-content: space-between;
 }
+.tanyixia:active{
+    background:#eee;
+  }
 .songSheet-list-left{
   display:flex;
+  margin-bottom:0.5rem;
 }
 .songSheet-list-left>p{
   margin:1rem;

@@ -12,7 +12,7 @@ import "../public/css/common.css"
 import Discovery from '@/components/tz/Discovery.vue'
 import PlayBar from '@/components/tz/PlayBar.vue'
 import Ellipsis from '@/components/tz/Ellipsis.vue'
-import Msk from '@/components/tz/Msk.vue'
+import Msk from '@/components/tz/msk.vue'
 import Mine from '@/components/tz/Mine.vue'
 
 //yh引入路径
