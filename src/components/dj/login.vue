@@ -40,8 +40,8 @@
       jump(){
         this.$router.push({path:'/'})/*注册页面*/
       },
-    }
   } 
+}
 </script>
 <style scoped>
    /* <!--图标--> */

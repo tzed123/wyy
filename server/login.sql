@@ -65,20 +65,6 @@ CREATE TABLE my(
 );
 INSERT INTO my VALUES("1","歌单","1","1","1","1","1");
 
--- 评论
-CREATE TABLE comment( 
-  cid INT PRIMARY KEY AUTO_INCREMENT,
-  songid INT, 
-  ucid INT,
-  content VARCHAR(256), 
-  giveLike INT, 
-  createTime  DATE,
-  wstatus BOOLEAN,
-  FOREIGN KEY (ucid) REFERENCES reg(uid),  
-  FOREIGN KEY (songid) REFERENCES songs(sid)
-);
-INSERT INTO comment VALUES(NULL,"1","1","人在蒙古,刚下航母","439000","2015-11-02",true);
-
 --歌单库
 CREATE TABLE songbases( 
   sbid INT PRIMARY KEY AUTO_INCREMENT,
@@ -140,3 +126,18 @@ CREATE TABLE songcollect(
   FOREIGN KEY (userid) REFERENCES reg(uid)
 );
 INSERT INTO songcollect VALUES("1","1");
+
+-- 评论
+CREATE TABLE comment( 
+  cid INT PRIMARY KEY AUTO_INCREMENT,
+  songid INT, 
+  ucid INT,
+  content VARCHAR(256), 
+  giveLike INT, 
+  createTime  DATE,
+  wstatus BOOLEAN,
+  FOREIGN KEY (ucid) REFERENCES reg(uid),  
+  FOREIGN KEY (songid) REFERENCES songs(sid)
+);
+INSERT INTO comment VALUES(NULL,"1","1","人在蒙古,刚下航母","439000","2015-11-02",true);
+
