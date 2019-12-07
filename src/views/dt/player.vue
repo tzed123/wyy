@@ -20,8 +20,9 @@
       <div class="middle">
         <!-- 前 -->
         <div :style="mid1" class="middle-l">
-          <!-- 光碟 -->
-          <div @click="middle" class="cd-wrapper">
+          <!-- 光碟 --> 
+          <div @click="middle" class="cd-wrapper" >
+            <div class="needle" :class="needleClass"></div>
             <div class="cd" :class="cdClass">
               <img src="@/assets/dt/109951164427560286.jpg" class="image">
             </div>
@@ -65,14 +66,7 @@
             <span class="sound"></span>
           </div>
           <div class="lyric-wrapper">
-            <p class="text">作曲 : 林啟得</p>
-            <p class="text">作词 : 林啟得</p>
-            <p class="text">原唱：林啟得</p>
-            <p class="text">本作品经过原词曲作者以及版权公司授权</p>
-            <p class="text">做人一辈子 快乐没几天</p>
-            <p class="text">一条大路分两边 随你要走哪一边</p>
-            <p class="text">不怕不怕就不怕 我是年轻人</p>
-            <p class="text">不风大雨大太阳大 我就是敢打拼</p>
+            <p ref="lyricLine" class="text" ></p>
           </div>
         </div>
       </div>
@@ -105,18 +99,22 @@
             </i>
           </div>
           <div class="icon i-right">
-            <i class="iconfont icon-caidan-dakai">
+            <i @click="showPlaylist" class="iconfont icon-caidan-dakai">
             </i>
           </div>
         </div>
       </div>
     </div>
+    <playingList ref="playingList"></playingList>
     <audio @ended="end" @canplay="getduration" @timeupdate="updateTime" ref="audio" :src="musicUrl"></audio>
   </div>
 </template>
 <script>
 //导入子组件
-import progressBar from './progress-bar.vue';
+import progressBar from './progress-bar';
+import Lyric from 'lyric-parser';
+import playingList from './playingList';
+import { mapState,mapMutations } from 'vuex'
 export default {
   data() {
     return {
@@ -135,6 +133,7 @@ export default {
   },
   components: {//用来注册子组件的节点
     progressBar,
+    playingList
   },
   computed: {
     playIcon() {
@@ -143,11 +142,11 @@ export default {
     iconMode() {
       return this.$store.state.mode === 0 ? 'iconfont icon-liebiaoxunhuan' : this.$store.state.mode === 1 ? 'iconfont icon-danquxunhuan' : 'iconfont icon-suijixunhuan';
     },
+    needleClass(){
+      return this.playing ? 'needleplay' : 'needlepause'
+    },
     cdClass() {
       return this.playing ? 'play' : 'play pause'
-    },
-    playing() {
-      return this.$store.state.playing;
     },
     musicUrl() {
       return 'https://music.163.com/song/media/outer/url?id=1396973729.mp3'
@@ -155,9 +154,13 @@ export default {
     percent() {
       return this.currentTime/this.duration;
     },
+    ...mapState(['playing','playingList']),
   },
   methods: { 
-
+    showPlaylist() {
+      // console.log(this.$refs.playingList);
+      this.$refs.playingList.show();  //打开播放列表
+    },
     /* 改变播放顺序 */
     changeMode() {
       const mode = (this.$store.state.mode + 1) % 3;// 取余
@@ -180,14 +183,14 @@ export default {
       }
     },
     /* 单曲循环播放调会播放初始 */
-      loop() {
-        this.$refs.audio.currentTime = 0;
-        this.$refs.audio.play();
-        // 单曲循环播放结束歌词回到初始位置
-        if(this.currentLyric) {
-          this.currentLyric.seek(0);
-        }
-      },
+    loop() {
+      this.$refs.audio.currentTime = 0;
+      this.$refs.audio.play();
+      // 单曲循环播放结束歌词回到初始位置
+      if(this.currentLyric) {
+        this.currentLyric.seek(0);
+      }
+    },
     /* 歌曲进度条触摸后改变歌曲播放进度 */
     percentChange(precent) {
       const currentTime = this.duration * precent;
@@ -236,7 +239,6 @@ export default {
         });
       }
     },
-    
     middle(){
       if(this.mid1.display=="block"){
         this.mid1.display="none";
@@ -249,7 +251,27 @@ export default {
 
   },
   watch: {
-
+    // 检测当前播放歌曲变化
+    currentSong() {
+      if(this.playing) {
+        setTimeout(() => {
+        this.$refs.audio.play();
+      },1000) //防止手机前后台切换造成无法播放
+      }
+      // 清除当前歌词自动跳转计时
+      if(this.currentLyric) {
+          console.log('stop')
+          this.currentLyric.stop();
+      }
+      if(this.currentIndex > -1 ) {
+        this.getLyric();   //播放列表没有歌曲时不再获取歌词
+      }
+    },
+    currentIndex(newCurrentIndex) { //播放列表没有歌曲时暂停播放
+      if(newCurrentIndex === -1) {
+        this.$refs.audio.pause();
+      }
+    },
     // 检测播放状态
     playing(newPlaying) {
       this.$nextTick(() => {
@@ -259,24 +281,25 @@ export default {
     }
   },
   beforeCreate() {
-    console.log("创建组件前...")
+
   },
   created() {
-    console.log("创建组件后...")
+
   },
   beforeMount() {
-    console.log("挂载组件前...")
+
   },
   mounted() {
-    console.log("挂载组件后...")
+
   },
 }
 </script>
 
 <style scoped lang="scss">
+
 @keyframes rotate{
   from{transform: rotate(0deg)}
-  to{transform: rotate(359deg)}
+  to{transform: rotate(360deg)}
 }
 .mid1{
   display:none;
@@ -373,13 +396,47 @@ export default {
         .cd-wrapper {
           position: absolute;
           left: 10%;
-          top: 10%;
+          top: 20%;
           width: 80%;
           height: 100%;
           box-sizing: border-box;
           border: .0625rem solid rgba(255, 255, 255, 0.2);
           box-shadow: 0 0 0 0.625rem rgba(255, 255, 255, 0.1) inset;
           border-radius: 50%;
+
+          .needle{
+            position: absolute;
+            left: 42%;
+            right: 0;
+            top: -28%;
+            bottom: 0;
+            width: 34%;
+            z-index:50;
+
+            &.needleplay{
+              transform-origin:22.5% 5.3%;
+              transform: rotate(-30deg);
+              transition:1s;
+            }
+
+            &.needlepause{
+              transform-origin:22.5% 5.3%;
+              transform: rotate(0deg);
+              transition:1s;
+            }
+          }
+
+          .needle::before{ 
+            content: "";
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: -0;
+            bottom: 0;
+            background: url(../../assets/dt/needle.png) no-repeat;
+            background-size: contain;
+
+          }
 
           .cd {
             position: absolute;
@@ -417,19 +474,7 @@ export default {
             background-size: contain;
           }
         }
-        
-        .cd-wrapper:before{ 
-          content: "";
-          position: absolute;
-          left: 47%;
-          right: 0;
-          top: -15%;
-          bottom: 0;
-          width: 25%;
-          background: url(../../assets/dt/needle.png) no-repeat;
-          background-size: contain;
-          z-index: 50;
-        }
+
         //按键栏
         .operators {
           display: flex;      
@@ -475,6 +520,15 @@ export default {
         height: 100%;
         overflow: hidden;
         
+        &.middleR-enter-active,
+        &.middleR-leave-active {
+          transition: all 0.2s;
+        }
+
+        &.middleR-enter,
+        &.middleR-leave-to {
+          opacity: 0;
+        }
         
         .progress01-wrapper {
           display: flex;
@@ -524,6 +578,7 @@ export default {
           text-align: center;
 
           .text {
+            line-height: 40px;
             color: #c7c7c7;
             font-size: 0.875rem;
 
